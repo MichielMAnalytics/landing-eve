@@ -1,20 +1,14 @@
 import React from 'react';
 
 const FeaturedAgents: React.FC = () => (
-  <section className="py-32">
+  <section className="py-32 bg-gradient-to-t from-black to-[#04062D]">
     <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
       <div className="text-center mb-20">
-        <div 
-          className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-8 bg-[#0E1593] font-inter mx-auto"
-          style={{ border: '2px solid rgba(216,217,236,0.2)' }}
-        >
-          <span className="text-[#FFFFFF]">Featured Agents</span>
-        </div>
         <h2 className="text-5xl md:text-6xl font-comfortaa font-bold tracking-tight text-[#FFFFFF] mb-4">
-          Meet Our Stars
+          Meet Your Stars
         </h2>
         <p className="text-2xl text-[#fefefe]/70 font-inter max-w-2xl mx-auto">
-          Discover the power of our most popular AI agents, ready to transform your workflow.
+          Discover the power of hiring digital employees that are ready to transform your workflow.
         </p>
       </div>
       <div className="relative flex flex-col md:flex-row items-center justify-center gap-0 md:gap-0 mt-32">
@@ -77,7 +71,7 @@ const FeaturedAgents: React.FC = () => (
                 className="absolute inset-0 w-full h-full object-contain drop-shadow-xl transition-opacity duration-300 opacity-100 group-hover:opacity-0"
               />
               <img 
-                src="/nova2.png"
+                src="/nova3.png"
                 alt="Nova Agent Hover"
                 className="absolute inset-0 w-full h-full object-contain drop-shadow-xl transition-opacity duration-300 opacity-0 group-hover:opacity-100"
               />

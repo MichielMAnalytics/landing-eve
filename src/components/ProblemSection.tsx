@@ -31,8 +31,8 @@ const ProblemSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-20 relative">
-      <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col items-center relative">
+    <section className="py-12 sm:py-20 relative">
+      <div ref={containerRef} className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 flex flex-col items-center relative">
         {/* Badge
         <div 
             className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-8 mt-12 bg-[#0E1593] font-inter"
@@ -42,15 +42,14 @@ const ProblemSection: React.FC = () => {
         </div> 
         */}
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-comfortaa font-bold text-[#FFFFFF] mb-4 custom-heading-spacing text-center max-w-3xl">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-comfortaa font-bold text-[#FFFFFF] mb-4 custom-heading-spacing text-center max-w-3xl">
           Complex processes are still solved manually, while they should be solved by an agent.
         </h2>
 
-        {/* SVG Connector Line */}
+        {/* SVG Connector Line (hide on mobile, show on sm+) */}
         {linePoints && (
           <svg
-            className="absolute left-0 top-0 w-full h-full pointer-events-none z-10"
-            style={{}}
+            className="absolute left-0 top-0 w-full h-full pointer-events-none z-10 hidden sm:block"
             width="100%"
             height="100%"
           >
@@ -72,8 +71,8 @@ const ProblemSection: React.FC = () => {
         )}
 
         {/* First card */}
-        <div className="w-full flex justify-start mt-24" style={{ position: 'relative', zIndex: 10 }}>
-          <div ref={leftCardRef} className="relative bg-[#04062D] border-2 border-[rgba(216,217,236,0.2)] rounded-2xl shadow-lg p-8 font-inter text-[#fefefe] text-lg max-w-md w-full overflow-visible">
+        <div className="w-full flex justify-center sm:justify-start mt-12 sm:mt-24" style={{ position: 'relative', zIndex: 10 }}>
+          <div ref={leftCardRef} className="relative bg-[#04062D] border-2 border-[rgba(216,217,236,0.2)] rounded-2xl shadow-lg p-5 sm:p-8 font-inter text-[#fefefe] text-base sm:text-lg max-w-md w-full overflow-visible">
             {/* Top Center Dot */}
             <div className="absolute left-1/2 top-0 translate-x-[-50%] translate-y-[-50%] w-4 h-4 rounded-full bg-[#0E1593] border-2 border-white shadow-[0_0_12px_2px_rgba(14,21,147,0.5)] z-20"></div>
             A lot of processes could be solved by ai, but very few tools and solutions are available that actually execute the tasks correctly.
@@ -83,8 +82,8 @@ const ProblemSection: React.FC = () => {
           </div>
         </div>
         {/* Second card */}
-        <div className="w-full flex justify-end mt-20">
-          <div ref={rightCardRef} className="relative bg-[#04062D] border-2 border-[rgba(216,217,236,0.2)] rounded-2xl shadow-lg p-8 font-inter text-[#fefefe] text-lg max-w-md w-full overflow-visible">
+        <div className="w-full flex justify-center sm:justify-end mt-12 sm:mt-20">
+          <div ref={rightCardRef} className="relative bg-[#04062D] border-2 border-[rgba(216,217,236,0.2)] rounded-2xl shadow-lg p-5 sm:p-8 font-inter text-[#fefefe] text-base sm:text-lg max-w-md w-full overflow-visible">
             {/* Top Center Dot */}
             <div className="absolute left-1/2 top-0 translate-x-[-50%] translate-y-[-50%] w-4 h-4 rounded-full bg-[#0E1593] border-2 border-white shadow-[0_0_12px_2px_rgba(14,21,147,0.5)] z-20"></div>
             Current AI tools are either too simple to solve real problems, or require deep technical expertise and endless integrations. This makes them inaccessible to your employees.

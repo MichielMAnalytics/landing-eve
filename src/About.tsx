@@ -1,13 +1,13 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import FeaturedAgents from './components/AboutAgents';
+import FeaturedAgents from './components/MeetOurStars';
 import Footer from './components/Footer';
 import { motion } from 'framer-motion';
 
-const About: React.FC = () => {
+const Products: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
-      <Navbar currentPage="about" />
+      <Navbar currentPage="products" />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20">
@@ -117,9 +117,9 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer currentPage="products" />
     </div>
   );
 };
 
-export default About; 
+export default Products; 

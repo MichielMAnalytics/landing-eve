@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
-  currentPage?: 'home' | 'pricing' | 'about';
+  currentPage?: 'home' | 'pricing' | 'about' | 'products';
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
@@ -31,10 +31,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
               Pricing
             </a>
             <a 
-              href="/about" 
-              className={`${currentPage === 'about' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] transition-colors font-inter`}
+              href="/products" 
+              className={`${currentPage === 'products' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] transition-colors font-inter`}
             >
-              About
+              Products
             </a>
             <button 
               className="bg-gradient-to-r from-[#0E1593] to-[#04062D] border border-[rgba(216,217,236,0.2)] text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20 font-inter"
@@ -69,10 +69,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
               Pricing
             </a>
             <a 
-              href="/about" 
-              className={`block py-2 ${currentPage === 'about' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] font-inter`}
+              href="/products" 
+              className={`block py-2 ${currentPage === 'products' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] font-inter`}
             >
-              About
+              Products
             </a>
             <button 
               className="w-full bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white py-2.5 rounded-lg font-medium font-inter border border-[rgba(216,217,236,0.2)]"
