@@ -129,7 +129,7 @@ function App() {
               {/* Text Content - Fixed at Bottom */}
               <div className="self-end pb-8">
                 <h1 className="text-4xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2] mb-4">
-                  Automate everything.
+                  Your employee that never sleeps.
                 </h1>
                 <p className="text-lg text-[#fefefe]/70 font-inter mb-6">
                   Build, grow, and scale your work with a team of AI employees.
@@ -159,7 +159,7 @@ function App() {
               <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-row items-center gap-20">
                 <div className="flex-1">
                   <h1 className="text-5xl lg:text-6xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2]">
-                    Automate everything.
+                    Supercharge your team.
                   </h1>
                   <p className="text-xl text-[#fefefe]/70 font-inter max-w-xl mt-6 mb-8">
                     Build, grow, and scale your work with a team of AI employees.

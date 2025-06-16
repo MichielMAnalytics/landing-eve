@@ -18,6 +18,7 @@ const FeaturedAgents: React.FC = () => (
             <img 
               src="/Sage.png"
               alt="Sage Agent"
+              loading="eager"
               className="w-44 h-44 md:w-56 md:h-56 object-contain mb-8 drop-shadow-xl transition-transform duration-300 group-hover:scale-105"
             />
             <h3 className="text-3xl md:text-4xl font-comfortaa font-bold text-white mb-2">Sage</h3>
@@ -35,6 +36,7 @@ const FeaturedAgents: React.FC = () => (
             <img 
               src="/Alex.png"
               alt="Alex Agent"
+              loading="eager"
               className="w-56 h-56 md:w-72 md:h-72 object-contain mb-10 drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
             />
             <h3 className="text-4xl md:text-5xl font-comfortaa font-bold text-white mb-2">Alex</h3>
@@ -53,6 +55,7 @@ const FeaturedAgents: React.FC = () => (
             <img 
               src="/Nova.png"
               alt="Nova Agent"
+              loading="eager"
               className="w-44 h-44 md:w-56 md:h-56 object-contain mb-8 drop-shadow-xl transition-transform duration-300 group-hover:scale-105"
             />
             <h3 className="text-3xl md:text-4xl font-comfortaa font-bold text-white mb-2">Nova</h3>

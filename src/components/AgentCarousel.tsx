@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import AgentCard, { AgentCardProps } from './AgentCard';
 
@@ -11,6 +11,19 @@ const GAP = 48; // px, vertical gap between cards
 
 const AgentCarousel: React.FC<AgentCarouselProps> = ({ cards }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [containerHeight, setContainerHeight] = useState(2200); // fallback default
+
+  useEffect(() => {
+    const updateHeight = () => {
+      setContainerHeight(
+        cards.length * CARD_HEIGHT + (cards.length - 1) * GAP + 0.5 * window.innerHeight
+      );
+    };
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    return () => window.removeEventListener('resize', updateHeight);
+  }, [cards.length]);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -29,7 +42,8 @@ const AgentCarousel: React.FC<AgentCarouselProps> = ({ cards }) => {
   return (
     <div
       ref={containerRef}
-      className="relative h-[220vh]" // enough height to allow scrolling through all cards
+      className="relative"
+      style={{ height: containerHeight }}
     >
       <div
         className="sticky top-24 flex items-center justify-center min-h-[80vh]"

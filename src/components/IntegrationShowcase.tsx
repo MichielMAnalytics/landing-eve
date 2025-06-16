@@ -30,9 +30,20 @@ const logoSets = [
   ],
 ];
 
+const preloadImages = () => {
+  logoSets[0].forEach(logo => {
+    const img = new window.Image();
+    img.src = logo.src;
+  });
+};
+
 const IntegrationShowcase: React.FC = () => {
   const [currentSetIndex, setCurrentSetIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    preloadImages();
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -51,26 +62,25 @@ const IntegrationShowcase: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-12">
         {/* Integrations Grid */}
         <div className="relative flex flex-col items-center justify-center min-h-[240px] sm:min-h-[340px] w-full lg:basis-2/5 mb-10 lg:mb-0">
-          <div className="grid grid-cols-3 grid-rows-2 gap-x-4 gap-y-4 sm:gap-x-10 sm:gap-y-8 max-w-xs sm:max-w-fit mx-auto">
-            <AnimatePresence mode="sync">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSetIndex}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="grid grid-cols-3 grid-rows-2 gap-x-4 gap-y-4 sm:gap-x-10 sm:gap-y-8 max-w-xs sm:max-w-fit mx-auto min-h-[144px] sm:min-h-[256px]"
+            >
               {logoSets[currentSetIndex].map((logo, i) => (
-                <motion.div
-                  key={`logo-${currentSetIndex}-${i}`}
-                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                  animate={{ 
-                    opacity: isAnimating ? 0 : 1, 
-                    scale: isAnimating ? 0.8 : 1,
-                    rotate: isAnimating ? -10 : 0
-                  }}
-                  exit={{ opacity: 0, scale: 0.8, rotate: 10 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                <div
+                  key={logo.src}
                   className="rounded-xl shadow-lg flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-[#181A2A]"
                 >
                   <img src={logo.src} alt={logo.alt} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" loading="lazy" />
-                </motion.div>
+                </div>
               ))}
-            </AnimatePresence>
-          </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
         {/* Text Content */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:basis-3/5">
