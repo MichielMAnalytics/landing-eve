@@ -4,153 +4,56 @@ import MeetOurStars from './components/MeetOurStars';
 import Footer from './components/Footer';
 import { motion } from 'framer-motion';
 import AgentExplanation from './components/AgentExplanation';
-import AgentCard, { AgentCardProps } from './components/AgentCard';
-import AgentCarousel from './components/AgentCarousel';
+import AgentCard from './components/AgentCard';
+import PlatformBenefits from './components/PlatformBenefits';
+import { EmailIcon, LightningIcon, AutomationIcon, WorkflowIcon } from './components/icons/AgentIcons';
+import AgentCardStack from './components/AgentCardStack';
 
 const Products: React.FC = () => {
-  // Icons for the SAGE agent cards
-  const ClockIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  );
-
-  const LightningIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-    </svg>
-  );
-
-  const ShieldIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-    </svg>
-  );
-
-  const ChartIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-    </svg>
-  );
-
-  const sageAgentProps = {
+  const bdrAgentProps = {
     title: {
       prefix: "AI",
-      highlight: "Support Agent"
+      highlight: "BDR Agent",
     },
-    features: [
-      "Handles customer inquiries instantly. Available 24/7",
-      "Learns from every interaction. Improves continuously",
-      "Manages multiple conversations with consistent quality"
-    ],
-    cards: [
-      {
-        title: "Instant response",
-        description: "Zero wait time, always",
-        icon: ClockIcon
-      },
-      {
-        title: "Smart routing",
-        description: "Right agent, right time",
-        icon: LightningIcon
-      },
-      {
-        title: "Knowledge base",
-        description: "Always up to date",
-        icon: ShieldIcon
-      },
-      {
-        title: "Analytics",
-        description: "Deep insights",
-        icon: ChartIcon
-      }
-    ],
+    imageSrc: "/flow.png",
+    colors: {
+      from: "#0E1593",
+      to: "#0EA5E9"
+    },
+    backgroundGlowClass: "bg-blue-500/20 blur-2xl"
+  };
+
+  const supportAgentProps = {
+    title: {
+      prefix: "AI",
+      highlight: "Support Agent",
+    },
+    imageSrc: "/Nova.png",
+    colors: {
+      from: "#6E3ADE",
+      to: "#9333EA"
+    },
+    backgroundGlowClass: "bg-purple-500/20 blur-2xl"
+  };
+
+  const researchAgentProps = {
+    title: {
+      prefix: "AI",
+      highlight: "Research Agent",
+    },
     imageSrc: "/Sage.png",
     colors: {
-      primary: "#0EA5E9",
-      secondary: "#0EA5E9"
-    }
-  };
-
-  const mayaAgentProps = {
-    title: {
-      prefix: "AI",
-      highlight: "Marketing Agent"
+      from: "#ffffff",
+      to: "#FFFFFF"
     },
-    features: [
-      "Creates compelling content across all channels",
-      "Optimizes campaigns in real-time",
-      "Personalizes messaging for maximum engagement"
-    ],
-    cards: [
-      {
-        title: "Content Creation",
-        description: "AI-powered creativity",
-        icon: ClockIcon
-      },
-      {
-        title: "Campaign Optimization",
-        description: "Data-driven decisions",
-        icon: LightningIcon
-      },
-      {
-        title: "Audience Insights",
-        description: "Deep understanding",
-        icon: ShieldIcon
-      },
-      {
-        title: "Performance Tracking",
-        description: "Real-time metrics",
-        icon: ChartIcon
-      }
-    ],
-    imageSrc: "/Maya.png",
-    colors: {
-      primary: "#6E3ADE",
-      secondary: "#9333EA"
-    }
+    backgroundGlowClass: "bg-orange-400/20 blur-2xl"
   };
 
-  const flowAgentProps = {
-    title: {
-      prefix: "AI",
-      highlight: "Workflow Agent"
-    },
-    features: [
-      "Automates complex business processes",
-      "Coordinates across teams and tools",
-      "Ensures compliance and documentation"
-    ],
-    cards: [
-      {
-        title: "Process Automation",
-        description: "End-to-end workflow",
-        icon: ClockIcon
-      },
-      {
-        title: "Team Coordination",
-        description: "Seamless collaboration",
-        icon: LightningIcon
-      },
-      {
-        title: "Compliance",
-        description: "Built-in governance",
-        icon: ShieldIcon
-      },
-      {
-        title: "Documentation",
-        description: "Automatic tracking",
-        icon: ChartIcon
-      }
-    ],
-    imageSrc: "/Flow.png",
-    colors: {
-      primary: "#00B37E",
-      secondary: "#059669"
-    }
-  };
-
-  const agentCards: AgentCardProps[] = [sageAgentProps, mayaAgentProps, flowAgentProps];
+  const agentCards = [
+    bdrAgentProps,
+    supportAgentProps,
+    researchAgentProps
+  ];
 
   return (
     <div className="min-h-screen bg-black">
@@ -193,16 +96,16 @@ const Products: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-10">
             {[
               {
-                title: "Innovation",
-                description: "Pushing the boundaries of what's possible with AI technology."
+                title: "Automate",
+                description: "Automating your work is as easy as chatting with your agents. "
               },
               {
-                title: "Reliability",
-                description: "Building trustworthy solutions that deliver consistent results."
+                title: "Control",
+                description: "Eve's platform offers full control on your workflow automations."
               },
               {
-                title: "Impact",
-                description: "Creating meaningful change in how businesses operate."
+                title: "Secure",
+                description: "Private, secure and compliant. Always."
               }
             ].map((value, index) => (
               <motion.div
@@ -211,7 +114,7 @@ const Products: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-[#0E1593] to-[#04062D] border-2 border-[rgba(216,217,236,0.5)] rounded-3xl shadow-xl p-10 flex flex-col items-center text-center hover:border-[rgba(216,217,236,0.8)] transition-all duration-300"
+                className="rounded-3xl shadow-xl p-10 flex flex-col items-center text-center hover:border-[rgba(216,217,236,0.8)] transition-all duration-300"
               >
                 <h3 className="text-2xl md:text-3xl font-comfortaa font-bold text-white mb-4">
                   {value.title}
@@ -226,16 +129,41 @@ const Products: React.FC = () => {
       </section>
 
       {/* Target Audience Section */}
-      <section className="min-h-[70vh] flex items-center justify-center bg-balck px-4 sm:px-8 overflow-hidden">
-        <div className="max-w-7xl w-full mx-auto">
+      <section className="min-h-[70vh] flex items-center justify-center bg-black overflow-hidden">
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
           <div className="relative flex flex-col items-center">
 
             {/* Main Text Content */}
             <motion.div
-              className="text-center"
+              className="text-center w-full"
             >
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-comfortaa font-bold leading-[1.2] tracking-tight mb-8">
-                <span className="bg-gradient-to-r from-[#0E1593] via-[#0EA5E9] to-[#0EA5E9] text-transparent bg-clip-text">Built for ops teams.</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-comfortaa font-bold leading-[1.2] tracking-tight mb-8">
+                <span className="bg-gradient-to-r from-[#0E1593] via-[#0EA5E9] to-[#0EA5E9] text-transparent bg-clip-text">Welcome to a world</span>
+                {' '}
+                <span className="text-white"> where AI does your manual work. For you.</span>
+                {' '}
+              </h2>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Agent Cards Section */}
+      <section className="relative py-24 bg-gradient-to-b from-black to-[#04062D] ">
+        <AgentCardStack cards={agentCards} />
+      </section>
+
+      {/* Target Audience Section */}
+      <section className="min-h-[70vh] flex items-center justify-center bg-gradient-to-t from-black to-[#04062D] overflow-hidden">
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+          <div className="relative flex flex-col items-center">
+
+            {/* Main Text Content */}
+            <motion.div
+              className="text-center w-full"
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-comfortaa font-bold leading-[1.2] tracking-tight mb-8">
+                <span className="bg-gradient-to-r from-[#0E1593] via-[#0EA5E9] to-[#0EA5E9] text-transparent bg-clip-text">Built for teams.</span>
                 {' '}
                 <span className="text-white">No technical background required.</span>
                 {' '}
@@ -252,12 +180,9 @@ const Products: React.FC = () => {
         </div>
       </section>
 
-      {/* Agent Solutions Section */}
+      {/* Platform Benefits Section */}
       <section className="py-24 bg-black">
-        <h2 className="text-4xl md:text-5xl font-comfortaa font-bold text-center text-white mb-16">
-          Meet Our <span className="bg-gradient-to-r from-[#0EA5E9] to-[#6E3ADE] text-transparent bg-clip-text">AI Agents</span>
-        </h2>
-        <AgentCarousel cards={agentCards} />
+        <PlatformBenefits />
       </section>
 
       {/* Features Section */}
