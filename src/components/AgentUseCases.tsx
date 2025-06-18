@@ -4,7 +4,7 @@ const AgentUseCases: React.FC = () => (
   <section className="py-16 lg:py-32">
     <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 xl:px-32 flex flex-col gap-8 lg:gap-16">
       {/* Top Card - Alex */}
-      <div className="relative bg-gradient-to-br from-[#6E3ADE] to-[#04062D] rounded-3xl shadow-2xl flex flex-col lg:flex-row items-center p-8 lg:p-20 overflow-visible min-h-[340px] lg:min-h-[420px] border border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]">
+      <div className="relative bg-gradient-to-br from-[#6E3ADE] to-[#04062D] rounded-3xl shadow-2xl flex flex-col lg:flex-row items-center p-8 lg:p-20 overflow-visible min-h-[340px] lg:min-h-[420px] border-2 border-[rgba(216,217,236,0.8)]">
         {/* Text */}
         <div className="flex-1 z-10 flex flex-col justify-center text-center lg:text-left">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-comfortaa font-bold text-white mb-4">
@@ -29,7 +29,7 @@ const AgentUseCases: React.FC = () => (
       {/* Bottom Cards - Sage & Nova */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
         {/* Sage Card */}
-        <div className="relative flex-1 bg-gradient-to-br from-[#0EA5E9] to-[#04062D] rounded-3xl shadow-2xl flex flex-col items-center p-8 lg:p-12 overflow-visible min-h-[340px] border border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]">
+        <div className="relative flex-1 bg-gradient-to-br from-[#0EA5E9] to-[#04062D] rounded-3xl shadow-2xl flex flex-col items-center p-8 lg:p-12 overflow-visible min-h-[340px] border-2 border-[rgba(216,217,236,0.8)]">
           <div className="flex-1 z-10 flex flex-col items-center justify-center">
             <h3 className="text-2xl sm:text-3xl font-comfortaa font-bold text-white mb-3 text-center">
               Sage, check my customer feedback
@@ -50,7 +50,7 @@ const AgentUseCases: React.FC = () => (
         </div>
 
         {/* Nova Card */}
-        <div className="relative flex-1 bg-gradient-to-br from-[#FFD600] to-[#04062D] rounded-3xl shadow-2xl flex flex-col items-center p-8 lg:p-12 overflow-visible min-h-[340px] border border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]">
+        <div className="relative flex-1 bg-gradient-to-br from-[#FFD600] to-[#04062D] rounded-3xl shadow-2xl flex flex-col items-center p-8 lg:p-12 overflow-visible min-h-[340px] border-2 border-[rgba(216,217,236,0.8)]">
           <div className="flex-1 z-10 flex flex-col items-center justify-center">
             <h3 className="text-2xl sm:text-3xl font-comfortaa font-bold text-white mb-3 text-center">
               Nova, give me a daily business summary
