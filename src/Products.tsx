@@ -79,9 +79,10 @@ const Products: React.FC = () => {
             className="btn btn-primary bg-gradient-to-r from-[#0E1593] to-[#0EA5E9] border-none text-white px-8 py-4 rounded-xl text-lg font-inter font-semibold shadow-lg hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-[#0E1593]/60"
             type="button"
             tabIndex={0}
-            aria-label="Request Access"
+            aria-label="Login to Eve"
+            onClick={() => window.open('https://app.witheve.ai/', '_blank')}
           >
-            Request Access
+            Get Started
           </motion.button>
         </div>
       </section>

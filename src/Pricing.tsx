@@ -135,6 +135,7 @@ const Pricing: React.FC = () => {
                   }`}
                   tabIndex={0}
                   aria-label={plan.name === 'Enterprise' ? 'Contact Sales' : `Get Started with ${plan.name} plan`}
+                  onClick={() => window.open('https://app.witheve.ai/', '_blank')}
                 >
                   {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
                 </button>

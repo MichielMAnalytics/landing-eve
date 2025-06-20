@@ -269,10 +269,16 @@ const PlatformBenefits: React.FC = () => {
         transition={{ duration: 0.8 }}
         className="flex flex-wrap justify-center gap-3"
       >
-        <button className="btn btn-primary bg-gradient-to-r from-[#0E1593] to-[#0EA5E9] border-none text-white px-6 py-3 rounded-lg text-base font-inter font-semibold shadow-lg hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-[#0E1593]/60">
+        <button 
+          className="btn btn-primary bg-gradient-to-r from-[#0E1593] to-[#0EA5E9] border-none text-white px-6 py-3 rounded-lg text-base font-inter font-semibold shadow-lg hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-[#0E1593]/60"
+          onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+        >
           Try for free
         </button>
-        <button className="btn btn-outline text-white hover:bg-white/10 px-6 py-3 rounded-lg text-base font-inter">
+        <button 
+          className="btn btn-outline text-white hover:bg-white/10 px-6 py-3 rounded-lg text-base font-inter"
+          onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+        >
           Request demo
         </button>
       </motion.div>
