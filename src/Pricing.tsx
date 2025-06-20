@@ -99,9 +99,12 @@ const Pricing: React.FC = () => {
                 key={plan.name}
                 className={`bg-gradient-to-br border-2 rounded-3xl p-8 flex flex-col items-center transition-all duration-300 ${
                   plan.popular
-                    ? `from-[${plan.color}] to-[#04062D] border-[rgba(216,217,236,0.3)] scale-105 z-10`
-                    : `from-[${plan.color}] to-[#04062D] border-[rgba(216,217,236,0.2)]`
+                    ? `border-[rgba(216,217,236,0.3)] scale-105 z-10`
+                    : `border-[rgba(216,217,236,0.2)]`
                 }`}
+                style={{
+                  backgroundImage: `linear-gradient(to bottom right, ${plan.color}, #04062D)`
+                }}
                 role="listitem"
                 aria-label={plan.popular ? `${plan.name} plan - Most popular` : `${plan.name} plan`}
               >
