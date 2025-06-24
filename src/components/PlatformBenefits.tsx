@@ -275,13 +275,13 @@ const PlatformBenefits: React.FC = () => {
       >
         <button 
           className="inline-flex bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-inter font-bold tracking-wide px-8 py-3.5 border border-[rgba(216,217,236,0.2)] rounded-[12px] transition-all duration-200 hover:shadow-2xl hover:shadow-[#4F8CFF]/60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base"
-          onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+          onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
         >
           Try for free
         </button>
         <button 
           className="inline-flex bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-inter font-bold tracking-wide px-8 py-3.5 border border-[rgba(216,217,236,0.2)] rounded-[12px] transition-all duration-200 hover:shadow-2xl hover:shadow-[#4F8CFF]/60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base"
-          onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+          onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
         >
           Request demo
         </button>

@@ -37,11 +37,11 @@ export default {
           }
         ],
         'brand-base': [
-          '1.5rem', // 16px
+          '1.4rem', // 16px
           {
-            lineHeight: '1.5rem',
+            lineHeight: '1.4rem',
             fontWeight: '300',
-            '@screen sm': { fontSize: '1.5rem' }, // 18px
+            '@screen sm': { fontSize: '1.4rem' }, // 18px
           }
         ],
         'brand-sm': [

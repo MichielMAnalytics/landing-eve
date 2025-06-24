@@ -34,7 +34,7 @@ const FeaturedAgents: React.FC = () => (
               <li className="flex items-center text-white/90 font-inter text-brand-sm"><span className="mr-2">•</span>Knowledge base</li>
             </ul>
             <button className="bg-[#fff]/10 hover:bg-[#fff]/20 text-white px-6 py-2.5 rounded-lg font-inter font-semibold text-brand-sm border border-[rgba(216,217,236,0.2)] transition-all duration-200 w-full mt-auto"
-              onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+              onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
             >Hire me!</button>
           </div>
         </div>
@@ -61,7 +61,7 @@ const FeaturedAgents: React.FC = () => (
               <li className="flex items-center text-white/90 font-inter"><span className="mr-2">•</span>Meeting suggestions</li>
             </ul>
             <button className="bg-[#fff]/10 hover:bg-[#fff]/20 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-inter font-semibold text-brand-sm border border-[rgba(216,217,236,0.2)] transition-all duration-200 w-full mt-auto"
-              onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+              onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
             >Hire me!</button>
           </div>
         </div>
@@ -87,7 +87,7 @@ const FeaturedAgents: React.FC = () => (
               <li className="flex items-center text-white/90 font-inter"><span className="mr-2">•</span>Predictive modeling</li>
             </ul>
             <button className="bg-[#fff]/10 hover:bg-[#fff]/20 text-white px-6 py-2.5 rounded-lg font-inter font-semibold text-brand-sm border border-[rgba(216,217,236,0.2)] transition-all duration-200 w-full mt-auto"
-              onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+              onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
             >Hire me!</button>
           </div>
         </div>

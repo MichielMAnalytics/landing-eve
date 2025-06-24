@@ -160,7 +160,7 @@ function App() {
                     text-base
                   "
                   aria-label="Get started with Eve"
-                  onClick={() => window.open('https://app.witheve.ai/', '_blank')}
+                  onClick={() => { window.location.href = 'https://app.witheve.ai/'; }}
                 >
                   Get started
                 </button>
@@ -197,7 +197,7 @@ function App() {
                       focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
                       text-lg
                     "
-                    onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+                    onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
                   >
                     Get started
                   </button>
@@ -253,7 +253,7 @@ function App() {
                   <button 
                     className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-white text-base sm:text-lg font-medium overflow-hidden rounded-lg font-inter"
                     aria-label="Login to Eve"
-                    onClick={() => window.open('https://app.witheve.ai/', '_blank')}
+                    onClick={() => { window.location.href = 'https://app.witheve.ai/'; }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-[#0E1593] to-[#04062D] transition-all duration-300" />
                     <div className="absolute inset-0 border border-[rgba(216,217,236,0.2)] rounded-lg transition-all duration-300 group-hover:bg-[#0E1593]/60" />

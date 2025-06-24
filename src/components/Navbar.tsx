@@ -40,13 +40,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
             <div className="flex items-center space-x-3">
               <button 
                 className="bg-gradient-to-r from-[#0E1593] to-[#04062D] border border-[rgba(216,217,236,0.2)] text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20 font-inter"
-                onClick={() => window.open('https://app.witheve.ai/', '_blank')}
+                onClick={() => { window.location.href = 'https://app.witheve.ai/'; }}
               >
                 Login
               </button>
               <button 
                 className="border border-[rgba(216,217,236,0.3)] text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-300 hover:bg-white/10 font-inter"
-                onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+                onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
               >
                 Get Started
               </button>
@@ -87,13 +87,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
             <div className="space-y-3">
               <button 
                 className="w-full bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white py-2.5 rounded-lg font-medium font-inter border border-[rgba(216,217,236,0.2)]"
-                onClick={() => window.open('https://app.witheve.ai/', '_blank')}
+                onClick={() => { window.location.href = 'https://app.witheve.ai/'; }}
               >
                 Login
               </button>
               <button 
                 className="w-full border border-[rgba(216,217,236,0.3)] text-white py-2.5 rounded-lg font-medium font-inter transition-all duration-300 hover:bg-white/10"
-                onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+                onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
               >
                 Get Started
               </button>

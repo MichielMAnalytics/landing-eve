@@ -89,7 +89,7 @@ const BuildYourOwnAgent: React.FC = () => {
           >
             <button
               className="group relative w-full sm:w-auto px-8 sm:px-8 py-3 sm:py-4 text-white text-base sm:text-lg font-medium overflow-hidden rounded-lg font-inter border border-[rgba(216,217,236,0.2)] bg-gradient-to-r from-[#0E1593] to-[#04062D] transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20"
-              onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+              onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
             >
               <span className="relative z-10">Start building</span>
             </button>

@@ -85,7 +85,7 @@ const Products: React.FC = () => {
             type="button"
             tabIndex={0}
             aria-label="Register to Eve"
-            onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
+            onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
           >
             Get Started
           </motion.button>
