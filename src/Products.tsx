@@ -8,8 +8,13 @@ import AgentCard from './components/AgentCard';
 import PlatformBenefits from './components/PlatformBenefits';
 import { EmailIcon, LightningIcon, AutomationIcon, WorkflowIcon } from './components/icons/AgentIcons';
 import AgentCardStack from './components/AgentCardStack';
+import { useEffect } from 'react';
 
 const Products: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const bdrAgentProps = {
     title: {
       prefix: "AI",
@@ -69,14 +74,14 @@ const Products: React.FC = () => {
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl md:text-5xl font-comfortaa font-bold text-white mb-8"
           >
-            "The future belongs to those who build with intelligence."
+            "The future belongs to those who work with intelligence."
           </motion.h1>
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="btn btn-primary bg-gradient-to-r from-[#0E1593] to-[#0EA5E9] border-none text-white px-8 py-4 rounded-xl text-lg font-inter font-semibold shadow-lg hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-[#0E1593]/60"
+            className="inline-flex bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-inter font-bold tracking-wide px-8 py-3.5 border border-[rgba(216,217,236,0.2)] rounded-[12px] transition-all duration-200 hover:shadow-2xl hover:shadow-[#4F8CFF]/60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base"
             type="button"
             tabIndex={0}
             aria-label="Login to Eve"
@@ -102,11 +107,11 @@ const Products: React.FC = () => {
               },
               {
                 title: "Control",
-                description: "Eve's platform offers full control on your workflow automations."
+                description: "Keep a human in the loop. Eve's agents are designed to work alongside you, not replace you."
               },
               {
                 title: "Secure",
-                description: "Private, secure and compliant. Always."
+                description: "Private, secure and compliant first. Always."
               }
             ].map((value, index) => (
               <motion.div

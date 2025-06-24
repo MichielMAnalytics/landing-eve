@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import TypingEffect from './TypingEffect';
 
 interface TeamMember {
   role: string;
@@ -231,7 +232,7 @@ const PlatformBenefits: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-comfortaa font-bold leading-tight text-white">
             Scale your{' '}
             <span className="bg-gradient-to-r from-[#0E1593] to-[#0EA5E9] text-transparent bg-clip-text">
-              Support
+              <TypingEffect words={["support", "operations", "finance", "sales", "research", "quality"]} speed={120} />
             </span>
             <br />
             <span className="text-white">
@@ -270,13 +271,13 @@ const PlatformBenefits: React.FC = () => {
         className="flex flex-wrap justify-center gap-3"
       >
         <button 
-          className="btn btn-primary bg-gradient-to-r from-[#0E1593] to-[#0EA5E9] border-none text-white px-6 py-3 rounded-lg text-base font-inter font-semibold shadow-lg hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-[#0E1593]/60"
+          className="inline-flex bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-inter font-bold tracking-wide px-8 py-3.5 border border-[rgba(216,217,236,0.2)] rounded-[12px] transition-all duration-200 hover:shadow-2xl hover:shadow-[#4F8CFF]/60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base"
           onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
         >
           Try for free
         </button>
         <button 
-          className="btn btn-outline text-white hover:bg-white/10 px-6 py-3 rounded-lg text-base font-inter"
+          className="inline-flex bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-inter font-bold tracking-wide px-8 py-3.5 border border-[rgba(216,217,236,0.2)] rounded-[12px] transition-all duration-200 hover:shadow-2xl hover:shadow-[#4F8CFF]/60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base"
           onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
         >
           Request demo

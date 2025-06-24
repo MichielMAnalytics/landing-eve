@@ -106,10 +106,10 @@ const SolutionSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-comfortaa font-bold tracking-tight text-[#FFFFFF] mb-4">
-            Meet your new AI employees
+            Pick your new AI employees
           </h2>
           <p className="text-xl text-[#fefefe]/70 font-inter max-w-2xl mx-auto">
-            Specialized AI agents ready to take over your daily tasks and transform your workflow
+            Specialized AI agents ready to take over your daily tasks and transform your workflow.
           </p>
         </div>
 
@@ -252,9 +252,9 @@ const SolutionSection: React.FC = () => {
                           </li>
                         ))}
                       </ul>
-                      <button className="bg-[#fff]/10 hover:bg-[#fff]/20 text-[#fff] px-6 py-3 rounded-xl font-inter transition-colors border border-[rgba(216,217,236,0.2)] w-full mt-auto">
+                      {/* <button className="bg-[#fff]/10 hover:bg-[#fff]/20 text-[#fff] px-6 py-3 rounded-xl font-inter transition-colors border border-[rgba(216,217,236,0.2)] w-full mt-auto">
                         Learn more
-                      </button>
+                      </button> */}
                     </div>
                     <div className="absolute -bottom-4 -right-4 w-28 h-28 pointer-events-none z-20">
                       <img 

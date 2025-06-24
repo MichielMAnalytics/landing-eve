@@ -7,10 +7,12 @@ const Footer: React.FC = () => (
         <div>
           <div className="flex items-center space-x-3 mb-4">
             <img src="/autoeve-logo.png" alt="Eve Logo" className="w-8 h-8" />
-            <span className="text-xl font-semibold font-comfortaa text-[#FFFFFF]">Eve</span>
+            <span className="text-xl font-semibold font-comfortaa text-[#FFFFFF]">With Eve</span>
           </div>
           <p className="text-[#FFFFFF]/70 text-base font-inter">
-            The automation platform for everyone.
+            Work Smarter.
+            <br />
+            Work with Eve.
           </p>
         </div>
         <div>
@@ -39,7 +41,7 @@ const Footer: React.FC = () => (
         </div>
       </div>
       <div className="border-t border-[#0E0E0E] mt-12 pt-8 text-center text-[#FFFFFF]/70 text-base font-inter">
-        <p>&copy; 2025 Eve. All rights reserved.</p>
+        <p>&copy; 2025 Eve Protocol. All rights reserved.</p>
       </div>
     </div>
   </footer>

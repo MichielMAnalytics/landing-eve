@@ -27,6 +27,8 @@ import AgentUseCases from './components/AgentUseCases';
 import IntegrationShowcase from './components/IntegrationShowcase';
 import ProblemSection from './components/ProblemSection';
 import SolutionSection from './components/SolutionSection';
+import TypingEffect from './components/TypingEffect';
+import BuildYourOwnAgent from './components/BuildyourownAgent';
 
 // Brand Color Palette
 /*
@@ -129,7 +131,15 @@ function App() {
               {/* Text Content - Fixed at Bottom */}
               <div className="self-end pb-8">
                 <h1 className="text-4xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2] mb-4">
-                  Your employee that never sleeps.
+                  work{' '}
+                  <TypingEffect 
+                    words={['smarter', 'harder', 'faster']} 
+                    speed={150}
+                    className="text-[#0E1593]"
+                  />
+                </h1>
+                <h1 className="text-4xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2] mb-4">
+                  work with eve.
                 </h1>
                 <p className="text-lg text-[#fefefe]/70 font-inter mb-6">
                   Build, grow, and scale your work with a team of AI employees.
@@ -159,11 +169,19 @@ function App() {
             <div className="hidden md:block w-full md:mt-16 lg:mt-24">
               <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-row items-center gap-20">
                 <div className="flex-1">
-                  <h1 className="text-5xl lg:text-6xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2]">
-                    Supercharge your team.
+                  <h1 className="text-4xl lg:text-6xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2]">
+                    Work{' '}
+                    <TypingEffect 
+                      words={['smarter..', 'harder..', 'faster..']} 
+                      speed={150}
+                      className="text-[#FFFFFF]"
+                    />
                   </h1>
+                  <h2 className="text-5xl lg:text-6xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2] mt-2">
+                    Work with eve.
+                  </h2>
                   <p className="text-xl text-[#fefefe]/70 font-inter max-w-xl mt-6 mb-8">
-                    Build, grow, and scale your work with a team of AI employees.
+                    Automate, delegate, and scale your work with a team of AI employees.
                   </p>
                   <button 
                     className="
@@ -173,12 +191,11 @@ function App() {
                       px-10 py-4
                       border border-[rgba(216,217,236,0.2)] rounded-[12px]
                       transition-all duration-200
-                      hover:shadow-2xl hover:shadow-[#4F8CFF]/60
-                      hover:scale-105
+                      hover:shadow-xl hover:shadow-[#4F8CFF]/30
                       focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
                       text-lg
                     "
-                    onClick={() => window.open('https://app.witheve.ai/', '_blank')}
+                    onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
                   >
                     Get started
                   </button>
@@ -202,8 +219,11 @@ function App() {
         {/* Solution Section */}
         <SolutionSection />
 
+        {/* Build Your Own Agent Section */}
+        <BuildYourOwnAgent />
+
         {/* Fullscreen Centered Header Section */}
-        <section className="w-full min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center bg-black py-12 sm:py-20" aria-label="Key benefit">
+        <section className="w-full min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center bg-black py-16 sm:py-20" aria-label="Key benefit">
           <div className="max-w-2xl sm:max-w-3xl mx-auto px-4">
             <h2 className="text-2xl sm:text-4xl md:text-6xl font-comfortaa font-bold text-white text-center leading-tight break-words">
               Automates work.<br />

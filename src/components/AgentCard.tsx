@@ -26,10 +26,6 @@ export interface AgentCardProps {
 const AgentCard: React.FC<AgentCardProps> = ({ title, imageSrc, className, backgroundGlowClass }) => {
   return (
     <div className={`w-full max-w-6xl mx-auto px-4 sm:px-6 ${className || ''} relative`}>
-      {/* Per-card background glow */}
-      {backgroundGlowClass && (
-        <div className={`absolute inset-0 rounded-2xl pointer-events-none z-0 ${backgroundGlowClass}`}></div>
-      )}
       <div className="bg-gradient-to-br from-[#000000] to-[#04062D] border-2 border-[rgba(216,217,236,0.7)] rounded-2xl p-6 md:p-10 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 min-h-[280px]">
           {/* Left: Centered Title */}

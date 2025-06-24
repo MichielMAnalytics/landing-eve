@@ -5,28 +5,20 @@ import { ArrowUpRight } from 'lucide-react';
 // Integration logos sets (public URLs or local assets)
 const logoSets = [
   [
-    { src: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png", alt: "GitHub" },
-    { src: "https://assets.vercel.com/image/upload/v1607554385/repositories/vercel/logo.png", alt: "Vercel" },
-    { src: "https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png", alt: "Discord" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg", alt: "X" },
+    { src: "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico", alt: "Gmail" },
+    { src: "https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/outlook_48x1.svg", alt: "Outlook" },
+    { src: "https://cdn-icons-png.flaticon.com/512/2702/2702602.png", alt: "Google Drive" },
+    { src: "https://cdn.worldvectorlogo.com/logos/figma-1.svg", alt: "Figma" },
+    { src: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg", alt: "Zoom" },
+    { src: "https://cdn.worldvectorlogo.com/logos/hubspot-1.svg", alt: "HubSpot" },
+  ],
+  [
+    { src: "https://cdn.worldvectorlogo.com/logos/trello.svg", alt: "Trello" },
+    { src: "https://cdn.worldvectorlogo.com/logos/salesforce-2.svg", alt: "Salesforce" },
+    { src: "https://cdn.worldvectorlogo.com/logos/twilio-2.svg", alt: "Twilio" },
+    { src: "https://cdn.worldvectorlogo.com/logos/linkedin-icon-2.svg", alt: "LinkedIn" },
+    { src: "https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg", alt: "Slack" },
     { src: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png", alt: "Notion" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg", alt: "Slack" },
-  ],
-  [
-    { src: "https://www.gstatic.com/images/branding/product/2x/google_cloud_64dp.png", alt: "Google Cloud" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg", alt: "AWS" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg", alt: "Microsoft" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg", alt: "LinkedIn" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png", alt: "Instagram" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg", alt: "Telegram" },
-  ],
-  [
-    { src: "https://upload.wikimedia.org/wikipedia/commons/1/19/WhatsApp_logo-color-vertical.svg", alt: "WhatsApp" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Shopify_logo.svg", alt: "Shopify" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/3/37/Salesforce_logo.svg", alt: "Salesforce" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Netlify_logo.svg", alt: "Netlify" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/9/95/Firebase_logo.svg", alt: "Firebase" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Twilio_logo.svg", alt: "Twilio" },
   ],
 ];
 
@@ -74,7 +66,7 @@ const IntegrationShowcase: React.FC = () => {
               {logoSets[currentSetIndex].map((logo, i) => (
                 <div
                   key={logo.src}
-                  className="rounded-xl shadow-lg flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-[#181A2A]"
+                  className="rounded-xl shadow-lg flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20"
                 >
                   <img src={logo.src} alt={logo.alt} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" loading="lazy" />
                 </div>
