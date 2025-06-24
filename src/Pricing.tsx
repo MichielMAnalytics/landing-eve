@@ -112,44 +112,44 @@ const Pricing: React.FC = () => {
                 border = 'border-[#FFB199]';
               }
               return (
-                <div
-                  key={plan.name}
+              <div
+                key={plan.name}
                   className={`border-2 ${gradient} ${border} rounded-3xl p-8 flex flex-col items-center shadow-md transition-all duration-300 text-white ${
-                    plan.popular
+                  plan.popular
                       ? 'scale-105 z-10 border-[3px]'
                       : ''
-                  }`}
-                  role="listitem"
-                  aria-label={plan.popular ? `${plan.name} plan - Most popular` : `${plan.name} plan`}
-                >
-                  {plan.popular && (
+                }`}
+                role="listitem"
+                aria-label={plan.popular ? `${plan.name} plan - Most popular` : `${plan.name} plan`}
+              >
+                {plan.popular && (
                     <div className="mb-4 px-4 py-1 rounded-full bg-white/20 text-white font-inter text-sm font-semibold border border-white/30" aria-label="Most popular plan">
-                      Most Popular
-                    </div>
-                  )}
+                    Most Popular
+                  </div>
+                )}
                   <h3 className="text-brand-h2 font-comfortaa font-bold text-white mb-2">{plan.name}</h3>
-                  <div className="flex items-end mb-4" aria-label={`${plan.price}${plan.period}`}> 
+                <div className="flex items-end mb-4" aria-label={`${plan.price}${plan.period}`}>
                     <span className="text-brand-h3 text-white leading-tight font-comfortaa">{plan.price}</span>
                     <span className="text-brand-base leading-tight text-white/70 font-inter ml-1">{plan.period}</span>
-                  </div>
+                </div>
                   <p className="text-white/70 font-inter mb-6 leading-tight">{plan.description}</p>
-                  <ul className="mb-8 space-y-4 text-left w-full max-w-xs mx-auto" role="list" aria-label="Plan features">
-                    {plan.features.map((feature, i) => (
+                <ul className="mb-8 space-y-4 text-left w-full max-w-xs mx-auto" role="list" aria-label="Plan features">
+                  {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-center text-white/90 font-inter" role="listitem">
                         <Check className="w-5 h-5 mr-3 text-white" aria-hidden="true" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <button
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <button
                     className="w-full py-3 rounded-xl font-inter font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/30 mt-auto"
-                    tabIndex={0}
-                    aria-label={plan.name === 'Enterprise' ? 'Contact Sales' : `Get Started with ${plan.name} plan`}
-                    onClick={() => window.open('https://app.witheve.ai/', '_blank')}
-                  >
-                    {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
-                  </button>
-                </div>
+                  tabIndex={0}
+                  aria-label={plan.name === 'Enterprise' ? 'Contact Sales' : `Get Started with ${plan.name} plan`}
+                  onClick={() => window.open('https://app.witheve.ai/', '_blank')}
+                >
+                  {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
+                </button>
+              </div>
               );
             })}
           </div>

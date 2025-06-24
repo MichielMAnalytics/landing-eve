@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 
 interface Solution {
@@ -72,8 +72,13 @@ const solutions: Solution[] = [
 ];
 
 const SolutionSection: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1); // Start at 1 to account for the cloned items
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const transitionRef = useRef(true);
+
+  // Create an extended array with cloned items for infinite scroll
+  const extendedSolutions = [...solutions.slice(-3), ...solutions, ...solutions.slice(0, 3)];
 
   // Touch/drag support for mobile
   let startX = 0;
@@ -92,12 +97,40 @@ const SolutionSection: React.FC = () => {
     carouselRef.current.scrollLeft = scrollLeft + walk;
   };
 
+  const handleTransitionEnd = () => {
+    setIsTransitioning(false);
+    if (!transitionRef.current) {
+      return;
+    }
+
+    // If we've moved past the cloned items, jump to the real items without transition
+    if (currentSlide >= solutions.length + 1) {
+      transitionRef.current = false;
+      setCurrentSlide(1);
+    } else if (currentSlide <= 0) {
+      transitionRef.current = false;
+      setCurrentSlide(solutions.length);
+    }
+  };
+
+  useEffect(() => {
+    if (!transitionRef.current) {
+      transitionRef.current = true;
+    }
+  }, [currentSlide]);
+
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % Math.ceil(solutions.length / 3));
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    transitionRef.current = true;
+    setCurrentSlide(prev => prev + 1);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + Math.ceil(solutions.length / 3)) % Math.ceil(solutions.length / 3));
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    transitionRef.current = true;
+    setCurrentSlide(prev => prev - 1);
   };
 
   return (
@@ -207,6 +240,7 @@ const SolutionSection: React.FC = () => {
             onClick={prevSlide}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-20 bg-[#0E0E0E] hover:bg-[#04062D] w-12 h-12 rounded-full border border-[rgba(216,217,236,0.2)] flex items-center justify-center transition-all duration-200"
             aria-label="Previous slide"
+            disabled={isTransitioning}
           >
             <ArrowRight className="w-6 h-6 text-white transform rotate-180" />
           </button>
@@ -214,12 +248,14 @@ const SolutionSection: React.FC = () => {
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ 
-                transform: `translateX(-${currentSlide * 100}%)`,
+                transform: `translateX(-${currentSlide * 100/3}%)`,
+                transitionDuration: transitionRef.current ? '500ms' : '0ms',
               }}
+              onTransitionEnd={handleTransitionEnd}
             >
-              {solutions.map((solution, idx) => (
+              {extendedSolutions.map((solution, idx) => (
                 <div 
-                  key={solution.name}
+                  key={`${solution.name}-${idx}`}
                   className="min-w-[33.3333%] px-4"
                   style={{ maxWidth: '420px' }}
                 >
@@ -252,9 +288,6 @@ const SolutionSection: React.FC = () => {
                           </li>
                         ))}
                       </ul>
-                      {/* <button className="bg-[#fff]/10 hover:bg-[#fff]/20 text-[#fff] px-6 py-3 rounded-xl font-inter transition-colors border border-[rgba(216,217,236,0.2)] w-full mt-auto">
-                        Learn more
-                      </button> */}
                     </div>
                     <div className="absolute -bottom-4 -right-4 w-28 h-28 pointer-events-none z-20">
                       <img 
@@ -277,19 +310,21 @@ const SolutionSection: React.FC = () => {
             onClick={nextSlide}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-20 bg-[#0E0E0E] hover:bg-[#04062D] w-12 h-12 rounded-full border border-[rgba(216,217,236,0.2)] flex items-center justify-center transition-all duration-200"
             aria-label="Next slide"
+            disabled={isTransitioning}
           >
             <ArrowRight className="w-6 h-6 text-white" />
           </button>
           {/* Carousel Indicators */}
           <div className="flex justify-center gap-3 mt-8">
-            {Array.from({ length: Math.ceil(solutions.length / 3) }).map((_, index) => (
+            {Array.from({ length: solutions.length / 3 }).map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => !isTransitioning && setCurrentSlide(index + 1)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  currentSlide === index ? 'bg-[#0E1593] w-8' : 'bg-[#fff]/20'
+                  Math.floor(currentSlide) === index + 1 ? 'bg-[#0E1593] w-8' : 'bg-[#fff]/20'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
+                disabled={isTransitioning}
               />
             ))}
           </div>

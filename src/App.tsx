@@ -141,10 +141,10 @@ function App() {
                   </h1>
                   <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight">
                     Work with eve.
-                  </h1>
+                </h1>
                   <p className="text-brand-base text-[#fefefe]/70 font-inter">
-                    Build, grow, and scale your work with a team of AI employees.
-                  </p>
+                  Build, grow, and scale your work with a team of AI employees.
+                </p>
                 </div>
                 <button 
                   className="
