@@ -66,13 +66,13 @@ const Products: React.FC = () => {
       
       {/* Hero Section (Quote & CTA) */}
       <section className="min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-black to-[#04062D] px-4 sm:px-8">
-        <div className="w-full max-w-3xl flex flex-col items-center text-center">
+        <div className="w-full max-w-3xl flex flex-col items-center text-center space-y-4">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-brand-h1 font-comfortaa font-bold text-white mb-8 leading-tight"
+            className="text-brand-h1 font-comfortaa font-bold text-white mb-2 leading-tight"
           >
             "The future belongs to those who work with intelligence."
           </motion.h1>
@@ -81,7 +81,7 @@ const Products: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-inter font-bold tracking-wide px-8 py-3.5 border border-[rgba(216,217,236,0.2)] rounded-[12px] transition-all duration-200 hover:shadow-2xl hover:shadow-[#4F8CFF]/60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base"
+            className="inline-flex bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-inter font-bold tracking-wide px-8 py-3.5 border border-[rgba(216,217,236,0.2)] rounded-[12px] transition-all duration-200 hover:shadow-2xl hover:shadow-[#4F8CFF]/60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base mt-2"
             type="button"
             tabIndex={0}
             aria-label="Register to Eve"
@@ -98,7 +98,6 @@ const Products: React.FC = () => {
       {/* Values Section */}
       <section className="py-32 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-          {/*<h2 className="text-3xl md:text-4xl font-comfortaa font-bold text-white mb-8 text-center">Our Values</h2>*/}
           <div className="grid md:grid-cols-3 gap-10">
             {[
               {
@@ -120,12 +119,12 @@ const Products: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="rounded-3xl shadow-xl p-10 flex flex-col items-center text-center hover:border-[rgba(216,217,236,0.8)] transition-all duration-300"
+                className="rounded-3xl shadow-xl p-10 flex flex-col items-center text-center hover:border-[rgba(216,217,236,0.8)] transition-all duration-300 space-y-2"
               >
-                <h3 className="text-brand-h2 font-comfortaa leading-tight font-bold text-white mb-4">
+                <h3 className="text-brand-h2 font-comfortaa leading-tight font-bold text-white mb-2">
                   {value.title}
                 </h3>
-                <p className="text-brand-base leading-tight text-white/80 font-inter">
+                <p className="text-brand-base leading-tight text-white/80 font-inter mb-2">
                   {value.description}
                 </p>
               </motion.div>

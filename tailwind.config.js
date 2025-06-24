@@ -9,22 +9,22 @@ export default {
       },
       fontSize: {
         'brand-h1': [
-          '3rem', // mobile base (32px) (was 2rem)
+          '2.5rem', // mobile base (32px) (was 2rem)
           {
             lineHeight: '2rem',
             fontWeight: '700',
             letterSpacing: '-0.01em',
-            '@screen sm': { fontSize: '2.5rem' }, // 40px
-            '@screen md': { fontSize: '3rem' },   // 48px
+            '@screen sm': { fontSize: '3rem' }, // 40px
+            '@screen md': { fontSize: '3.5rem' },   // 48px
           }
         ],
         'brand-h2': [
-          '2.5rem', // mobile base (24px) (was 1.5rem)
+          '2rem', // mobile base (24px) (was 1.5rem)
           {
             lineHeight: '2rem',
             fontWeight: '700',
-            '@screen sm': { fontSize: '2rem' }, // 32px
-            '@screen md': { fontSize: '2.25rem' }, // 36px
+            '@screen sm': { fontSize: '2.5rem' }, // 32px
+            '@screen md': { fontSize: '2.5rem' }, // 36px
           }
         ],
         'brand-h3': [
@@ -40,15 +40,15 @@ export default {
           '1.5rem', // 16px
           {
             lineHeight: '1.5rem',
-            fontWeight: '400',
-            '@screen sm': { fontSize: '1.125rem' }, // 18px
+            fontWeight: '300',
+            '@screen sm': { fontSize: '1.5rem' }, // 18px
           }
         ],
         'brand-sm': [
-          '0.875rem', // 14px
+          '1rem', // 14px
           {
             lineHeight: '1.25rem',
-            fontWeight: '400',
+            fontWeight: '300',
           }
         ],
       },

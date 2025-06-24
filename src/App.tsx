@@ -130,20 +130,22 @@ function App() {
               
               {/* Text Content - Fixed at Bottom */}
               <div className="self-end pb-16 mb-8">
-                <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight">
-                  Work{' '}
-                  <TypingEffect 
-                    words={['smarter', 'harder', 'faster']} 
-                    speed={150}
-                    className="text-[#FFFFFF]"
-                  />
-                </h1>
-                <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight mb-4">
-                  Work with eve.
-                </h1>
-                <p className="text-brand-base text-[#fefefe]/70 font-inter mb-8">
-                  Build, grow, and scale your work with a team of AI employees.
-                </p>
+                <div className="space-y-2 mb-6">
+                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight">
+                    Work{' '}
+                    <TypingEffect 
+                      words={['smarter', 'harder', 'faster']} 
+                      speed={150}
+                      className="text-[#FFFFFF]"
+                    />
+                  </h1>
+                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight">
+                    Work with eve.
+                  </h1>
+                  <p className="text-brand-base text-[#fefefe]/70 font-inter">
+                    Build, grow, and scale your work with a team of AI employees.
+                  </p>
+                </div>
                 <button 
                   className="
                     inline-flex
@@ -169,7 +171,7 @@ function App() {
             <div className="hidden md:block w-full md:mt-16 lg:mt-24">
               <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-row items-center gap-20">
                 <div className="flex-1">
-                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight">
+                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight mb-1">
                     Work{' '}
                     <TypingEffect 
                       words={['smarter..', 'harder..', 'faster..']} 
@@ -177,10 +179,10 @@ function App() {
                       className="text-[#FFFFFF]"
                     />
                   </h1>
-                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight">
+                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight mb-4">
                     Work with eve.
                   </h1>
-                  <p className="text-brand-base text-[#fefefe]/70 leading-tight font-inter max-w-xl mt-6 mb-8">
+                  <p className="text-brand-base text-[#fefefe]/70 leading-tight font-inter max-w-xl mb-6">
                     Automate, delegate, and scale your work with a team of AI employees.
                   </p>
                   <button 

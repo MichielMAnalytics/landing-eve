@@ -75,13 +75,13 @@ const IntegrationShowcase: React.FC = () => {
           </AnimatePresence>
         </div>
         {/* Text Content */}
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:basis-3/5">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:basis-3/5 space-y-2">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-brand-h1 font-comfortaa font-bold text-white mb-4 sm:mb-6 leading-tight"
+            className="text-brand-h1 font-comfortaa font-bold text-white mb-2 leading-tight"
           >
             Integrates with your favorite systems.
           </motion.h2>
@@ -90,7 +90,7 @@ const IntegrationShowcase: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-brand-base text-white/70 font-inter leading-tight max-w-xl mb-6 sm:mb-8 mx-auto lg:mx-0"
+            className="text-brand-base text-white/70 font-inter leading-tight max-w-xl mb-4 mx-auto lg:mx-0"
           >
             Streamline your business processes by bringing your favorite tools and AI employees together. AI for business makes working with integrations easier than ever.
           </motion.p>

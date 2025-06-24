@@ -61,13 +61,13 @@ const BuildYourOwnAgent: React.FC = () => {
     <section className="relative py-16 sm:py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-12">
         {/* Text Content - Now on the left */}
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:basis-3/5 mb-10 lg:mb-0">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:basis-3/5 mb-10 lg:mb-0 space-y-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-brand-h1 font-comfortaa font-bold text-white mb-4 sm:mb-6 leading-tight"
+            className="text-brand-h1 font-comfortaa font-bold text-white mb-2 leading-tight"
           >
             Or build your own.
           </motion.h2>
@@ -76,7 +76,7 @@ const BuildYourOwnAgent: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-brand-base text-white/70 font-inter leading-tight max-w-xl mb-6 sm:mb-8 mx-auto lg:mx-0"
+            className="text-brand-base text-white/70 font-inter leading-tight max-w-xl mb-4 mx-auto lg:mx-0"
           >
             Eve lets you create custom AI agents and workflows, tailored to your specific needs. Integrate any tool you want and share with your team.
           </motion.p>

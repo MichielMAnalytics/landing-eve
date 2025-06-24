@@ -104,8 +104,8 @@ const SolutionSection: React.FC = () => {
     <section className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-brand-h1 font-comfortaa font-bold leading-tight text-[#FFFFFF] mb-4">
+        <div className="text-center mb-10 space-y-2">
+          <h2 className="text-brand-h1 font-comfortaa font-bold leading-tight text-[#FFFFFF]">
             Pick your new AI employees
           </h2>
           <p className="text-brand-base text-[#fefefe]/70 font-inter leading-tight max-w-2xl mx-auto">
@@ -151,7 +151,7 @@ const SolutionSection: React.FC = () => {
                       }
                     `}
                   >
-                    <div className="relative z-10 flex flex-col flex-grow">
+                    <div className="relative z-10 flex flex-col flex-grow space-y-4">
                       <h3 className="text-brand-h2 font-bold mb-3 font-comfortaa text-[#fff]">
                         {solution.name}
                       </h3>
@@ -238,7 +238,7 @@ const SolutionSection: React.FC = () => {
                       }
                     `}
                   >
-                    <div className="relative z-10 flex flex-col flex-grow">
+                    <div className="relative z-10 flex flex-col flex-grow space-y-4">
                       <h3 className="text-brand-h2 font-bold mb-3 font-comfortaa text-[#fff]">
                         {solution.name}
                       </h3>
