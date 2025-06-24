@@ -139,7 +139,7 @@ function App() {
                   />
                 </h1>
                 <h1 className="text-4xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2] mb-4">
-                  work with eve.
+                  work with eve..
                 </h1>
                 <p className="text-lg text-[#fefefe]/70 font-inter mb-6">
                   Build, grow, and scale your work with a team of AI employees.
