@@ -7,10 +7,10 @@ const AgentUseCases: React.FC = () => (
       <div className="relative bg-gradient-to-br from-[#6E3ADE] to-[#04062D] rounded-3xl shadow-2xl flex flex-col lg:flex-row items-center p-8 lg:p-20 overflow-visible min-h-[340px] lg:min-h-[420px] border-2 border-[rgba(216,217,236,0.8)]">
         {/* Text */}
         <div className="flex-1 z-10 flex flex-col justify-center text-center lg:text-left">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-comfortaa font-bold text-white mb-4">
+          <h2 className="text-brand-h2 font-comfortaa font-bold text-white leading-tight mb-4">
             Alex, schedule my meetings for me
           </h2>
-          <p className="text-base sm:text-lg text-white/80 font-inter max-w-xl mb-8 lg:mb-4 mx-auto lg:mx-0">
+          <p className="text-white/80 font-inter leading-tight max-w-xl mb-8 lg:mb-4 mx-auto lg:mx-0">
             Automate your calendar and reminders with AI. Let Alex handle your scheduling, so you never miss a meeting again.
           </p>
         </div>
@@ -31,10 +31,10 @@ const AgentUseCases: React.FC = () => (
         {/* Sage Card */}
         <div className="relative flex-1 bg-gradient-to-br from-[#0EA5E9] to-[#04062D] rounded-3xl shadow-2xl flex flex-col items-center p-8 lg:p-12 overflow-visible min-h-[340px] border-2 border-[rgba(216,217,236,0.8)]">
           <div className="flex-1 z-10 flex flex-col items-center justify-center">
-            <h3 className="text-2xl sm:text-3xl font-comfortaa font-bold text-white mb-3 text-center">
+            <h3 className="text-brand-h2 font-comfortaa font-bold text-white leading-tight mb-3 text-center">
               Sage, check my customer feedback
             </h3>
-            <p className="text-base sm:text-lg text-white/80 font-inter max-w-md text-center mb-8 lg:mb-6">
+            <p className="text-white/80 font-inter leading-tight max-w-md text-center mb-8 lg:mb-6">
               Analyze and summarize customer comments and reviews automatically. Sage helps you stay on top of your audience's needs.
             </p>
           </div>
@@ -52,10 +52,10 @@ const AgentUseCases: React.FC = () => (
         {/* Nova Card */}
         <div className="relative flex-1 bg-gradient-to-br from-[#FFD600] to-[#04062D] rounded-3xl shadow-2xl flex flex-col items-center p-8 lg:p-12 overflow-visible min-h-[340px] border-2 border-[rgba(216,217,236,0.8)]">
           <div className="flex-1 z-10 flex flex-col items-center justify-center">
-            <h3 className="text-2xl sm:text-3xl font-comfortaa font-bold text-white mb-3 text-center">
+            <h3 className="text-brand-h2 font-comfortaa font-bold leading-tight text-white mb-3 text-center">
               Nova, give me a daily business summary
             </h3>
-            <p className="text-base sm:text-lg text-white/80 font-inter max-w-md text-center mb-8 lg:mb-6">
+            <p className="text-white/80 leading-tight font-inter max-w-md text-center mb-8 lg:mb-6">
               Get actionable insights and summaries from your business data every morning. Nova keeps you informed and ahead.
             </p>
           </div>

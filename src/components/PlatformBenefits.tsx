@@ -148,13 +148,13 @@ const PlatformBenefits: React.FC = () => {
   return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 bg-black py-16">
       {/* Team Members */}
-      <div className="relative mb-5" style={{ zIndex: 0 }}>
-        <div className="flex flex-wrap justify-center items-start gap-6 px-3">
+      <div className="relative mb-5 hidden sm:block" style={{ zIndex: 0 }}>
+        <div className="grid grid-cols-1 sm:flex sm:flex-wrap justify-center items-start gap-3 sm:gap-6 px-1 sm:px-3">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.role}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: member.position.y }}
+              whileInView={{ opacity: 1, y: (window.innerWidth >= 640 ? member.position.y : 0) }}
               transition={{ 
                 duration: 0.5, 
                 delay: index * 0.1,
@@ -165,9 +165,9 @@ const PlatformBenefits: React.FC = () => {
                 }
               }}
               style={{ 
-                transform: `translateX(${member.position.x || 0}px) scale(${member.position.scale || 1})`,
+                transform: window.innerWidth >= 640 ? `translateX(${member.position.x || 0}px) scale(${member.position.scale || 1})` : 'none',
               }}
-              className="flex flex-col items-center bg-[#04062D] border border-[rgba(216,217,236,0.5)] rounded-2xl p-4 hover:border-[rgba(216,217,236,0.8)] transition-all duration-300"
+              className="flex flex-col items-center bg-[#04062D] border border-[rgba(216,217,236,0.5)] rounded-2xl p-3 sm:p-4 hover:border-[rgba(216,217,236,0.8)] transition-all duration-300 mb-2"
             >
               <img
                 src={member.avatarSrc}
@@ -229,10 +229,13 @@ const PlatformBenefits: React.FC = () => {
           className="text-center mb-16 relative"
           style={{ zIndex: 2 }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-comfortaa font-bold leading-tight text-white">
+          <h2 className="text-brand-h1 font-comfortaa font-bold leading-tight text-white">
             Scale your{' '}
             <span className="bg-gradient-to-r from-[#0E1593] to-[#0EA5E9] text-transparent bg-clip-text">
-              <TypingEffect words={["support", "operations", "finance", "sales", "research", "quality"]} speed={120} />
+              <span className="sm:hidden">support</span>
+              <span className="hidden sm:inline">
+                <TypingEffect words={["support", "operations", "finance", "sales", "research", "quality"]} speed={120} />
+              </span>
             </span>
             <br />
             <span className="text-white">
@@ -243,7 +246,7 @@ const PlatformBenefits: React.FC = () => {
       </div>
 
       {/* Features Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-6 md:gap-y-12 mb-10 md:mb-16">
         {features.map((feature, index) => (
           <motion.div
             key={feature.title}
@@ -253,10 +256,10 @@ const PlatformBenefits: React.FC = () => {
             className="flex flex-col items-start rounded-2xl p-6 transition-all duration-300"
           >
             <div className="mb-3 text-[#0EA5E9] scale-90">{feature.icon}</div>
-            <h3 className="text-lg font-comfortaa font-bold text-white mb-2">
+            <h3 className="text-brand-h3 font-comfortaa font-bold leading-tight text-white mb-2">
               {feature.title}
             </h3>
-            <p className="text-white/80 font-inter text-base">
+            <p className="text-white/80 font-inter leading-tight">
               {feature.description}
             </p>
           </motion.div>

@@ -72,7 +72,7 @@ const Products: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-5xl font-comfortaa font-bold text-white mb-8"
+            className="text-brand-h1 font-comfortaa font-bold text-white mb-8 leading-tight"
           >
             "The future belongs to those who work with intelligence."
           </motion.h1>
@@ -84,8 +84,8 @@ const Products: React.FC = () => {
             className="inline-flex bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-inter font-bold tracking-wide px-8 py-3.5 border border-[rgba(216,217,236,0.2)] rounded-[12px] transition-all duration-200 hover:shadow-2xl hover:shadow-[#4F8CFF]/60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base"
             type="button"
             tabIndex={0}
-            aria-label="Login to Eve"
-            onClick={() => window.open('https://app.witheve.ai/', '_blank')}
+            aria-label="Register to Eve"
+            onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
           >
             Get Started
           </motion.button>
@@ -122,10 +122,10 @@ const Products: React.FC = () => {
                 viewport={{ once: true }}
                 className="rounded-3xl shadow-xl p-10 flex flex-col items-center text-center hover:border-[rgba(216,217,236,0.8)] transition-all duration-300"
               >
-                <h3 className="text-2xl md:text-3xl font-comfortaa font-bold text-white mb-4">
+                <h3 className="text-brand-h2 font-comfortaa leading-tight font-bold text-white mb-4">
                   {value.title}
                 </h3>
-                <p className="text-white/80 font-inter text-lg">
+                <p className="text-brand-base leading-tight text-white/80 font-inter">
                   {value.description}
                 </p>
               </motion.div>
@@ -143,7 +143,7 @@ const Products: React.FC = () => {
             <motion.div
               className="text-center w-full"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-comfortaa font-bold leading-[1.2] tracking-tight mb-8">
+              <h2 className="text-brand-h1 font-comfortaa font-bold leading-tight tracking-tight mb-8">
                 <span className="bg-gradient-to-r from-[#0E1593] via-[#0EA5E9] to-[#0EA5E9] text-transparent bg-clip-text">Welcome to a world</span>
                 {' '}
                 <span className="text-white"> where AI does your manual work. For you.</span>
@@ -168,7 +168,7 @@ const Products: React.FC = () => {
             <motion.div
               className="text-center w-full"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-comfortaa font-bold leading-[1.2] tracking-tight mb-8">
+              <h2 className="text-brand-h1 font-comfortaa font-bold leading-tight mb-8">
                 <span className="bg-gradient-to-r from-[#0E1593] via-[#0EA5E9] to-[#0EA5E9] text-transparent bg-clip-text">Built for teams.</span>
                 {' '}
                 <span className="text-white">No technical background required.</span>
@@ -194,7 +194,7 @@ const Products: React.FC = () => {
       {/* Features Section */}
       <section className="py-32 bg-gradient-to-b from-black to-[#04062D]">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-          <h2 className="text-3xl md:text-4xl font-comfortaa font-bold text-white mb-8 text-center">Key Features</h2>
+          <h2 className="text-brand-h1 font-comfortaa font-bold text-white mb-8 text-center">Key Features</h2>
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Left Feature */}
             <motion.div
@@ -205,18 +205,18 @@ const Products: React.FC = () => {
               className="flex flex-col gap-8"
             >
               <div className="bg-gradient-to-br from-[#00B37E] to-[#04062D] border border-[#00B37E] rounded-3xl p-8 backdrop-blur-sm">
-                <h3 className="text-2xl sm:text-3xl font-comfortaa font-bold text-white mb-4">
+                <h3 className="text-brand-h3 font-comfortaa font-bold text-white mb-4">
                   Built into your workflows
                 </h3>
-                <p className="text-white/80 font-inter text-lg leading-relaxed">
+                <p className="text-brand-base text-white/80 font-inter leading-relaxed">
                   Our AI agents seamlessly integrate with your existing processes, understanding your projects, tasks, and documentation without isolated interactions.
                 </p>
               </div>
               <div className="bg-gradient-to-br from-[#E42800] to-[#04062D] border border-[#E42800] rounded-3xl p-8 backdrop-blur-sm">
-                <h3 className="text-2xl sm:text-3xl font-comfortaa font-bold text-white mb-4">
+                <h3 className="text-brand-h3 font-comfortaa font-bold text-white mb-4">
                   Learns Automatically
                 </h3>
-                <p className="text-white/80 font-inter text-lg leading-relaxed">
+                <p className="text-brand-base text-white/80 font-inter leading-relaxed">
                   Every interaction enhances our AI's understanding of your processes, adapting instantly to your unique requirements without manual configuration.
                 </p>
               </div>
@@ -230,10 +230,10 @@ const Products: React.FC = () => {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-[#F69902] to-[#04062D] border border-[#F69902] rounded-3xl p-8 h-full backdrop-blur-sm"
             >
-              <h3 className="text-2xl sm:text-3xl font-comfortaa font-bold text-white mb-4">
+              <h3 className="text-brand-h3 font-comfortaa font-bold text-white mb-4">
                 Delivers Results
               </h3>
-              <p className="text-white/80 font-inter text-lg leading-relaxed mb-8">
+              <p className="text-brand-base text-white/80 font-inter leading-relaxed mb-8">
                 While other tools simply provide suggestions, our AI takes action. It understands context, executes tasks, and delivers tangible outcomes that drive your business forward.
               </p>
               <div className="flex flex-col gap-4">
@@ -243,7 +243,7 @@ const Products: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </div>
-                  <span className="text-white/90 font-inter">Immediate execution of tasks</span>
+                  <span className="text-brand-base text-white/90 font-inter">Immediate execution of tasks</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#0E1593] to-[#0EA5E9] flex items-center justify-center">
@@ -251,7 +251,7 @@ const Products: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                   </div>
-                  <span className="text-white/90 font-inter">Automated workflow optimization</span>
+                  <span className="text-brand-base text-white/90 font-inter">Automated workflow optimization</span>
                 </div>
               </div>
             </motion.div>

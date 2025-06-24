@@ -81,7 +81,7 @@ const IntegrationShowcase: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-4xl md:text-5xl font-comfortaa font-bold text-white mb-4 sm:mb-6 leading-[1.2]"
+            className="text-brand-h1 font-comfortaa font-bold text-white mb-4 sm:mb-6 leading-tight"
           >
             Integrates with your favorite systems.
           </motion.h2>
@@ -90,7 +90,7 @@ const IntegrationShowcase: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-base sm:text-lg md:text-xl text-white/70 font-inter leading-relaxed max-w-xl mb-6 sm:mb-8 mx-auto lg:mx-0"
+            className="text-brand-base text-white/70 font-inter leading-tight max-w-xl mb-6 sm:mb-8 mx-auto lg:mx-0"
           >
             Streamline your business processes by bringing your favorite tools and AI employees together. AI for business makes working with integrations easier than ever.
           </motion.p>

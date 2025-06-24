@@ -30,7 +30,7 @@ const AgentCard: React.FC<AgentCardProps> = ({ title, imageSrc, className, backg
         <div className="grid lg:grid-cols-2 gap-8 min-h-[280px]">
           {/* Left: Centered Title */}
           <div className="flex items-center justify-center h-full min-h-[200px]">
-            <h2 className="text-3xl md:text-4xl font-comfortaa font-bold text-white text-center w-full">
+            <h2 className="text-brand-h2 font-comfortaa font-bold leading-tight text-white text-center w-full">
               {title.highlight}
             </h2>
           </div>

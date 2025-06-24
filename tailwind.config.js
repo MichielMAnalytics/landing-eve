@@ -7,6 +7,51 @@ export default {
         comfortaa: ['Comfortaa', 'system-ui', 'sans-serif'],
         inter: ['Inter', 'system-ui', 'sans-serif'],
       },
+      fontSize: {
+        'brand-h1': [
+          '3rem', // mobile base (32px) (was 2rem)
+          {
+            lineHeight: '2rem',
+            fontWeight: '700',
+            letterSpacing: '-0.01em',
+            '@screen sm': { fontSize: '2.5rem' }, // 40px
+            '@screen md': { fontSize: '3rem' },   // 48px
+          }
+        ],
+        'brand-h2': [
+          '2.5rem', // mobile base (24px) (was 1.5rem)
+          {
+            lineHeight: '2rem',
+            fontWeight: '700',
+            '@screen sm': { fontSize: '2rem' }, // 32px
+            '@screen md': { fontSize: '2.25rem' }, // 36px
+          }
+        ],
+        'brand-h3': [
+          '1.5rem', // mobile base (18px)
+          {
+            lineHeight: '2rem',
+            fontWeight: '700',
+            '@screen sm': { fontSize: '1.375rem' }, // 22px
+            '@screen md': { fontSize: '1.5rem' }, // 24px
+          }
+        ],
+        'brand-base': [
+          '1.5rem', // 16px
+          {
+            lineHeight: '1.5rem',
+            fontWeight: '400',
+            '@screen sm': { fontSize: '1.125rem' }, // 18px
+          }
+        ],
+        'brand-sm': [
+          '0.875rem', // 14px
+          {
+            lineHeight: '1.25rem',
+            fontWeight: '400',
+          }
+        ],
+      },
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',
         float: 'float 3s ease-in-out infinite',

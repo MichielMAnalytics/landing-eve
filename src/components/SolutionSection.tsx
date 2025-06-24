@@ -105,10 +105,10 @@ const SolutionSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-comfortaa font-bold tracking-tight text-[#FFFFFF] mb-4">
+          <h2 className="text-brand-h1 font-comfortaa font-bold leading-tight text-[#FFFFFF] mb-4">
             Pick your new AI employees
           </h2>
-          <p className="text-xl text-[#fefefe]/70 font-inter max-w-2xl mx-auto">
+          <p className="text-brand-base text-[#fefefe]/70 font-inter leading-tight max-w-2xl mx-auto">
             Specialized AI agents ready to take over your daily tasks and transform your workflow.
           </p>
         </div>
@@ -152,7 +152,7 @@ const SolutionSection: React.FC = () => {
                     `}
                   >
                     <div className="relative z-10 flex flex-col flex-grow">
-                      <h3 className="text-2xl font-bold mb-3 font-comfortaa text-[#fff]">
+                      <h3 className="text-brand-h2 font-bold mb-3 font-comfortaa text-[#fff]">
                         {solution.name}
                       </h3>
                       <p className="text-[#fff]/90 mb-6 font-inter">
@@ -165,9 +165,9 @@ const SolutionSection: React.FC = () => {
                           </li>
                         ))}
                       </ul>
-                      <button className="bg-[#fff]/10 hover:bg-[#fff]/20 text-[#fff] px-6 py-3 rounded-xl font-inter transition-colors border border-[rgba(216,217,236,0.2)] w-full mt-auto">
+                      {/* <button className="bg-[#fff]/10 hover:bg-[#fff]/20 text-[#fff] px-6 py-3 rounded-xl font-inter transition-colors border border-[rgba(216,217,236,0.2)] w-full mt-auto">
                         Learn more
-                      </button>
+                      </button> */}
                     </div>
                     <div className="absolute -bottom-4 -right-4 w-28 h-28 pointer-events-none z-20">
                       <img 
@@ -239,7 +239,7 @@ const SolutionSection: React.FC = () => {
                     `}
                   >
                     <div className="relative z-10 flex flex-col flex-grow">
-                      <h3 className="text-2xl font-bold mb-3 font-comfortaa text-[#fff]">
+                      <h3 className="text-brand-h2 font-bold mb-3 font-comfortaa text-[#fff]">
                         {solution.name}
                       </h3>
                       <p className="text-[#fff]/90 mb-6 font-inter">

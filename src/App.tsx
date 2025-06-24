@@ -129,19 +129,19 @@ function App() {
               </div>
               
               {/* Text Content - Fixed at Bottom */}
-              <div className="self-end pb-8">
-                <h1 className="text-4xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2] mb-4">
-                  work{' '}
+              <div className="self-end pb-16 mb-8">
+                <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight">
+                  Work{' '}
                   <TypingEffect 
                     words={['smarter', 'harder', 'faster']} 
                     speed={150}
-                    className="text-[#0E1593]"
+                    className="text-[#FFFFFF]"
                   />
                 </h1>
-                <h1 className="text-4xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2] mb-4">
-                  work with eve..
+                <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight mb-4">
+                  Work with eve.
                 </h1>
-                <p className="text-lg text-[#fefefe]/70 font-inter mb-6">
+                <p className="text-brand-base text-[#fefefe]/70 font-inter mb-8">
                   Build, grow, and scale your work with a team of AI employees.
                 </p>
                 <button 
@@ -169,7 +169,7 @@ function App() {
             <div className="hidden md:block w-full md:mt-16 lg:mt-24">
               <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-row items-center gap-20">
                 <div className="flex-1">
-                  <h1 className="text-4xl lg:text-6xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2]">
+                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight">
                     Work{' '}
                     <TypingEffect 
                       words={['smarter..', 'harder..', 'faster..']} 
@@ -177,10 +177,10 @@ function App() {
                       className="text-[#FFFFFF]"
                     />
                   </h1>
-                  <h2 className="text-5xl lg:text-6xl font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-[1.2] mt-2">
+                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight">
                     Work with eve.
-                  </h2>
-                  <p className="text-xl text-[#fefefe]/70 font-inter max-w-xl mt-6 mb-8">
+                  </h1>
+                  <p className="text-brand-base text-[#fefefe]/70 leading-tight font-inter max-w-xl mt-6 mb-8">
                     Automate, delegate, and scale your work with a team of AI employees.
                   </p>
                   <button 
@@ -225,7 +225,7 @@ function App() {
         {/* Fullscreen Centered Header Section */}
         <section className="w-full min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center bg-black py-16 sm:py-20" aria-label="Key benefit">
           <div className="max-w-2xl sm:max-w-3xl mx-auto px-4">
-            <h2 className="text-2xl sm:text-4xl md:text-6xl font-comfortaa font-bold text-white text-center leading-tight break-words">
+            <h2 className="text-brand-h1 font-comfortaa font-bold text-white text-center leading-tight break-words">
               Automates work.<br />
               Even while you sleep.
             </h2>
@@ -241,10 +241,10 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
             <div className="bg-[#04062D] rounded-xl p-6 sm:p-8 md:p-12 border-2 border-[rgba(216,217,236,0.2)] hover:border-[rgba(216,217,236,0.5)]/20 transition-colors">
               <div className="max-w-lg mx-auto text-center flex flex-col items-center">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 font-comfortaa tracking-tight text-[#ffffff]">
+                <h2 className="text-brand-h1 font-bold mb-4 sm:mb-6 font-comfortaa leading-tight text-[#ffffff]">
                   Ready to start automating?
                 </h2>
-                <p className="text-base sm:text-lg text-[#FEFEFE]/70 mb-8 sm:mb-12 leading-relaxed font-inter">
+                <p className="text-brand-base text-[#FEFEFE]/70 mb-8 sm:mb-12 leading-tight font-inter">
                   Join thousands of AI experts already using Eve to build the future.
                 </p>
                 <div className="w-full flex justify-center">

@@ -67,7 +67,7 @@ const BuildYourOwnAgent: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-4xl md:text-5xl font-comfortaa font-bold text-white mb-4 sm:mb-6 leading-[1.2]"
+            className="text-brand-h1 font-comfortaa font-bold text-white mb-4 sm:mb-6 leading-tight"
           >
             Or build your own.
           </motion.h2>
@@ -76,7 +76,7 @@ const BuildYourOwnAgent: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-base sm:text-lg md:text-xl text-white/70 font-inter leading-relaxed max-w-xl mb-6 sm:mb-8 mx-auto lg:mx-0"
+            className="text-brand-base text-white/70 font-inter leading-tight max-w-xl mb-6 sm:mb-8 mx-auto lg:mx-0"
           >
             Eve lets you create custom AI agents and workflows, tailored to your specific needs. Integrate any tool you want and share with your team.
           </motion.p>
@@ -88,7 +88,7 @@ const BuildYourOwnAgent: React.FC = () => {
             className="w-full flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
           >
             <button
-              className="inline-flex bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-inter font-bold tracking-wide px-8 py-3.5 border border-[rgba(216,217,236,0.2)] rounded-[12px] transition-all duration-200 hover:shadow-2xl hover:shadow-[#4F8CFF]/60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base w-full sm:w-auto"
+              className="group relative w-full sm:w-auto px-8 sm:px-8 py-3 sm:py-4 text-white text-base sm:text-lg font-medium overflow-hidden rounded-lg font-inter border border-[rgba(216,217,236,0.2)] bg-gradient-to-r from-[#0E1593] to-[#04062D] transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20"
               onClick={() => window.open('https://app.witheve.ai/register', '_blank')}
             >
               <span className="relative z-10">Start building</span>
@@ -97,9 +97,9 @@ const BuildYourOwnAgent: React.FC = () => {
         </div>
 
         {/* Video Placeholder - Right side */}
-        <div className="flex items-center justify-center w-full lg:basis-2/5 min-h-[200px]">
-          <div className="w-full max-w-md aspect-video bg-[#181A2A] rounded-2xl flex items-center justify-center border-2 border-dashed border-[#4F8CFF]/40">
-            <span className="text-white/60 text-lg font-inter">Video coming soon</span>
+        <div className="flex items-center justify-center w-full lg:basis-2/5 min-h-[200px] sm:min-h-[240px]">
+          <div className="w-full max-w-sm sm:max-w-md aspect-video bg-[#181A2A] rounded-2xl flex items-center justify-center border-2 border-dashed border-[#4F8CFF]/40">
+            <span className="text-white/60 text-base sm:text-lg font-inter">Video coming soon</span>
           </div>
         </div>
       </div>
