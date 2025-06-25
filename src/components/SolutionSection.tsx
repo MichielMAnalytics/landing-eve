@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, TouchEvent } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 
 interface Solution {
@@ -72,64 +72,140 @@ const solutions: Solution[] = [
 ];
 
 const SolutionSection: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(1); // Start at 1 to account for the cloned items
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const transitionRef = useRef(true);
 
-  // Create an extended array with cloned items for infinite scroll
-  const extendedSolutions = [...solutions.slice(-3), ...solutions, ...solutions.slice(0, 3)];
+  // Create extended arrays for both mobile and desktop
+  const extendedSolutions = [...solutions.slice(-1), ...solutions, ...solutions.slice(0, 1)];
+  const desktopExtendedSolutions = [...solutions.slice(-2), ...solutions, ...solutions.slice(0, 2)];
 
-  // Touch/drag support for mobile
-  let startX = 0;
-  let scrollLeft = 0;
-
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (!carouselRef.current) return;
-    startX = e.touches[0].pageX - carouselRef.current.offsetLeft;
-    scrollLeft = carouselRef.current.scrollLeft;
+  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    setTouchStart(e.touches[0].clientX);
+    setTouchEnd(e.touches[0].clientX);
+    setIsDragging(true);
   };
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (!carouselRef.current) return;
-    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
-    const walk = (startX - x);
-    carouselRef.current.scrollLeft = scrollLeft + walk;
+  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    
+    const currentTouch = e.touches[0].clientX;
+    setTouchEnd(currentTouch);
+    
+    const diff = touchStart - currentTouch;
+    const slideWidth = window.innerWidth;
+    const currentOffset = (currentSlide * slideWidth) + diff;
+    
+    setDragOffset(diff);
+    
+    if (carouselRef.current) {
+      carouselRef.current.style.transform = `translateX(${-currentOffset}px)`;
+    }
   };
 
-  const handleTransitionEnd = () => {
-    setIsTransitioning(false);
-    if (!transitionRef.current) {
-      return;
+  const handleTouchEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+
+    const diff = touchStart - touchEnd;
+    const slideWidth = window.innerWidth;
+    const threshold = slideWidth * 0.2; // 20% threshold for slide change
+
+    let newSlide = currentSlide;
+    if (Math.abs(diff) > threshold) {
+      newSlide = diff > 0 ? currentSlide + 1 : currentSlide - 1;
     }
 
-    // If we've moved past the cloned items, jump to the real items without transition
-    if (currentSlide >= solutions.length + 1) {
-      transitionRef.current = false;
-      setCurrentSlide(1);
-    } else if (currentSlide <= 0) {
-      transitionRef.current = false;
-      setCurrentSlide(solutions.length);
+    // Handle infinite scroll boundaries
+    if (newSlide >= extendedSolutions.length - 1) {
+      handleSlideChange(1);
+    } else if (newSlide <= 0) {
+      handleSlideChange(solutions.length);
+    } else {
+      handleSlideChange(newSlide);
+    }
+
+    setDragOffset(0);
+  };
+
+  const handleSlideChange = (slide: number) => {
+    setCurrentSlide(slide);
+    if (carouselRef.current) {
+      const offset = slide * window.innerWidth;
+      carouselRef.current.style.transform = `translateX(-${offset}px)`;
+      carouselRef.current.style.transition = 'transform 0.3s ease-out';
+    }
+  };
+
+  const handleDesktopTransitionEnd = () => {
+    if (!transitionRef.current) return;
+    
+    if (carouselRef.current) {
+      if (currentSlide >= solutions.length) {
+        transitionRef.current = false;
+        carouselRef.current.style.transition = 'none';
+        setCurrentSlide(0);
+        requestAnimationFrame(() => {
+          if (carouselRef.current) {
+            carouselRef.current.style.transform = `translateX(-${33.3333 * 2}%)`; // 2 clone items at start
+          }
+        });
+      } else if (currentSlide < 0) {
+        transitionRef.current = false;
+        carouselRef.current.style.transition = 'none';
+        setCurrentSlide(solutions.length - 1);
+        requestAnimationFrame(() => {
+          if (carouselRef.current) {
+            carouselRef.current.style.transform = `translateX(-${33.3333 * (solutions.length + 1)}%)`;
+          }
+        });
+      }
     }
   };
 
   useEffect(() => {
+    const handleResize = () => {
+      if (carouselRef.current) {
+        const offset = currentSlide * window.innerWidth;
+        carouselRef.current.style.transition = 'none';
+        carouselRef.current.style.transform = `translateX(-${offset}px)`;
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [currentSlide]);
+
+  useEffect(() => {
     if (!transitionRef.current) {
-      transitionRef.current = true;
+      requestAnimationFrame(() => {
+        if (carouselRef.current) {
+          carouselRef.current.style.transition = 'transform 500ms ease-in-out';
+          transitionRef.current = true;
+        }
+      });
     }
   }, [currentSlide]);
 
-  const nextSlide = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
+  const nextDesktopSlide = () => {
+    if (!transitionRef.current) return;
     transitionRef.current = true;
+    if (carouselRef.current) {
+      carouselRef.current.style.transition = 'transform 500ms ease-in-out';
+    }
     setCurrentSlide(prev => prev + 1);
   };
 
-  const prevSlide = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
+  const prevDesktopSlide = () => {
+    if (!transitionRef.current) return;
     transitionRef.current = true;
+    if (carouselRef.current) {
+      carouselRef.current.style.transition = 'transform 500ms ease-in-out';
+    }
     setCurrentSlide(prev => prev - 1);
   };
 
@@ -146,28 +222,29 @@ const SolutionSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Mobile Carousel (scroll snap, spacers) */}
-        <div className="relative md:hidden">
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          {/* Container with negative margin to counter parent padding */}
           <div 
-            className="overflow-x-auto scrollbar-hide mx-auto"
-            ref={carouselRef}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            style={{
-              WebkitOverflowScrolling: 'touch',
-              scrollSnapType: 'x mandatory',
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
-            }}
+            className="overflow-hidden"
+            style={{ margin: '0 -16px' }}
           >
-            <div className="flex">
-              {/* Left Spacer for perfect centering */}
-              <div aria-hidden="true" style={{ minWidth: '5vw', maxWidth: '5vw', pointerEvents: 'none' }} />
-              {solutions.map((solution) => (
+            <div
+              ref={carouselRef}
+              className="flex touch-pan-x"
+              style={{
+                transition: isDragging ? 'none' : 'transform 0.3s ease-out',
+                transform: `translateX(-${currentSlide * 100}%)`
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {extendedSolutions.map((solution, idx) => (
                 <div 
-                  key={solution.name}
-                  className="min-w-[90vw] px-4"
-                  style={{ maxWidth: '420px', scrollSnapAlign: 'center' }}
+                  key={`${solution.name}-${idx}`}
+                  className="min-w-full px-4 flex-shrink-0"
+                  style={{ width: '100vw' }}
                 >
                   <div 
                     className={`
@@ -198,9 +275,6 @@ const SolutionSection: React.FC = () => {
                           </li>
                         ))}
                       </ul>
-                      {/* <button className="bg-[#fff]/10 hover:bg-[#fff]/20 text-[#fff] px-6 py-3 rounded-xl font-inter transition-colors border border-[rgba(216,217,236,0.2)] w-full mt-auto">
-                        Learn more
-                      </button> */}
                     </div>
                     <div className="absolute -bottom-4 -right-4 w-28 h-28 pointer-events-none z-20">
                       <img 
@@ -217,43 +291,47 @@ const SolutionSection: React.FC = () => {
                   </div>
                 </div>
               ))}
-              {/* Right Spacer for perfect centering */}
-              <div aria-hidden="true" style={{ minWidth: '5vw', maxWidth: '5vw', pointerEvents: 'none' }} />
             </div>
           </div>
-          {/* Carousel Indicators */}
+          
+          {/* Mobile Indicators */}
           <div className="flex justify-center gap-3 mt-8">
             {solutions.map((_, index) => (
               <button
                 key={index}
-                className={`w-2 h-2 rounded-full transition-all bg-[#fff]/20`}
-                aria-label={`Go to card ${index + 1}`}
+                onClick={() => handleSlideChange(index + 1)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  (currentSlide === index + 1 || 
+                   (currentSlide === solutions.length + 1 && index === 0) ||
+                   (currentSlide === 0 && index === solutions.length - 1)
+                  ) ? 'bg-[#0E1593] w-8' : 'bg-[#fff]/20'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
         </div>
 
-        {/* Desktop Carousel (3 cards, flex, arrows) */}
+        {/* Desktop Carousel */}
         <div className="relative hidden md:block">
-          {/* Navigation Buttons */}
           <button 
-            onClick={prevSlide}
+            onClick={prevDesktopSlide}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-20 bg-[#0E0E0E] hover:bg-[#04062D] w-12 h-12 rounded-full border border-[rgba(216,217,236,0.2)] flex items-center justify-center transition-all duration-200"
             aria-label="Previous slide"
-            disabled={isTransitioning}
           >
             <ArrowRight className="w-6 h-6 text-white transform rotate-180" />
           </button>
           <div className="overflow-hidden mx-auto">
             <div 
+              ref={carouselRef}
               className="flex transition-transform duration-500 ease-in-out"
               style={{ 
-                transform: `translateX(-${currentSlide * 100/3}%)`,
-                transitionDuration: transitionRef.current ? '500ms' : '0ms',
+                transform: `translateX(-${33.3333 * (currentSlide + 2)}%)`,
+                transition: transitionRef.current ? 'transform 500ms ease-in-out' : 'none'
               }}
-              onTransitionEnd={handleTransitionEnd}
+              onTransitionEnd={handleDesktopTransitionEnd}
             >
-              {extendedSolutions.map((solution, idx) => (
+              {desktopExtendedSolutions.map((solution, idx) => (
                 <div 
                   key={`${solution.name}-${idx}`}
                   className="min-w-[33.3333%] px-4"
@@ -307,24 +385,33 @@ const SolutionSection: React.FC = () => {
             </div>
           </div>
           <button 
-            onClick={nextSlide}
+            onClick={nextDesktopSlide}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-20 bg-[#0E0E0E] hover:bg-[#04062D] w-12 h-12 rounded-full border border-[rgba(216,217,236,0.2)] flex items-center justify-center transition-all duration-200"
             aria-label="Next slide"
-            disabled={isTransitioning}
           >
             <ArrowRight className="w-6 h-6 text-white" />
           </button>
           {/* Carousel Indicators */}
           <div className="flex justify-center gap-3 mt-8">
-            {Array.from({ length: solutions.length / 3 }).map((_, index) => (
+            {solutions.map((_, index) => (
               <button
                 key={index}
-                onClick={() => !isTransitioning && setCurrentSlide(index + 1)}
+                onClick={() => {
+                  if (!transitionRef.current) return;
+                  transitionRef.current = true;
+                  if (carouselRef.current) {
+                    carouselRef.current.style.transition = 'transform 500ms ease-in-out';
+                  }
+                  setCurrentSlide(index);
+                }}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  Math.floor(currentSlide) === index + 1 ? 'bg-[#0E1593] w-8' : 'bg-[#fff]/20'
+                  currentSlide === index || 
+                  (currentSlide === solutions.length && index === 0) ||
+                  (currentSlide === -1 && index === solutions.length - 1)
+                    ? 'bg-[#0E1593] w-8' 
+                    : 'bg-[#fff]/20'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
-                disabled={isTransitioning}
               />
             ))}
           </div>
