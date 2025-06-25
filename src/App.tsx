@@ -29,6 +29,7 @@ import ProblemSection from './components/ProblemSection';
 import SolutionSection from './components/SolutionSection';
 import TypingEffect from './components/TypingEffect';
 import BuildYourOwnAgent from './components/BuildyourownAgent';
+import CTASection from './components/CTASection';
 
 // Brand Color Palette
 /*
@@ -238,33 +239,7 @@ function App() {
 
         <IntegrationShowcase />
 
-        {/* CTA Section */}
-        <section className="py-12 sm:py-16 md:py-20" aria-label="Call to action">
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-            <div className="bg-[#04062D] rounded-xl p-6 sm:p-8 md:p-12 border-2 border-[rgba(216,217,236,0.2)] hover:border-[rgba(216,217,236,0.5)]/20 transition-colors">
-              <div className="max-w-lg mx-auto text-center flex flex-col items-center">
-                <h2 className="text-brand-h1 font-bold mb-4 sm:mb-6 font-comfortaa leading-tight text-[#ffffff]">
-                  Ready to start automating?
-                </h2>
-                <p className="text-brand-base text-[#FEFEFE]/70 mb-8 sm:mb-12 leading-tight font-inter">
-                  Join thousands of AI experts already using Eve to build the future.
-                </p>
-                <div className="w-full flex justify-center">
-                  <button 
-                    className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-white text-base sm:text-lg font-medium overflow-hidden rounded-lg font-inter"
-                    aria-label="Login to Eve"
-                    onClick={() => { window.location.href = 'https://app.witheve.ai/'; }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#0E1593] to-[#04062D] transition-all duration-300" />
-                    <div className="absolute inset-0 border border-[rgba(216,217,236,0.2)] rounded-lg transition-all duration-300 group-hover:bg-[#0E1593]/60" />
-                    <span className="relative z-10 text-[#FFFFFF]">Get started</span>
-                    <div className="absolute inset-0 rounded-lg ring-1 ring-[#0E1593]/30" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CTASection />
       </main>
 
       <Footer />

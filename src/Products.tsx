@@ -9,6 +9,7 @@ import PlatformBenefits from './components/PlatformBenefits';
 import { EmailIcon, LightningIcon, AutomationIcon, WorkflowIcon } from './components/icons/AgentIcons';
 import AgentCardStack from './components/AgentCardStack';
 import KeyFeatures from './components/KeyFeatures';
+import CTASection from './components/CTASection';
 import { useEffect } from 'react';
 
 const Products: React.FC = () => {
@@ -195,6 +196,11 @@ const Products: React.FC = () => {
       <section className="py-32 bg-gradient-to-b from-black to-[#04062D]">
         <KeyFeatures />
       </section> */}
+
+      <CTASection 
+        title="Ready to build your AI workforce?"
+        description="Join innovative teams already using Eve to scale their operations."
+      />
 
       <Footer />
     </div>
