@@ -8,7 +8,7 @@ const SecuritySection: React.FC = () => {
         {/* Image Container - Left side */}
         <div className="w-full lg:basis-[42.8%] flex items-center justify-center scale-110 transform hover:scale-125 transition-transform duration-300">
           <img
-            src="/agentbuilder.png"
+            src="/agentsautomate.png"
             alt="Eve Security and Privacy"
             className="w-full h-auto object-contain rounded-2xl scale-110"
           />
