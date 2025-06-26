@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const FeaturedAgents: React.FC = () => (
+// Preload images for smoother hover transitions
+const preloadImages = () => {
+  const hoverImages = ['/sage2.png', '/alex2.png', '/nova3.png'];
+  hoverImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+};
+
+const FeaturedAgents: React.FC = () => {
+  useEffect(() => {
+    preloadImages();
+  }, []);
+
+  return (
   <section className="py-24 bg-gradient-to-t from-black to-[#04062D]">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24">
       <div className="text-center mb-16">
         <h2 className="text-brand-h1 font-comfortaa font-bold leading-tight text-[#FFFFFF] mb-3">
           Meet Your Stars
         </h2>
-        <p className="text-brand-base text-[#fefefe]/70 leading-tightfont-inter max-w-xl mx-auto">
+        <p className="text-brand-base text-[#fefefe]/70 leading-tight font-inter max-w-xl mx-auto">
           Discover the power of hiring digital employees that are ready to transform your workflow.
         </p>
       </div>
@@ -24,6 +38,7 @@ const FeaturedAgents: React.FC = () => (
               <img 
                 src="/sage2.png"
                 alt="Sage Agent Hover"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-contain drop-shadow-xl transition-opacity duration-300 opacity-0 group-hover:opacity-100"
               />
             </div>
@@ -50,6 +65,7 @@ const FeaturedAgents: React.FC = () => (
               <img 
                 src="/alex2.png"
                 alt="Alex Agent Hover"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-contain drop-shadow-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100"
               />
             </div>
@@ -77,6 +93,7 @@ const FeaturedAgents: React.FC = () => (
               <img 
                 src="/nova3.png"
                 alt="Nova Agent Hover"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-contain drop-shadow-xl transition-opacity duration-300 opacity-0 group-hover:opacity-100"
               />
             </div>
@@ -94,6 +111,7 @@ const FeaturedAgents: React.FC = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default FeaturedAgents; 
