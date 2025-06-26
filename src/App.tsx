@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useGoogleAnalytics } from './hooks/useGoogleAnalytics';
+import { useGoogleAnalytics, GA_EVENTS } from './hooks/useGoogleAnalytics';
 import { 
   Menu, 
   X, 
@@ -54,8 +54,18 @@ Extended Palette:
 */
 
 function App() {
-  useGoogleAnalytics();
+  const { trackEvent } = useGoogleAnalytics();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleGetStarted = () => {
+    trackEvent(GA_EVENTS.BUTTON.CATEGORY, GA_EVENTS.BUTTON.ACTIONS.CLICK_GET_STARTED);
+    window.location.href = 'https://app.witheve.ai/register';
+  };
+
+  const handleBookDemo = () => {
+    trackEvent(GA_EVENTS.BUTTON.CATEGORY, GA_EVENTS.BUTTON.ACTIONS.CLICK_BOOK_DEMO);
+    window.location.href = 'https://app.witheve.ai/demo';
+  };
 
   // --- Eve2 Scroll Animation Logic ---
   const eve2CardRef = useRef<HTMLDivElement>(null);
@@ -156,7 +166,7 @@ function App() {
                         focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
                         text-lg
                       "
-                      onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
+                      onClick={handleGetStarted}
                     >
                       Get started
                     </button>
@@ -174,7 +184,7 @@ function App() {
                         focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
                         text-lg
                       "
-                      onClick={() => { window.location.href = 'https://app.witheve.ai/demo'; }}
+                      onClick={handleBookDemo}
                     >
                       Book a demo
                     </button>
@@ -197,10 +207,14 @@ function App() {
         </section>
 
         {/* Solution Section */}
-        <SolutionSection />
+        <section id="view_solution">
+          <SolutionSection />
+        </section>
 
         {/* Build Your Own Agent Section */}
-        <BuildYourOwnAgent />
+        <section id="view_build_agent">
+          <BuildYourOwnAgent />
+        </section>
 
         {/* Values Section */}
         <ValuesSection />
