@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useGoogleAnalytics } from './hooks/useGoogleAnalytics';
 import { 
   Menu, 
   X, 
@@ -53,6 +54,7 @@ Extended Palette:
 */
 
 function App() {
+  useGoogleAnalytics();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // --- Eve2 Scroll Animation Logic ---
