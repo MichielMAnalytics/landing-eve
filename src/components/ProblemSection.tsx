@@ -8,10 +8,11 @@ const ProblemSection: React.FC = () => {
           Let your AI employees do the work.
         </h2>
         <div className="flex justify-center items-center w-full min-h-[200px] sm:min-h-[320px]">
-          {/* Placeholder for screenshot/image */}
-          <div className="w-full max-w-2xl h-[200px] sm:h-[320px] bg-[#eee] flex items-center justify-center rounded-xl">
-            <span className="text-[#888]">Screenshot Placeholder</span>
-          </div>
+          <img 
+            src="/eve1.png" 
+            alt="Eve AI Employee Interface"
+            className="w-full max-w-2xl object-cover rounded-xl"
+          />
         </div>
       </div>
     </section>

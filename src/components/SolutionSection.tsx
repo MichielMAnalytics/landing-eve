@@ -210,12 +210,12 @@ const SolutionSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 relative">
+    <section className="py-32 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
         {/* Section Header */}
         <div className="text-center mb-10 space-y-2">
           <h2 className="text-brand-h1 font-comfortaa font-bold leading-tight text-[#FFFFFF]">
-            Pick your new AI employees
+            Pick your AI helpers
           </h2>
           <p className="text-brand-base text-[#fefefe]/70 font-inter leading-tight max-w-2xl mx-auto">
             Specialized AI agents ready to take over your daily tasks and transform your workflow.
@@ -340,7 +340,7 @@ const SolutionSection: React.FC = () => {
                   <div 
                     className={`
                       rounded-3xl p-8 h-full group relative overflow-hidden
-                      border border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]
+                      border-2 border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]
                       transition-all duration-300 flex flex-col
                       ${
                         solution.name === "Alex" ? "bg-gradient-to-br from-[#6E3ADE] to-[#04062D]" :

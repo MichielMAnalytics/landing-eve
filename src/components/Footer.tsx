@@ -18,7 +18,7 @@ const Footer: React.FC = () => (
           <ul className="space-y-2 text-[#FFFFFF]/70 text-base font-inter">
             <li><a href="/" className="hover:text-[#FFFFFF] transition-colors">Home</a></li>
             <li><a href="/pricing" className="hover:text-[#FFFFFF] transition-colors">Pricing</a></li>
-            <li><a href="/products" className="hover:text-[#FFFFFF] transition-colors">Products</a></li>
+
           </ul>
         </div>
         <div className="col-span-1">

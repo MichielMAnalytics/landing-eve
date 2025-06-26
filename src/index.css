@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .lightblue-grid-bg {
-  background-color: #000;
+  background-color: #OOO;
   background-image:
     linear-gradient(to right, #04062D 0px, transparent 0px),
     linear-gradient(to bottom, #04062D 0px, transparent 0px);

@@ -21,15 +21,18 @@ import {
   Blocks,
   Cpu
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AgentUseCases from './components/AgentUseCases';
 import IntegrationShowcase from './components/IntegrationShowcase';
-import ProblemSection from './components/ProblemSection';
 import SolutionSection from './components/SolutionSection';
 import TypingEffect from './components/TypingEffect';
 import BuildYourOwnAgent from './components/BuildyourownAgent';
+import ConnectSafe from './components/ConnectSafe';
 import CTASection from './components/CTASection';
+import ValuesSection from './components/ValuesSection';
+import SecuritySection from './components/SecuritySection';
 
 // Brand Color Palette
 /*
@@ -114,110 +117,82 @@ function App() {
       
       {/* Hero Section */}
       <main>
-        <section className="min-h-[100dvh] grid grid-rows-[1fr_auto] md:block px-4 md:px-8" aria-label="Hero">
-          {/* Main Content Container */}
-          <div className="max-w-7xl mx-auto w-full h-full md:min-h-[calc(100vh-80px)] md:flex md:items-center md:justify-between">
-            {/* Mobile Layout */}
-            <div className="h-full grid grid-rows-[1fr_auto] md:hidden">
-              {/* Image Container */}
-              <div className="self-center py-12">
-                <img 
-                  src="/eve1.png" 
-                  alt="Eve AI employee illustration" 
-                  className="w-[65%] max-w-[280px] mx-auto rounded-xl object-contain" 
-                  loading="eager"
-                />
-              </div>
-              
-              {/* Text Content - Fixed at Bottom */}
-              <div className="self-end pb-16 mb-8">
-                <div className="space-y-2 mb-6">
-                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight">
-                    Work{' '}
-                    <TypingEffect 
-                      words={['smarter', 'harder', 'faster']} 
-                      speed={150}
-                      className="text-[#FFFFFF]"
-                    />
+        <section className="min-h-[120vh] bg-black pt-24 sm:pt-32" aria-label="Hero">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col items-center">
+            {/* Hero Text Content */}
+            <div className="text-center max-w-4xl mx-auto mb-16 sm:mb-24">
+              <div className="flex flex-col items-center justify-center">
+                <div className="text-center">
+                  <h1 className="text-brand-h10 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight mb-2">
+                    <div className="flex justify-center items-center gap-4">
+                      Work
+                      <TypingEffect 
+                        words={['smarter', 'harder', 'faster']} 
+                        speed={150}
+                        className="text-[#FFFFFF]"
+                      />
+                    </div>
                   </h1>
-                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight">
-                    Work with eve.
-                </h1>
-                  <p className="text-brand-base text-[#fefefe]/70 font-inter">
-                  Build, grow, and scale your work with a team of AI employees.
-                </p>
+                  <h1 className="text-brand-h10 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight mb-6">
+                    Work with eve
+                  </h1>
+                  <p className="text-brand-base text-[#fefefe]/70 leading-tight font-inter mb-8">
+                    Build, grow, and scale your work with a team of AI helpers.
+                  </p>
+                  <div className="grid grid-cols-2 gap-4 max-w-[500px] mx-auto w-full">
+                    <button 
+                      className="
+                        w-full
+                        inline-flex
+                        justify-center
+                        bg-gradient-to-r from-[#0E1593] to-[#04062D]
+                        text-white font-inter font-bold tracking-wide
+                        px-10 py-4
+                        border border-[rgba(216,217,236,0.5)] rounded-[12px]
+                        transition-all duration-200
+                        hover:shadow-xl hover:shadow-[#4F8CFF]/30
+                        focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
+                        text-lg
+                      "
+                      onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
+                    >
+                      Get started
+                    </button>
+                    <button 
+                      className="
+                        w-full
+                        inline-flex
+                        justify-center
+                        bg-transparent
+                        text-white font-inter font-bold tracking-wide
+                        px-10 py-4
+                        border border-[rgba(216,217,236,0.5)] rounded-[12px]
+                        transition-all duration-200
+                        hover:bg-white/5
+                        focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
+                        text-lg
+                      "
+                      onClick={() => { window.location.href = 'https://app.witheve.ai/demo'; }}
+                    >
+                      Book a demo
+                    </button>
+                  </div>
                 </div>
-                <button 
-                  className="
-                    inline-flex
-                    bg-gradient-to-r from-[#0E1593] to-[#04062D]
-                    text-white font-inter font-bold tracking-wide
-                    px-8 py-3.5
-                    border border-[rgba(216,217,236,0.2)] rounded-[12px]
-                    transition-all duration-200
-                    hover:shadow-2xl hover:shadow-[#4F8CFF]/60
-                    hover:scale-105
-                    focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
-                    text-base
-                  "
-                  aria-label="Get started with Eve"
-                  onClick={() => { window.location.href = 'https://app.witheve.ai/'; }}
-                >
-                  Get started
-                </button>
               </div>
             </div>
 
-            {/* Desktop Layout */}
-            <div className="hidden md:block w-full md:mt-16 lg:mt-24">
-              <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-row items-center gap-20">
-                <div className="flex-1">
-                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight mb-1">
-                    Work{' '}
-                    <TypingEffect 
-                      words={['smarter..', 'harder..', 'faster..']} 
-                      speed={150}
-                      className="text-[#FFFFFF]"
-                    />
-                  </h1>
-                  <h1 className="text-brand-h1 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight mb-4">
-                    Work with eve.
-                  </h1>
-                  <p className="text-brand-base text-[#fefefe]/70 leading-tight font-inter max-w-xl mb-6">
-                    Automate, delegate, and scale your work with a team of AI employees.
-                  </p>
-                  <button 
-                    className="
-                      inline-flex
-                      bg-gradient-to-r from-[#0E1593] to-[#04062D]
-                      text-white font-inter font-bold tracking-wide
-                      px-10 py-4
-                      border border-[rgba(216,217,236,0.2)] rounded-[12px]
-                      transition-all duration-200
-                      hover:shadow-xl hover:shadow-[#4F8CFF]/30
-                      focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
-                      text-lg
-                    "
-                    onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
-                  >
-                    Get started
-                  </button>
-                </div>
-                <div className="flex-1 flex justify-center items-center">
-                  <img 
-                    src="/eve1.png" 
-                    alt="Eve AI employee illustration" 
-                    className="w-full max-w-lg rounded-xl object-contain" 
-                    loading="eager"
-                  />
-                </div>
+            {/* Hero Image Container */}
+            <div className="w-full flex justify-center items-center mt-8">
+              <div className="w-full max-w-5xl rounded-2xl flex items-center justify-center">
+                <img
+                  src="/homepage.png"
+                  alt="Eve Agent Builder Interface"
+                  className="w-full h-auto object-contain rounded-2xl border-2 border-[rgba(216,217,236,0.5)]"
+                />
               </div>
             </div>
           </div>
         </section>
-
-        {/* Problem Section */}
-        <ProblemSection />
 
         {/* Solution Section */}
         <SolutionSection />
@@ -225,12 +200,15 @@ function App() {
         {/* Build Your Own Agent Section */}
         <BuildYourOwnAgent />
 
+        {/* Values Section */}
+        <ValuesSection />
+
         {/* Fullscreen Centered Header Section */}
         <section className="w-full min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center bg-black py-16 sm:py-20" aria-label="Key benefit">
           <div className="max-w-2xl sm:max-w-3xl mx-auto px-4">
-            <h2 className="text-brand-h1 font-comfortaa font-bold text-white text-center leading-tight break-words">
-              Automates work.<br />
-              Even while you sleep.
+            <h2 className="text-brand-h10 font-comfortaa font-bold text-white text-center leading-tight break-words">
+              Automates work,<br />
+              even while you sleep
             </h2>
           </div>
         </section>
@@ -238,6 +216,10 @@ function App() {
         <AgentUseCases />
 
         <IntegrationShowcase />
+
+        <ConnectSafe />
+
+        <SecuritySection />
 
         <CTASection />
       </main>

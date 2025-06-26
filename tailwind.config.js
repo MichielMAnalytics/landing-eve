@@ -8,8 +8,18 @@ export default {
         inter: ['Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {
+        'brand-h10': [
+          '4rem', // mobile base (32px) (was 2rem)
+          {
+            lineHeight: '2rem',
+            fontWeight: '700',
+            letterSpacing: '-0.01em',
+            '@screen sm': { fontSize: '3rem' }, // 40px
+            '@screen md': { fontSize: '3.5rem' },   // 48px
+          }
+        ],
         'brand-h1': [
-          '2.5rem', // mobile base (32px) (was 2rem)
+          '2rem', // mobile base (32px) (was 2rem)
           {
             lineHeight: '2rem',
             fontWeight: '700',
@@ -37,11 +47,11 @@ export default {
           }
         ],
         'brand-base': [
-          '1.4rem', // 16px
+          '1.2rem', // 16px
           {
-            lineHeight: '1.4rem',
+            lineHeight: '1.2rem',
             fontWeight: '300',
-            '@screen sm': { fontSize: '1.4rem' }, // 18px
+            '@screen sm': { fontSize: '1.2rem' }, // 18px
           }
         ],
         'brand-sm': [
