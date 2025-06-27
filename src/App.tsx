@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useGoogleAnalytics, GA_EVENTS } from './hooks/useGoogleAnalytics';
 import { 
@@ -56,10 +56,65 @@ Extended Palette:
 - Magenta: #DB2777
 */
 
+// Aggressive image preloading
+const CRITICAL_IMAGES = [
+  '/homepage.png',
+  '/eve_showcase.png',
+  '/vira2.png',
+  '/rob2.png'
+];
+
+// Preload images immediately, don't wait for component mount
+CRITICAL_IMAGES.forEach(src => {
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = src;
+  document.head.appendChild(link);
+
+  // Also create an image object to force browser to load it
+  const img = new Image();
+  img.src = src;
+});
+
+const preloadImages = () => {
+  return Promise.all(
+    CRITICAL_IMAGES.map(src => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(src);
+        img.onerror = () => reject(src);
+        img.src = src;
+      });
+    })
+  ).catch(error => {
+    console.warn('Image preloading had some failures:', error);
+  });
+};
+
 function HomePage() {
   const { trackEvent } = useGoogleAnalytics();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const navigate = useNavigate();
+
+  // Force immediate image loading
+  useEffect(() => {
+    const loadImages = async () => {
+      await preloadImages();
+      setImagesLoaded(true);
+    };
+    
+    loadImages();
+
+    // Double-check images are loaded
+    window.requestIdleCallback?.(() => {
+      CRITICAL_IMAGES.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+    });
+  }, []);
 
   const handleGetStarted = () => {
     trackEvent(GA_EVENTS.BUTTON.CATEGORY, GA_EVENTS.BUTTON.ACTIONS.CLICK_GET_STARTED);
@@ -72,18 +127,18 @@ function HomePage() {
   };
 
   return (
-    <div className="min-h-screen lightblue-grid-bg">
+    <div className="min-h-screen lightblue-grid-bg overscroll-none">
       <Navbar currentPage="home" />
       
       {/* Hero Section */}
-      <main>
-        <section className="min-h-screen bg-black sm:pt-24 md:pt-32" aria-label="Hero">
+      <main className="transform-gpu">
+        <section className="min-h-screen bg-black sm:pt-24 md:pt-32 will-change-transform" aria-label="Hero">
           <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col items-center">
             {/* Hero Text Content */}
             <div className="text-center w-full max-w-4xl mx-auto mt-[20vh] sm:mt-0 mb-4 sm:mb-16 md:mb-24">
               <div className="flex flex-col items-center justify-center">
                 <div className="text-center w-full">
-                  <h1 className="font-comfortaa text-[#FFFFFF] leading-[1.1] mb-0 sm:mb-2 text-[3rem] sm:text-[4rem]">
+                  <h1 className="font-comfortaa text-[#FFFFFF] leading-[1.1] mb-0 sm:mb-2 text-[3rem] sm:text-[4rem] transform-gpu">
                     <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
                       Work{" "}
                       <TypingEffect 
@@ -143,11 +198,13 @@ function HomePage() {
 
             {/* Hero Image Container */}
             <div className="w-full flex justify-center items-center mt-12 sm:mt-8">
-              <div className="w-full max-w-5xl rounded-2xl flex items-center justify-center px-6 sm:px-4">
+              <div className="w-full max-w-5xl rounded-2xl flex items-center justify-center px-6 sm:px-4 transform-gpu">
                 <img
                   src="/homepage.png"
                   alt="Eve Agent Builder Interface"
                   className="w-full h-auto object-contain rounded-2xl border-2 border-[rgba(216,217,236,0.5)]"
+                  loading="eager"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -155,29 +212,32 @@ function HomePage() {
         </section>
 
         {/* Solution Section */}
-        <section id="view_solution">
-        <SolutionSection />
+        <section id="view_solution" className="will-change-transform">
+          <SolutionSection />
         </section>
 
         {/* Build Your Own Agent Section */}
-        <section id="view_build_agent">
-        <BuildYourOwnAgent />
+        <section id="view_build_agent" className="will-change-transform">
+          <BuildYourOwnAgent />
         </section>
 
         {/* Values Section
         <ValuesSection /> */}
 
         {/* Fullscreen Centered Header Section */}
-        <section className="w-full min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center bg-black py-16 sm:py-20" aria-label="Key benefit">
+        <section className="w-full min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center bg-black py-16 sm:py-20 will-change-transform" aria-label="Key benefit">
           <div className="max-w-2xl sm:max-w-3xl mx-auto px-4">
-            <h2 className="text-brand-h10 font-comfortaa font-bold text-white text-center leading-tight text-[3rem] sm:text-[4rem] break-words">
+            <h2 className="text-brand-h10 font-comfortaa font-bold text-white text-center leading-tight text-[3rem] sm:text-[4rem] break-words transform-gpu">
               Automates work,<br />
               even while you sleep
             </h2>
           </div>
         </section>
 
-        <AgentUseCases />
+        {/* Only render AgentUseCases when images are loaded */}
+        <div className={`transition-opacity duration-300 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <AgentUseCases />
+        </div>
 
         <IntegrationShowcase />
 
