@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+interface ApiResponse {
+  message: string;
+  contactId: string;
+}
+
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -13,38 +18,86 @@ const Contact: React.FC = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [id]: value
     }));
+    
+    // Reset form status when user starts typing
+    if (submitStatus !== 'idle') {
+      setSubmitStatus('idle');
+      setErrorMessage('');
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Clean up website URL
-    let website = formData.website.trim().toLowerCase();
-    if (!website.startsWith('http://') && !website.startsWith('https://')) {
-      website = 'https://' + website;
+  const submitToApi = async (payload: any): Promise<ApiResponse> => {
+    const response = await fetch('https://app.witheve.ai/api/enterprise-contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`API Error (${response.status}): ${errorText || 'Failed to submit form'}`);
     }
+
+    return response.json() as Promise<ApiResponse>;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
     
-    // Prepare email content
-    const emailSubject = `Demo Request from ${formData.firstName} ${formData.lastName} - ${formData.company}`;
-    const emailBody = `
-Name: ${formData.firstName} ${formData.lastName}
-Email: ${formData.email}
-Job Title: ${formData.jobTitle}
-Company: ${formData.company}
-Website: ${website}
+    try {
+      // Clean up website URL
+      let website = formData.website.trim();
+      if (website && !website.startsWith('http://') && !website.startsWith('https://')) {
+        website = 'https://' + website;
+      }
 
-Challenges to solve:
-${formData.message}
-    `.trim();
+      // Map form data to API payload structure
+      const payload = {
+        firstName: formData.firstName.trim(),
+        lastName: formData.lastName.trim(),
+        workEmail: formData.email.trim(),
+        companyWebsite: website,
+        problemToSolve: formData.message.trim(),
+        additionalInfo: `Job Title: ${formData.jobTitle.trim()}, Company: ${formData.company.trim()}`
+      };
 
-    // Open default email client with pre-filled content
-    window.location.href = `mailto:hidde@witheve.ai?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      await submitToApi(payload);
+      
+      setSubmitStatus('success');
+      
+      // Reset form after successful submission
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        jobTitle: '',
+        company: '',
+        website: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'An unexpected error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -168,11 +221,30 @@ ${formData.message}
               />
             </div>
 
+            {/* Success Message */}
+            {submitStatus === 'success' && (
+              <div className="mb-6 p-4 rounded-xl bg-green-900/30 border border-green-500/50 text-green-400">
+                <p className="font-inter">✅ Thank you! Your demo request has been submitted successfully. We'll be in touch soon.</p>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {submitStatus === 'error' && (
+              <div className="mb-6 p-4 rounded-xl bg-red-900/30 border border-red-500/50 text-red-400">
+                <p className="font-inter">❌ {errorMessage}</p>
+              </div>
+            )}
+
             <button
               type="submit"
-                className="w-full bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-inter font-bold tracking-wide px-10 py-4 border-2 border-[rgba(216,217,236,0.5)] rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-[#4F8CFF]/30 focus:outline-none focus:ring-2 focus:ring-[rgba(216,217,236,0.8)] text-lg"
+              disabled={isSubmitting}
+              className={`w-full font-inter font-bold tracking-wide px-10 py-4 border-2 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[rgba(216,217,236,0.8)] text-lg ${
+                isSubmitting 
+                  ? 'bg-gray-600 border-gray-500 text-gray-300 cursor-not-allowed' 
+                  : 'bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white border-[rgba(216,217,236,0.5)] hover:shadow-xl hover:shadow-[#4F8CFF]/30'
+              }`}
             >
-              Book Demo
+              {isSubmitting ? 'Submitting...' : 'Book Demo'}
             </button>
           </form>
         </div>
