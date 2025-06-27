@@ -160,8 +160,8 @@ function App() {
         <BuildYourOwnAgent />
         </section>
 
-        {/* Values Section */}
-        <ValuesSection />
+        {/* Values Section
+        <ValuesSection /> */}
 
         {/* Fullscreen Centered Header Section */}
         <section className="w-full min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center bg-black py-16 sm:py-20" aria-label="Key benefit">
