@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => (
   <footer className="bg-[#000000] border-t-2 border-[#0E0E0E] py-12">
@@ -16,9 +17,9 @@ const Footer: React.FC = () => (
         <div className="col-span-1">
           <h4 className="font-bold mb-4 text-[#FFFFFF] font-comfortaa tracking-tight">Product</h4>
           <ul className="space-y-2 text-[#FFFFFF]/70 text-base font-inter">
-            <li><a href="/" className="hover:text-[#FFFFFF] transition-colors">Home</a></li>
-            <li><a href="/pricing" className="hover:text-[#FFFFFF] transition-colors">Pricing</a></li>
-
+            <li><Link to="/" className="hover:text-[#FFFFFF] transition-colors">Home</Link></li>
+            <li><Link to="/pricing" className="hover:text-[#FFFFFF] transition-colors">Pricing</Link></li>
+            <li><Link to="/contact" className="hover:text-[#FFFFFF] transition-colors">Contact</Link></li>
           </ul>
         </div>
         <div className="col-span-1">
