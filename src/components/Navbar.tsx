@@ -34,13 +34,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
 
             <div className="flex items-center space-x-3">
               <button 
-                className="bg-gradient-to-r from-[#0E1593] to-[#04062D] border border-[rgba(216,217,236,0.2)] text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20 font-inter"
+                className="bg-gradient-to-r from-[#0E1593] to-[#04062D] border border-[rgba(216,217,236,0.5)] text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20 font-inter"
                 onClick={() => { window.location.href = 'https://app.witheve.ai/'; }}
               >
                 Login
               </button>
               <button 
-                className="border border-[rgba(216,217,236,0.3)] text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-300 hover:bg-white/10 font-inter"
+                className="border border-[rgba(216,217,236,0.5)] text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-300 hover:bg-white/10 font-inter"
                 onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
               >
                 Get Started

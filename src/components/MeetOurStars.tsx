@@ -111,7 +111,7 @@ const FeaturedAgents: React.FC = () => {
       </div>
     </div>
   </section>
-  );
+);
 };
 
 export default FeaturedAgents; 

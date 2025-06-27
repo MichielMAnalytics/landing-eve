@@ -77,24 +77,24 @@ const IntegrationShowcase: React.FC = () => {
         {/* Text Content */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:basis-[57.2%] lg:pl-8">
           <div className="space-y-2 mb-6">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
               className="text-brand-h1 font-comfortaa font-bold text-white leading-tight"
-            >
-              Integrates with your favorite systems
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
+          >
+              Safely connect to your favorite tools
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            viewport={{ once: true }}
               className="text-brand-base text-white/70 font-inter leading-tight max-w-xl mx-auto lg:mx-0"
-            >
-              Streamline your business processes by bringing your favorite tools and AI helpers together. AI for business makes working with integrations easier than ever.
-            </motion.p>
+          >
+            Streamline your business processes by bringing your favorite tools and AI helpers together. AI for business makes working with integrations easier than ever.
+          </motion.p>
           </div>
           {/* Text Content
           <motion.div

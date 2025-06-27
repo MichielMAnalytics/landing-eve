@@ -15,7 +15,7 @@ const ConnectSafe: React.FC = () => {
             viewport={{ once: true }}
             className="text-brand-h1 font-comfortaa font-bold text-white mb-2 leading-tight"
           >
-            Connect safely
+            Switch, tag, collaborate
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -24,7 +24,7 @@ const ConnectSafe: React.FC = () => {
             viewport={{ once: true }}
             className="text-brand-base text-white/70 font-inter leading-tight max-w-[90%] pr-8 mb-4 mx-auto lg:mx-0"
           >
-            Eve ensures your data stays secure and private. Connect your tools with peace of mind.
+            Let agents collaborate with each other and your tools.
           </motion.p>
           {/* Button container
           <motion.div
@@ -46,7 +46,7 @@ const ConnectSafe: React.FC = () => {
         {/* Image Container - Right side */}
         <div className="w-full lg:basis-[42.8%] flex items-center justify-center scale-110 transform hover:scale-125 transition-transform duration-300">
           <img
-            src="/agentbuilder.png"
+            src="/agentsautomate.png"
             alt="Eve Security and Privacy"
             className="w-full h-auto object-contain rounded-2xl scale-110"
           />

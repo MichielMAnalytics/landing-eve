@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useGoogleAnalytics, GA_EVENTS } from './hooks/useGoogleAnalytics';
 import { 
   Menu, 
@@ -67,62 +67,6 @@ function App() {
     window.location.href = 'https://app.witheve.ai/demo';
   };
 
-  // --- Eve2 Scroll Animation Logic ---
-  const eve2CardRef = useRef<HTMLDivElement>(null);
-  const eve2SectionRef = useRef<HTMLDivElement>(null);
-  const [eve2Scroll, setEve2Scroll] = useState(0); // 0 = hidden, 1 = fully up
-  const [scrollLocked, setScrollLocked] = useState(false);
-
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (!eve2SectionRef.current || !eve2CardRef.current) return;
-      const section = eve2SectionRef.current;
-      const card = eve2CardRef.current;
-      const sectionRect = section.getBoundingClientRect();
-      const cardRect = card.getBoundingClientRect();
-      const windowH = window.innerHeight || document.documentElement.clientHeight;
-      // Only activate scroll-jack when section is in view
-      if (sectionRect.top < windowH && sectionRect.bottom > 0) {
-        // Lock scroll if not already
-        if (!scrollLocked) setScrollLocked(true);
-        // Map scroll progress to agent animation
-        const start = windowH * 0.8;
-        const end = windowH * 0.4;
-        const progress = (start - cardRect.top) / (start - end);
-        const clamped = Math.min(1, Math.max(0, progress));
-        setEve2Scroll(clamped);
-        // If fully revealed, unlock scroll
-        if (clamped === 1 && scrollLocked) setScrollLocked(false);
-      } else {
-        setEve2Scroll(0);
-        setScrollLocked(false);
-      }
-      ticking = false;
-    };
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(handleScroll);
-        ticking = true;
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: false });
-    handleScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [scrollLocked]);
-
-  // Lock scroll by setting body overflow
-  useEffect(() => {
-    if (scrollLocked) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [scrollLocked]);
-
   return (
     <div className="min-h-screen lightblue-grid-bg">
       <Navbar currentPage="home" />
@@ -138,12 +82,12 @@ function App() {
                   <h1 className="text-brand-h10 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight mb-2">
                     <div className="flex justify-center items-center gap-4">
                       Work
-                      <TypingEffect 
-                        words={['smarter', 'harder', 'faster']} 
-                        speed={150}
-                        className="text-[#FFFFFF]"
-                      />
-                    </div>
+                    <TypingEffect 
+                      words={['smarter', 'harder', 'faster']} 
+                      speed={150}
+                      className="text-[#FFFFFF]"
+                    />
+            </div>
                   </h1>
                   <h1 className="text-brand-h10 font-bold font-comfortaa tracking-tight text-[#FFFFFF] leading-tight mb-6">
                     Work with eve
@@ -152,24 +96,24 @@ function App() {
                     Build, grow, and scale your work with a team of AI helpers.
                   </p>
                   <div className="grid grid-cols-2 gap-4 max-w-[500px] mx-auto w-full">
-                    <button 
-                      className="
+                  <button 
+                    className="
                         w-full
-                        inline-flex
+                      inline-flex
                         justify-center
-                        bg-gradient-to-r from-[#0E1593] to-[#04062D]
-                        text-white font-inter font-bold tracking-wide
-                        px-10 py-4
+                      bg-gradient-to-r from-[#0E1593] to-[#04062D]
+                      text-white font-inter font-bold tracking-wide
+                      px-10 py-4
                         border border-[rgba(216,217,236,0.5)] rounded-[12px]
-                        transition-all duration-200
-                        hover:shadow-xl hover:shadow-[#4F8CFF]/30
-                        focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
-                        text-lg
-                      "
+                      transition-all duration-200
+                      hover:shadow-xl hover:shadow-[#4F8CFF]/30
+                      focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
+                      text-lg
+                    "
                       onClick={handleGetStarted}
-                    >
-                      Get started
-                    </button>
+                  >
+                    Get started
+                  </button>
                     <button 
                       className="
                         w-full
@@ -188,7 +132,7 @@ function App() {
                     >
                       Book a demo
                     </button>
-                  </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -208,12 +152,12 @@ function App() {
 
         {/* Solution Section */}
         <section id="view_solution">
-          <SolutionSection />
+        <SolutionSection />
         </section>
 
         {/* Build Your Own Agent Section */}
         <section id="view_build_agent">
-          <BuildYourOwnAgent />
+        <BuildYourOwnAgent />
         </section>
 
         {/* Values Section */}

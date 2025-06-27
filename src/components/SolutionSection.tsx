@@ -252,12 +252,12 @@ const SolutionSection: React.FC = () => {
                       border border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]
                       transition-all duration-300 flex flex-col
                       ${
-                        solution.name === "Alex" ? "bg-gradient-to-br from-[#6E3ADE] to-[#04062D]" :
-                        solution.name === "Sage" ? "bg-gradient-to-br from-[#0EA5E9] to-[#04062D]" :
-                        solution.name === "Zen" ? "bg-gradient-to-br from-[#F69902] to-[#04062D]" :
-                        solution.name === "Finn" ? "bg-gradient-to-br from-[#00B37E] to-[#04062D]" :
-                        solution.name === "Maya" ? "bg-gradient-to-br from-[#E42800] to-[#04062D]" :
-                        "bg-gradient-to-br from-[#FFD600] to-[#04062D]"
+                        solution.name === "Alex" ? "bg-gradient-to-br from-[#6E3ADE] to-[#6E3ADEBF]" :
+                        solution.name === "Sage" ? "bg-gradient-to-br from-[#0EA5E9] to-[#0EA5E9BF]" :
+                        solution.name === "Zen" ? "bg-gradient-to-br from-[#F69902] to-[#F69902BF]" :
+                        solution.name === "Finn" ? "bg-gradient-to-br from-[#00B37E] to-[#00B37EBF]" :
+                        solution.name === "Maya" ? "bg-gradient-to-br from-[#E42800] to-[#E42800BF]" :
+                        "bg-gradient-to-br from-[#FFD600] to-[#FFD600BF]"
                       }
                     `}
                   >
@@ -343,12 +343,12 @@ const SolutionSection: React.FC = () => {
                       border-2 border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]
                       transition-all duration-300 flex flex-col
                       ${
-                        solution.name === "Alex" ? "bg-gradient-to-br from-[#6E3ADE] to-[#04062D]" :
-                        solution.name === "Sage" ? "bg-gradient-to-br from-[#0EA5E9] to-[#04062D]" :
-                        solution.name === "Zen" ? "bg-gradient-to-br from-[#F69902] to-[#04062D]" :
-                        solution.name === "Finn" ? "bg-gradient-to-br from-[#00B37E] to-[#04062D]" :
-                        solution.name === "Maya" ? "bg-gradient-to-br from-[#E42800] to-[#04062D]" :
-                        "bg-gradient-to-br from-[#FFD600] to-[#04062D]"
+                        solution.name === "Alex" ? "bg-gradient-to-br from-[#6E3ADE] to-[#6E3ADEBF]" :
+                        solution.name === "Sage" ? "bg-gradient-to-br from-[#0EA5E9] to-[#0EA5E9BF]" :
+                        solution.name === "Zen" ? "bg-gradient-to-br from-[#F69902] to-[#F69902BF]" :
+                        solution.name === "Finn" ? "bg-gradient-to-br from-[#00B37E] to-[#00B37EBF]" :
+                        solution.name === "Maya" ? "bg-gradient-to-br from-[#E42800] to-[#E42800BF]" :
+                        "bg-gradient-to-br from-[#FFD600] to-[#FFD600BF]"
                       }
                     `}
                   >

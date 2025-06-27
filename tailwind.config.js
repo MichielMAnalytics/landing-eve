@@ -80,7 +80,23 @@ export default {
           '50%': { transform: 'translateY(-8px)' },
         },
       },
+      colors: {
+        'brand-blue': '#0E1593',
+        'brand-dark': '#04062D',
+        'brand-black': '#0E0E0E',
+        'brand-white': '#FFFFFF',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addBase }) {
+      addBase({
+        '::-webkit-scrollbar': { display: 'none' },
+        '*': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+        },
+      });
+    },
+  ],
 };
