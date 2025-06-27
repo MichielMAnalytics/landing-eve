@@ -31,7 +31,7 @@ const ConnectSafe: React.FC = () => {
         {/* Image Container */}
         <div className="w-[80%] sm:w-full lg:basis-[42.8%] flex items-center justify-center mb-6 sm:mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-300">
           <img
-            src="/agentsautomate.png"
+            src="/switch.png"
             alt="Eve Security and Privacy"
             className="w-full h-auto object-contain rounded-2xl scale-90 sm:scale-110"
           />

@@ -6,11 +6,11 @@ const SecuritySection: React.FC = () => {
     <section className="relative pt-8 sm:pt-8 md:pt-12 pb-24 sm:pb-36 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-12 lg:gap-12">
         {/* Image Container */}
-        <div className="w-[80%] sm:w-full lg:basis-[42.8%] flex items-center justify-center mb-6 sm:mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-300">
+        <div className="w-[80%] sm:w-full lg:basis-[42.8%] flex items-center justify-center mb-6 sm:mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-300 max-w-[600px]">
           <img
-            src="/agentsautomate.png"
+            src="/automate.png"
             alt="Eve Security and Privacy"
-            className="w-full h-auto object-contain rounded-2xl scale-90 sm:scale-110"
+            className="w-full h-auto object-contain rounded-2xl scale-90 sm:scale-110 max-h-[500px]"
           />
         </div>
 
