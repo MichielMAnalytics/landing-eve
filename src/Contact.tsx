@@ -198,7 +198,7 @@ const Contact: React.FC = () => {
                 value={formData.website}
                 onChange={handleChange}
                 placeholder="example.com"
-                pattern="^([a-zA-Z0-9]+\.)?[a-zA-Z0-9][a-zA-Z0-9-]+\.[a-zA-Z]{2,}$"
+                pattern="^[a-zA-Z0-9][a-zA-Z0-9-]*\.[a-zA-Z]{2,}$"
                 title="Enter your domain (e.g., example.com)"
                 required
                 className="w-full px-4 py-3 rounded-xl bg-black/50 border border-[rgba(216,217,236,0.2)] text-white placeholder-white/30 focus:outline-none focus:border-[rgba(216,217,236,0.8)] transition-colors"
