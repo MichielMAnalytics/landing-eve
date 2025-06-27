@@ -8,7 +8,7 @@ const logoSets = [
     { src: "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico", alt: "Gmail" },
     { src: "https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/outlook_48x1.svg", alt: "Outlook" },
     { src: "https://cdn-icons-png.flaticon.com/512/2702/2702602.png", alt: "Google Drive" },
-    { src: "https://cdn.worldvectorlogo.com/logos/figma-1.svg", alt: "Figma" },
+    { src: "https://static.figma.com/app/icon/1/favicon.svg", alt: "Figma" },
     { src: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg", alt: "Zoom" },
     { src: "https://cdn.worldvectorlogo.com/logos/hubspot-1.svg", alt: "HubSpot" },
   ],
