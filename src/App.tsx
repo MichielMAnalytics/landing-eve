@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useGoogleAnalytics, GA_EVENTS } from './hooks/useGoogleAnalytics';
+import useTermly from './hooks/useTermly';
+import TermlyContainer from './components/TermlyContainer';
 import { 
   Menu, 
   X, 
@@ -59,31 +61,31 @@ Extended Palette:
 - Magenta: #DB2777
 */
 
-// Aggressive image preloading
+// Critical images that need to be preloaded immediately
 const CRITICAL_IMAGES = [
   '/homepage.png',
   '/eve_showcase.png',
   '/vira2.png',
-  '/rob2.png'
+  '/rob2.png',
+  '/autoeve-logo.png'
 ];
 
-// Preload images immediately, don't wait for component mount
-CRITICAL_IMAGES.forEach(src => {
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'image';
-  link.href = src;
-  document.head.appendChild(link);
+// Preload images using link tags in head
+const preloadWithLinkTags = () => {
+  CRITICAL_IMAGES.forEach(src => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = src;
+    document.head.appendChild(link);
+  });
+};
 
-  // Also create an image object to force browser to load it
-  const img = new Image();
-  img.src = src;
-});
-
-const preloadImages = () => {
+// Preload images using Image object
+const preloadWithImageObject = () => {
   return Promise.all(
     CRITICAL_IMAGES.map(src => {
-      return new Promise((resolve, reject) => {
+      return new Promise<string>((resolve, reject) => {
         const img = new Image();
         img.onload = () => resolve(src);
         img.onerror = () => reject(src);
@@ -101,23 +103,26 @@ function HomePage() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const navigate = useNavigate();
 
-  // Force immediate image loading
   useEffect(() => {
+    // Execute both preloading strategies
+    preloadWithLinkTags();
+    
     const loadImages = async () => {
-      await preloadImages();
+      await preloadWithImageObject();
       setImagesLoaded(true);
     };
     
     loadImages();
-
-    // Double-check images are loaded
-    window.requestIdleCallback?.(() => {
-      CRITICAL_IMAGES.forEach(src => {
-        const img = new Image();
-        img.src = src;
-      });
-    });
   }, []);
+
+  // Only render content when images are loaded
+  if (!imagesLoaded) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-white font-inter">Loading...</div>
+      </div>
+    );
+  }
 
   const handleGetStarted = () => {
     trackEvent(GA_EVENTS.BUTTON.CATEGORY, GA_EVENTS.BUTTON.ACTIONS.CLICK_GET_STARTED);
@@ -146,7 +151,7 @@ function HomePage() {
                       Work{" "}
                       <TypingEffect 
                         words={['smarter', 'harder', 'faster']} 
-                        speed={150}
+                        speed={125}
                         className="text-[#FFFFFF]"
                       />
                     </div>
@@ -166,7 +171,7 @@ function HomePage() {
                         bg-gradient-to-r from-[#0E1593] to-[#04062D]
                         text-white font-inter font-bold tracking-wide
                         px-6 py-[14px] sm:px-10 sm:py-4
-                        border border-[rgba(216,217,236,0.5)] rounded-[12px]
+                        border-2 border-[rgba(216,217,236,0.5)] rounded-[12px]
                         transition-all duration-200
                         hover:shadow-xl hover:shadow-[#4F8CFF]/30
                         focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
@@ -184,7 +189,7 @@ function HomePage() {
                         bg-transparent
                         text-white font-inter font-bold tracking-wide
                         px-6 py-[14px] sm:px-10 sm:py-4
-                        border border-[rgba(216,217,236,0.5)] rounded-[12px]
+                        border-2 border-[rgba(216,217,236,0.5)] rounded-[12px]
                         transition-all duration-200
                         hover:bg-white/5
                         focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
@@ -257,15 +262,21 @@ function HomePage() {
 }
 
 function App() {
+  // Initialize Termly
+  useTermly();
+
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/pricing" element={<Pricing />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/terms" element={<Terms />} />
-      <Route path="/privacy" element={<Privacy />} />
-      <Route path="/cookies" element={<Cookies />} />
-    </Routes>
+    <>
+      <TermlyContainer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/cookies" element={<Cookies />} />
+      </Routes>
+    </>
   );
 }
 

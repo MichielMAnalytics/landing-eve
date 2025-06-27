@@ -37,14 +37,14 @@ const TypingEffect: React.FC<TypingEffectProps> = ({
         // Pause at the end before deleting
         const timer = setTimeout(() => {
           setIsDeleting(true);
-        }, 2000);
+        }, 1200);
         
         return () => clearTimeout(timer);
       }
       
       const timer = setTimeout(() => {
         setCurrentText(currentWord.slice(0, currentText.length + 1));
-      }, speed);
+      }, speed * 0.6);
       
       return () => clearTimeout(timer);
     }

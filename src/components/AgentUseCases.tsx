@@ -1,9 +1,28 @@
 import React from 'react';
 
+interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  src: string;
+  alt: string;
+}
+
+const OptimizedImage: React.FC<ImageProps> = ({ src, alt, className, ...props }) => (
+  <img
+    src={src}
+    alt={alt}
+    className={`${className} select-none pointer-events-none`}
+    loading="eager"
+    decoding="sync"
+    fetchPriority="high"
+    draggable="false"
+    onContextMenu={(e) => e.preventDefault()}
+    {...props}
+  />
+);
+
 const AgentUseCases: React.FC = () => (
   <section className="py-16 lg:py-32 transform-gpu">
     <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 xl:px-32 flex flex-col gap-8 lg:gap-16">
-      {/* Top Card - Alex */}
+      {/* Top Card - Eve */}
       <div className="relative bg-gradient-to-br from-[#0E1593] to-[#0E1593BF] rounded-3xl shadow-2xl flex flex-col lg:flex-row items-center p-8 lg:p-20 overflow-hidden min-h-[340px] lg:min-h-[420px] border-2 border-[rgba(216,217,236,0.8)] will-change-transform">
         {/* Text */}
         <div className="flex-1 z-10 flex flex-col justify-center text-center lg:text-left space-y-2">
@@ -17,13 +36,10 @@ const AgentUseCases: React.FC = () => (
         {/* Image Container */}
         <div className="flex-1 flex justify-center lg:justify-end items-end relative z-20 mt-4 lg:mt-0">
           <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] lg:w-auto lg:h-auto transform-gpu">
-            <img
+            <OptimizedImage
               src="/eve_showcase.png"
-              alt="Alex scheduling meetings"
+              alt="Eve handling emails"
               className="w-full h-full object-contain drop-shadow-2xl lg:w-auto lg:h-[320px] scale-110 lg:translate-y-[30px] lg:scale-[1.3] transform-gpu"
-              loading="eager"
-              decoding="sync"
-              fetchPriority="high"
             />
           </div>
         </div>
@@ -43,13 +59,10 @@ const AgentUseCases: React.FC = () => (
           </div>
           <div className="flex w-full justify-center items-end relative z-20">
             <div className="relative w-[280px] h-[280px] sm:w-[240px] sm:h-[240px] lg:w-auto lg:h-auto transform-gpu">
-              <img 
+              <OptimizedImage 
                 src="/vira2.png" 
                 alt="Vira viral content" 
                 className="w-full h-full object-contain drop-shadow-2xl lg:w-auto lg:h-[250px] scale-110 lg:translate-y-[20px] lg:scale-[1.15] transform-gpu"
-                loading="eager"
-                decoding="sync"
-                fetchPriority="high"
               />
             </div>
           </div>
@@ -67,13 +80,10 @@ const AgentUseCases: React.FC = () => (
           </div>
           <div className="flex w-full justify-center items-end relative z-20">
             <div className="relative w-[280px] h-[280px] sm:w-[240px] sm:h-[240px] lg:w-auto lg:h-auto transform-gpu">
-              <img 
+              <OptimizedImage 
                 src="/rob2.png" 
                 alt="Rob recruitment process" 
                 className="w-full h-full object-contain drop-shadow-2xl lg:w-auto lg:h-[250px] scale-110 lg:translate-y-[20px] lg:scale-[1.15] transform-gpu"
-                loading="eager"
-                decoding="sync"
-                fetchPriority="high"
               />
             </div>
           </div>
