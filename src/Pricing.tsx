@@ -85,7 +85,7 @@ const Pricing: React.FC = () => {
         {/* Main Pricing Content */}
         <section className="py-32" aria-label="Pricing Plans">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h1 className="text-brand-h1 font-comfortaa font-bold text-[#FFFFFF] mb-4 leading-tight">Choose your plan</h1>
+            <h1 className="text-brand-h10 font-comfortaa font-bold text-[#FFFFFF] mb-4 leading-tight text-[3rem] sm:text-[4rem]">Choose your plan</h1>
             <p className="text-brand-base text-[#FFFFFF]/70 font-inter mb-10 max-w-2xl mx-auto leading-tight">
               Simple, transparent pricing. No hidden fees. Choose the plan that fits your team.
             </p>
@@ -148,7 +148,7 @@ const Pricing: React.FC = () => {
         {/* FAQ Section */}
         <section className="py-20" aria-label="Frequently Asked Questions">
           <div className="max-w-4xl mx-auto px-4">
-            <h2 className="text-brand-h2 font-comfortaa font-bold text-[#FFFFFF] mb-8 text-center leading-tight">Frequently Asked Questions</h2>
+            <h2 className="text-brand-h1 font-comfortaa font-bold text-[#FFFFFF] mb-8 text-center leading-tight">Frequently Asked Questions</h2>
             <div className="space-y-6" role="list">
               {faqs.map((faq, idx) => (
                 <div 

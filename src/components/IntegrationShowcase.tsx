@@ -51,9 +51,9 @@ const IntegrationShowcase: React.FC = () => {
 
   return (
     <section className="relative pt-16 sm:pt-24 md:pt-32 pb-8 sm:pb-8 md:pb-12 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-12 lg:gap-12">
         {/* Integrations Grid */}
-        <div className="relative flex flex-col items-center justify-center min-h-[240px] sm:min-h-[340px] w-full lg:basis-[42.8%] mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-300">
+        <div className="relative flex flex-col items-center justify-center min-h-[240px] sm:min-h-[340px] w-[80%] sm:w-full lg:basis-[42.8%] mb-6 sm:mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-300">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSetIndex}
@@ -61,7 +61,7 @@ const IntegrationShowcase: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="grid grid-cols-3 grid-rows-2 gap-x-6 gap-y-6 sm:gap-x-12 sm:gap-y-10 max-w-xs sm:max-w-fit mx-auto min-h-[144px] sm:min-h-[256px] scale-110"
+              className="grid grid-cols-3 grid-rows-2 gap-x-6 gap-y-6 sm:gap-x-12 sm:gap-y-10 max-w-xs sm:max-w-fit mx-auto min-h-[144px] sm:min-h-[256px] scale-90 sm:scale-110"
             >
               {logoSets[currentSetIndex].map((logo, i) => (
                 <div

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
-interface NavbarProps {
-  currentPage?: 'home' | 'pricing' | 'about' | 'products';
-}
+type NavbarProps = {
+  currentPage: 'home' | 'pricing' | 'about' | 'products' | 'contact';
+};
 
 const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
