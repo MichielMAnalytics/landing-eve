@@ -37,6 +37,9 @@ import ValuesSection from './components/ValuesSection';
 import SecuritySection from './components/SecuritySection';
 import Contact from './Contact';
 import Pricing from './Pricing';
+import Terms from './Terms';
+import Privacy from './Privacy';
+import Cookies from './Cookies';
 
 // Brand Color Palette
 /*
@@ -259,6 +262,9 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/cookies" element={<Cookies />} />
     </Routes>
   );
 }
