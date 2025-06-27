@@ -51,6 +51,20 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
             >
               Contact
             </Link>
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={() => { window.location.href = 'https://app.witheve.ai/'; }}
+                className="bg-gradient-to-r from-[#0E1593] to-[#04062D] border border-[rgba(216,217,236,0.5)] text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20 font-inter text-sm"
+              >
+                Log in
+              </button>
+              <button
+                onClick={() => { window.location.href = 'https://app.witheve.ai/signup'; }}
+                className="text-[#FFFFFF] border border-[rgba(216,217,236,0.5)] px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-[#FFFFFF]/10 font-inter text-sm"
+              >
+                Sign up
+              </button>
+            </div>
           </div>
 
           {/* Mobile Login Button */}

@@ -1,9 +1,10 @@
 import { useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 
-// Declare gtag as a global function
+// Declare global functions
 declare global {
   interface Window {
+    dataLayer: any[];
     gtag: (...args: any[]) => void;
   }
 }
@@ -44,19 +45,41 @@ export const GA_EVENTS = {
 export const useGoogleAnalytics = () => {
   const location = useLocation();
 
+  // Initialize dataLayer if it doesn't exist
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+  }, []);
+
   // Page view tracking
   const pageView = useCallback((path: string) => {
+    // Track in GA4
     window.gtag('config', 'G-ZGGRTRKF17', {
+      page_path: path,
+    });
+
+    // Track in GTM
+    window.dataLayer.push({
+      event: 'page_view',
       page_path: path,
     });
   }, []);
 
   // Generic event tracking
   const trackEvent = useCallback((category: string, action: string, label?: string, value?: number) => {
+    // Track in GA4
     window.gtag('event', action, {
       event_category: category,
       event_label: label,
       value: value,
+    });
+
+    // Track in GTM
+    window.dataLayer.push({
+      event: 'custom_event',
+      event_category: category,
+      event_action: action,
+      event_label: label,
+      event_value: value,
     });
   }, []);
 
