@@ -130,7 +130,7 @@ function HomePage() {
   };
 
   return (
-    <div className="min-h-screen lightblue-grid-bg overscroll-none">
+    <div className="min-h-nscreen lightblue-grid-bg overscroll-none">
       <Navbar currentPage="home" />
       
       {/* Hero Section */}

@@ -1,30 +1,13 @@
 import React, { useEffect } from 'react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const Terms: React.FC = () => {
   useEffect(() => {
-    // Load Termly script
-    const script = document.createElement('script');
-    script.src = "https://app.termly.io/embed-policy.min.js";
-    script.id = "termly-jssdk";
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup script when component unmounts
-      const existingScript = document.getElementById("termly-jssdk");
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
+    window.location.href = 'https://app.termly.io/policy-viewer/policy.html?policyUUID=2512b9fa-1f74-489a-be43-d5336e089119';
   }, []);
 
-  return (
-    <div className="min-h-screen bg-black pt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-        <h1 className="text-4xl font-comfortaa text-white mb-8">Terms & Conditions</h1>
-        <div data-name="termly-embed" data-id="2512b9fa-1f74-489a-be43-d5336e089119"></div>
-      </div>
-    </div>
-  );
+  return null;
 };
 
 export default Terms; 

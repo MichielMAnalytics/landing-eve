@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 type NavbarProps = {
-  currentPage: 'home' | 'pricing' | 'about' | 'products' | 'contact';
+  currentPage: 'home' | 'pricing' | 'about' | 'products' | 'contact' | 'terms' | 'privacy' | 'cookies';
 };
 
 const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {

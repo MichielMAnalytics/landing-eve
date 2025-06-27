@@ -33,7 +33,7 @@ const Footer: React.FC = () => (
           <ul className="space-y-2 text-[#FFFFFF]/70 text-base font-inter">
             <li><Link to="/terms" className="hover:text-[#FFFFFF] transition-colors">Terms & Conditions</Link></li>
             <li><Link to="/privacy" className="hover:text-[#FFFFFF] transition-colors">Privacy Policy</Link></li>
-            <li><Link to="/cookies" className="hover:text-[#FFFFFF] transition-colors">Cookie Policy</Link></li>
+            <li><a href="#" className="termly-display-preferences hover:text-[#FFFFFF] transition-colors">Cookie Preferences</a></li>
           </ul>
         </div>
       </div>
