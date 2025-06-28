@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, TouchEvent } from 'react';
+import React, { useState, useRef, useEffect, TouchEvent, useMemo } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 
 interface Solution {
@@ -8,102 +8,163 @@ interface Solution {
   features: string[];
 }
 
+interface CarouselConfig {
+  itemsPerView: number;
+  gap: number;
+  infinite: boolean;
+}
+
 const solutions: Solution[] = [
   {
-    name: "Alex",
-    color: "#6E3ADE",
-    description: "Automate your scheduling and reminders with smart AI.",
+    name: "Eve",
+    color: "#0E1593",
+    description: "Your Personal Assistant.",
     features: [
-      "Calendar sync",
-      "Smart reminders",
-      "Meeting suggestions"
-    ]
-  },
-  {
-    name: "Sage",
-    color: "#0EA5E9",
-    description: "24/7 customer support and knowledge base management.",
-    features: [
-      "Multi-channel support",
+      "Mail and calendar support",
       "Knowledge base",
-      "Ticket automation"
+      "Workflows"
     ]
   },
   {
-    name: "Zen",
+    name: "Rob",
     color: "#F69902",
-    description: "Visualize and analyze your data effortlessly.",
+    description: "Recruitment Specialist.",
     features: [
-      "Automated reporting",
-      "Interactive dashboards",
-      "Real-time insights"
+      "Job postings",
+      "Candidate screening",
+      "Interview scheduling"
     ]
   },
   {
-    name: "Finn",
+    name: "Vira",
     color: "#00B37E",
-    description: "Drive growth with AI-powered marketing strategies.",
+    description: "Social Media Manager.",
     features: [
-      "Market analysis",
-      "Growth predictions",
-      "Campaign optimization"
+      "Ad campaigns",
+      "Social media management",
+      "Auto reply"
     ]
   },
   {
-    name: "Maya",
+    name: "Lexi",
     color: "#E42800",
-    description: "Keep your systems secure with proactive monitoring.",
+    description: "Content Creator.",
     features: [
-      "Threat detection",
-      "Real-time monitoring",
-      "Automated responses"
-    ]
-  },
-  {
-    name: "Nova",
-    color: "#FFD600",
-    description: "Unlock business intelligence with advanced analytics.",
-    features: [
-      "Data analysis",
-      "Pattern recognition",
-      "Predictive modeling"
+      "Content creation",
+      "SEO specialist",
+      "Analytics"
     ]
   }
 ];
 
 const SolutionSection: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const mobileConfig: CarouselConfig = {
+    itemsPerView: 1,
+    gap: 24,
+    infinite: true
+  };
+
+  const desktopConfig: CarouselConfig = {
+    itemsPerView: 3,
+    gap: 24,
+    infinite: true
+  };
+
+  const [isMobile, setIsMobile] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [dragOffset, setDragOffset] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const transitionRef = useRef(true);
+  const config = isMobile ? mobileConfig : desktopConfig;
 
-  // Create extended arrays for both mobile and desktop
-  const extendedSolutions = [...solutions.slice(-1), ...solutions, ...solutions.slice(0, 1)];
-  const desktopExtendedSolutions = [...solutions.slice(-2), ...solutions, ...solutions.slice(0, 2)];
+  // Create extended array for infinite scroll - add clones for seamless transition
+  const extendedSolutions = useMemo(() => {
+    if (!config.infinite) return solutions;
+    // Add more clones to ensure seamless transition
+    return [
+      ...solutions.slice(-config.itemsPerView),  // Clone end items at start
+      ...solutions,
+      ...solutions.slice(0, config.itemsPerView)  // Clone start items at end
+    ];
+  }, [config.infinite, config.itemsPerView]);
 
-  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+  const getTransform = (index: number) => {
+    if (!carouselRef.current) return 0;
+    const slideWidth = (carouselRef.current.offsetWidth - (config.gap * (config.itemsPerView - 1))) / config.itemsPerView;
+    const totalSlideWidth = slideWidth + config.gap;
+    // Adjust for the cloned items at the start
+    return -(index + config.itemsPerView) * totalSlideWidth;
+  };
+
+  const handleSlideTransitionEnd = () => {
+    if (!config.infinite || !carouselRef.current) return;
+    setIsTransitioning(false);
+
+    // If we're at the cloned end section, jump to the real start
+    if (currentIndex >= solutions.length) {
+      carouselRef.current.style.transition = 'none';
+      const newIndex = currentIndex % solutions.length;
+      setCurrentIndex(newIndex);
+      carouselRef.current.style.transform = `translateX(${getTransform(newIndex)}px)`;
+      // Force browser to process the style change before re-enabling transitions
+      carouselRef.current.getBoundingClientRect();
+      carouselRef.current.style.transition = '';
+    }
+    // If we're at the cloned start section, jump to the real end
+    else if (currentIndex < 0) {
+      carouselRef.current.style.transition = 'none';
+      const newIndex = solutions.length - 1;
+      setCurrentIndex(newIndex);
+      carouselRef.current.style.transform = `translateX(${getTransform(newIndex)}px)`;
+      // Force browser to process the style change before re-enabling transitions
+      carouselRef.current.getBoundingClientRect();
+      carouselRef.current.style.transition = '';
+    }
+  };
+
+  const goToSlide = (index: number) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex(index);
+  };
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 768;
+      if (mobile !== isMobile) {
+        setIsMobile(mobile);
+        setCurrentIndex(0);
+      }
+      if (carouselRef.current) {
+        carouselRef.current.style.transform = `translateX(${getTransform(currentIndex)}px)`;
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [currentIndex, isMobile]);
+
+  // Handle touch events
+  const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.touches[0].clientX);
     setTouchEnd(e.touches[0].clientX);
     setIsDragging(true);
   };
 
-  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+  const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging) return;
-    
-    const currentTouch = e.touches[0].clientX;
-    setTouchEnd(currentTouch);
-    
-    const diff = touchStart - currentTouch;
-    const slideWidth = window.innerWidth;
-    const currentOffset = (currentSlide * slideWidth) + diff;
-    
-    setDragOffset(diff);
-    
+    setTouchEnd(e.touches[0].clientX);
+
+    // Calculate drag distance and update transform
     if (carouselRef.current) {
-      carouselRef.current.style.transform = `translateX(${-currentOffset}px)`;
+      const dragDistance = touchStart - e.touches[0].clientX;
+      const baseTransform = getTransform(currentIndex);
+      carouselRef.current.style.transform = `translateX(${baseTransform - dragDistance}px)`;
+      carouselRef.current.style.transition = 'none';
     }
   };
 
@@ -111,102 +172,28 @@ const SolutionSection: React.FC = () => {
     if (!isDragging) return;
     setIsDragging(false);
 
-    const diff = touchStart - touchEnd;
-    const slideWidth = window.innerWidth;
-    const threshold = slideWidth * 0.2; // 20% threshold for slide change
+    const swipeDistance = touchStart - touchEnd;
+    const minSwipeDistance = 50; // Minimum distance for a swipe
 
-    let newSlide = currentSlide;
-    if (Math.abs(diff) > threshold) {
-      newSlide = diff > 0 ? currentSlide + 1 : currentSlide - 1;
+    if (carouselRef.current) {
+      carouselRef.current.style.transition = 'transform 500ms ease-in-out';
     }
 
-    // Handle infinite scroll boundaries
-    if (newSlide >= extendedSolutions.length - 1) {
-      handleSlideChange(1);
-    } else if (newSlide <= 0) {
-      handleSlideChange(solutions.length);
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      // Swipe right
+      if (swipeDistance < 0) {
+        goToSlide(currentIndex - 1);
+      }
+      // Swipe left
+      else {
+        goToSlide(currentIndex + 1);
+      }
     } else {
-      handleSlideChange(newSlide);
-    }
-
-    setDragOffset(0);
-  };
-
-  const handleSlideChange = (slide: number) => {
-    setCurrentSlide(slide);
-    if (carouselRef.current) {
-      const offset = slide * window.innerWidth;
-      carouselRef.current.style.transform = `translateX(-${offset}px)`;
-      carouselRef.current.style.transition = 'transform 0.3s ease-out';
-    }
-  };
-
-  const handleDesktopTransitionEnd = () => {
-    if (!transitionRef.current) return;
-    
-    if (carouselRef.current) {
-      if (currentSlide >= solutions.length) {
-        transitionRef.current = false;
-        carouselRef.current.style.transition = 'none';
-        setCurrentSlide(0);
-        requestAnimationFrame(() => {
-          if (carouselRef.current) {
-            carouselRef.current.style.transform = `translateX(-${33.3333 * 2}%)`; // 2 clone items at start
-          }
-        });
-      } else if (currentSlide < 0) {
-        transitionRef.current = false;
-        carouselRef.current.style.transition = 'none';
-        setCurrentSlide(solutions.length - 1);
-        requestAnimationFrame(() => {
-          if (carouselRef.current) {
-            carouselRef.current.style.transform = `translateX(-${33.3333 * (solutions.length + 1)}%)`;
-          }
-        });
-      }
-    }
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
+      // Reset position if swipe wasn't long enough
       if (carouselRef.current) {
-        const offset = currentSlide * window.innerWidth;
-        carouselRef.current.style.transition = 'none';
-        carouselRef.current.style.transform = `translateX(-${offset}px)`;
+        carouselRef.current.style.transform = `translateX(${getTransform(currentIndex)}px)`;
       }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [currentSlide]);
-
-  useEffect(() => {
-    if (!transitionRef.current) {
-      requestAnimationFrame(() => {
-        if (carouselRef.current) {
-          carouselRef.current.style.transition = 'transform 500ms ease-in-out';
-          transitionRef.current = true;
-        }
-      });
     }
-  }, [currentSlide]);
-
-  const nextDesktopSlide = () => {
-    if (!transitionRef.current) return;
-    transitionRef.current = true;
-    if (carouselRef.current) {
-      carouselRef.current.style.transition = 'transform 500ms ease-in-out';
-    }
-    setCurrentSlide(prev => prev + 1);
-  };
-
-  const prevDesktopSlide = () => {
-    if (!transitionRef.current) return;
-    transitionRef.current = true;
-    if (carouselRef.current) {
-      carouselRef.current.style.transition = 'transform 500ms ease-in-out';
-    }
-    setCurrentSlide(prev => prev - 1);
   };
 
   return (
@@ -222,133 +209,40 @@ const SolutionSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Mobile Carousel */}
-        <div className="md:hidden">
-          {/* Container with negative margin to counter parent padding */}
-          <div 
-            className="overflow-hidden"
-            style={{ margin: '0 -16px' }}
-          >
+        {/* Carousel Container */}
+        <div className="relative px-8">
+          <div className="overflow-hidden">
             <div
               ref={carouselRef}
-              className="flex touch-pan-x"
+              className={`flex transition-transform duration-500 ease-in-out ${isMobile ? 'touch-pan-x' : ''}`}
               style={{
-                transition: isDragging ? 'none' : 'transform 0.3s ease-out',
-                transform: `translateX(-${currentSlide * 100}%)`
+                transform: `translateX(${getTransform(currentIndex)}px)`,
+                gap: `${config.gap}px`,
+                transition: isDragging ? 'none' : 'transform 500ms ease-in-out'
               }}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
+              onTransitionEnd={handleSlideTransitionEnd}
             >
               {extendedSolutions.map((solution, idx) => (
                 <div 
                   key={`${solution.name}-${idx}`}
-                  className="min-w-full px-4 flex-shrink-0"
-                  style={{ width: '100vw' }}
+                  className="flex-shrink-0"
+                  style={{ 
+                    width: `calc((100% - ${config.gap * (config.itemsPerView - 1)}px) / ${config.itemsPerView})`
+                  }}
                 >
                   <div 
                     className={`
-                      rounded-3xl p-8 h-full group relative overflow-hidden
-                      border border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]
-                      transition-all duration-300 flex flex-col
-                      ${
-                        solution.name === "Alex" ? "bg-gradient-to-br from-[#6E3ADE] to-[#6E3ADEBF]" :
-                        solution.name === "Sage" ? "bg-gradient-to-br from-[#0EA5E9] to-[#0EA5E9BF]" :
-                        solution.name === "Zen" ? "bg-gradient-to-br from-[#F69902] to-[#F69902BF]" :
-                        solution.name === "Finn" ? "bg-gradient-to-br from-[#00B37E] to-[#00B37EBF]" :
-                        solution.name === "Maya" ? "bg-gradient-to-br from-[#E42800] to-[#E42800BF]" :
-                        "bg-gradient-to-br from-[#FFD600] to-[#FFD600BF]"
-                      }
-                    `}
-                  >
-                    <div className="relative z-10 flex flex-col flex-grow space-y-4">
-                      <h3 className="text-brand-h2 font-bold mb-3 font-comfortaa text-[#fff]">
-                        {solution.name}
-                      </h3>
-                      <p className="text-[#fff]/90 mb-6 font-inter">
-                        {solution.description}
-                      </p>
-                      <ul className="space-y-4 mb-8 flex-grow">
-                        {solution.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center text-[#fff]/80 font-inter">
-                            <Check className="w-5 h-5 mr-3 text-[#fff]" /> {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="absolute -bottom-4 -right-4 w-28 h-28 pointer-events-none z-20">
-                      <img 
-                        src={`/${solution.name}.png`}
-                        alt={`${solution.name} Avatar`}
-                        className="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-100 group-hover:opacity-0"
-                      />
-                      <img 
-                        src={`/${solution.name.toLowerCase()}2.png`}
-                        aria-hidden="false"
-                        className="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Mobile Indicators */}
-          <div className="flex justify-center gap-3 mt-8">
-            {solutions.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleSlideChange(index + 1)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  (currentSlide === index + 1 || 
-                   (currentSlide === solutions.length + 1 && index === 0) ||
-                   (currentSlide === 0 && index === solutions.length - 1)
-                  ) ? 'bg-[#0E1593] w-8' : 'bg-[#fff]/20'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop Carousel */}
-        <div className="relative hidden md:block">
-          <button 
-            onClick={prevDesktopSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-20 bg-[#0E0E0E] hover:bg-[#04062D] w-12 h-12 rounded-full border border-[rgba(216,217,236,0.2)] flex items-center justify-center transition-all duration-200"
-            aria-label="Previous slide"
-          >
-            <ArrowRight className="w-6 h-6 text-white transform rotate-180" />
-          </button>
-          <div className="overflow-hidden mx-auto">
-            <div 
-              ref={carouselRef}
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ 
-                transform: `translateX(-${33.3333 * (currentSlide + 2)}%)`,
-                transition: transitionRef.current ? 'transform 500ms ease-in-out' : 'none'
-              }}
-              onTransitionEnd={handleDesktopTransitionEnd}
-            >
-              {desktopExtendedSolutions.map((solution, idx) => (
-                <div 
-                  key={`${solution.name}-${idx}`}
-                  className="min-w-[33.3333%] px-4"
-                  style={{ maxWidth: '420px' }}
-                >
-                  <div 
-                    className={`
-                      rounded-3xl p-8 h-full group relative overflow-hidden
+                      rounded-3xl p-8 h-[360px] group relative overflow-hidden
                       border-2 border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]
-                      transition-all duration-300 flex flex-col
+                      transition-all duration-300 flex flex-col select-none
                       ${
-                        solution.name === "Alex" ? "bg-gradient-to-br from-[#6E3ADE] to-[#6E3ADEBF]" :
-                        solution.name === "Sage" ? "bg-gradient-to-br from-[#0EA5E9] to-[#0EA5E9BF]" :
-                        solution.name === "Zen" ? "bg-gradient-to-br from-[#F69902] to-[#F69902BF]" :
-                        solution.name === "Finn" ? "bg-gradient-to-br from-[#00B37E] to-[#00B37EBF]" :
-                        solution.name === "Maya" ? "bg-gradient-to-br from-[#E42800] to-[#E42800BF]" :
-                        "bg-gradient-to-br from-[#FFD600] to-[#FFD600BF]"
+                        solution.name === "Eve" ? "bg-gradient-to-br from-[#0E1593] to-[#0E1593BF]" :
+                        solution.name === "Rob" ? "bg-gradient-to-br from-[#F69902] to-[#F69902BF]" :
+                        solution.name === "Vira" ? "bg-gradient-to-br from-[#00B37E] to-[#00B37EBF]" :
+                        "bg-gradient-to-br from-[#E42800] to-[#E42800BF]"
                       }
                     `}
                   >
@@ -384,34 +278,46 @@ const SolutionSection: React.FC = () => {
               ))}
             </div>
           </div>
-          <button 
-            onClick={nextDesktopSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-20 bg-[#0E0E0E] hover:bg-[#04062D] w-12 h-12 rounded-full border border-[rgba(216,217,236,0.2)] flex items-center justify-center transition-all duration-200"
-            aria-label="Next slide"
-          >
-            <ArrowRight className="w-6 h-6 text-white" />
-          </button>
-          {/* Carousel Indicators */}
+
+          {/* Navigation Buttons - only show on desktop */}
+          {!isMobile && (
+            <>
+              <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#000] to-transparent pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#000] to-transparent pointer-events-none" />
+              <button
+                onClick={() => !isTransitioning && goToSlide(currentIndex - 1)}
+                className="absolute left-0 -translate-x-1/2 z-20 bg-[#0E0E0E] hover:bg-[#04062D] w-12 h-12 rounded-full border border-[rgba(216,217,236,0.2)] flex items-center justify-center transition-all duration-200 hover:scale-110"
+                style={{ top: '180px' }} // Half of card height (360px)
+                aria-label="Previous slide"
+                disabled={isTransitioning}
+              >
+                <ArrowRight className="w-6 h-6 text-white transform rotate-180" />
+              </button>
+              <button
+                onClick={() => !isTransitioning && goToSlide(currentIndex + 1)}
+                className="absolute right-0 translate-x-1/2 z-20 bg-[#0E0E0E] hover:bg-[#04062D] w-12 h-12 rounded-full border border-[rgba(216,217,236,0.2)] flex items-center justify-center transition-all duration-200 hover:scale-110"
+                style={{ top: '180px' }} // Half of card height (360px)
+                aria-label="Next slide"
+                disabled={isTransitioning}
+              >
+                <ArrowRight className="w-6 h-6 text-white" />
+              </button>
+            </>
+          )}
+
+          {/* Indicators */}
           <div className="flex justify-center gap-3 mt-8">
             {solutions.map((_, index) => (
               <button
                 key={index}
-                onClick={() => {
-                  if (!transitionRef.current) return;
-                  transitionRef.current = true;
-                  if (carouselRef.current) {
-                    carouselRef.current.style.transition = 'transform 500ms ease-in-out';
-                  }
-                  setCurrentSlide(index);
-                }}
+                onClick={() => !isTransitioning && goToSlide(index)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  currentSlide === index || 
-                  (currentSlide === solutions.length && index === 0) ||
-                  (currentSlide === -1 && index === solutions.length - 1)
+                  (currentIndex < 0 ? solutions.length + currentIndex : currentIndex) % solutions.length === index 
                     ? 'bg-[#0E1593] w-8' 
                     : 'bg-[#fff]/20'
-                }`}
+                } hover:bg-[#fff]/40`}
                 aria-label={`Go to slide ${index + 1}`}
+                disabled={isTransitioning}
               />
             ))}
           </div>

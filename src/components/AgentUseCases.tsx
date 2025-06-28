@@ -60,7 +60,7 @@ const AgentUseCases: React.FC = () => (
           <div className="flex w-full justify-center items-end relative z-20">
             <div className="relative w-[280px] h-[280px] sm:w-[240px] sm:h-[240px] lg:w-auto lg:h-auto transform-gpu">
               <OptimizedImage 
-                src="/vira2.png" 
+                src="/vira3.png" 
                 alt="Vira viral content" 
                 className="w-full h-full object-contain drop-shadow-2xl lg:w-auto lg:h-[250px] scale-110 lg:translate-y-[20px] lg:scale-[1.15] transform-gpu"
               />
@@ -81,7 +81,7 @@ const AgentUseCases: React.FC = () => (
           <div className="flex w-full justify-center items-end relative z-20">
             <div className="relative w-[280px] h-[280px] sm:w-[240px] sm:h-[240px] lg:w-auto lg:h-auto transform-gpu">
               <OptimizedImage 
-                src="/rob2.png" 
+                src="/rob3.png" 
                 alt="Rob recruitment process" 
                 className="w-full h-full object-contain drop-shadow-2xl lg:w-auto lg:h-[250px] scale-110 lg:translate-y-[20px] lg:scale-[1.15] transform-gpu"
               />

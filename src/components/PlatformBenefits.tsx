@@ -29,7 +29,7 @@ const teamMembers: TeamMember[] = [
   {
     role: "Data Scientist",
     name: "Marco Garcia",
-    avatarSrc: "/Sage.png",
+    avatarSrc: "/Eve.png",
     tools: ["python", "jupyter", "tableau", "sql"],
     position: {
       y: 20,  // moves up
@@ -50,7 +50,7 @@ const teamMembers: TeamMember[] = [
   {
     role: "Sales Rep.",
     name: "James Wilson",
-    avatarSrc: "/Maya.png",
+    avatarSrc: "/Lexi.png",
     tools: ["salesforce", "slack", "zoom"],
     position: {
       y: 0,   // highest point
@@ -60,7 +60,7 @@ const teamMembers: TeamMember[] = [
   {
     role: "Customer Support",
     name: "Lisa Park",
-    avatarSrc: "/Zen.png",
+    avatarSrc: "/Rob.png",
     tools: ["zendesk", "intercom", "notion", "slack"],
     position: {
       y: 20,  // moves down
@@ -71,7 +71,7 @@ const teamMembers: TeamMember[] = [
   {
     role: "Quality Control",
     name: "Quincy Ellis",
-    avatarSrc: "/Finn.png",
+    avatarSrc: "/Vira.png",
     tools: ["jira", "github", "linear"],
     position: {
       y: 40,  // ends lower

@@ -12,16 +12,16 @@ const FeaturedAgents: React.FC = () => (
         </p>
       </div>
       <div className="relative flex flex-col md:flex-row items-center justify-center gap-0 md:gap-0">
-        {/* Left Card - Sage */}
+        {/* Left Card - Eve */}
         <div className="relative z-10 w-full md:w-[28%] max-w-md -rotate-3 md:mt-16 md:mb-0 mb-12 md:mr-[-32px] group transition-transform duration-300">
           <div className="rounded-3xl p-10 flex flex-col items-center bg-gradient-to-br from-[#0EA5E9] to-[#04062D] border-2 border-[rgba(216,217,236,0.5)] shadow-xl hover:shadow-2xl transition-all duration-300">
             <img 
-              src="/Sage.png"
-              alt="Sage Agent"
+              src="/Eve.png"
+              alt="Eve Agent"
               loading="eager"
               className="w-44 h-44 md:w-56 md:h-56 object-contain mb-8 drop-shadow-xl transition-transform duration-300 group-hover:scale-105"
             />
-            <h3 className="text-3xl md:text-4xl font-comfortaa font-bold text-white mb-2">Sage</h3>
+            <h3 className="text-3xl md:text-4xl font-comfortaa font-bold text-white mb-2">Eve</h3>
             <div className="text-xl text-white/80 font-inter mb-4">Your Support Expert</div>
             <ul className="mb-8 space-y-3 text-left w-full max-w-xs mx-auto">
               <li className="flex items-center text-white/90 font-inter"><span className="mr-3">•</span>Multi-channel support</li>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 // Preload images for smoother hover transitions
 const preloadImages = () => {
-  const hoverImages = ['/sage2.png', '/alex2.png', '/nova3.png'];
+  const hoverImages = ['/eve2.png', '/alex2.png', '/nova3.png'];
   hoverImages.forEach(src => {
     const img = new Image();
     img.src = src;
@@ -26,23 +26,23 @@ const FeaturedAgents: React.FC = () => {
         </p>
       </div>
       <div className="relative flex flex-col md:flex-row items-center justify-center gap-3 md:gap-0 mt-24">
-        {/* Left Card - Sage */}
+        {/* Left Card - Eve */}
         <div className="relative z-10 w-full md:w-[28%] max-w-sm md:-rotate-3 md:mt-12 md:mb-0 mb-8 md:mr-[-24px] group transition-transform duration-300">
           <div className="rounded-2xl p-8 flex flex-col items-center bg-gradient-to-br from-[#0EA5E9] to-[#04062D] border-2 border-[rgba(216,217,236,0.7)] shadow-xl hover:shadow-2xl transition-all duration-300">
             <div className="relative w-36 h-36 md:w-44 md:h-44 mb-6">
               <img 
-                src="/Sage.png"
-                alt="Sage Agent"
+                src="/Eve.png"
+                alt="Eve Agent"
                 className="absolute inset-0 w-full h-full object-contain drop-shadow-xl transition-opacity duration-300 opacity-100 group-hover:opacity-0"
               />
               <img 
-                src="/sage2.png"
-                alt="Sage Agent Hover"
+                src="/eve2.png"
+                alt="Eve Agent Hover"
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-contain drop-shadow-xl transition-opacity duration-300 opacity-0 group-hover:opacity-100"
               />
             </div>
-            <h3 className="text-brand-h2 font-comfortaa font-bold text-white mb-2">Sage</h3>
+            <h3 className="text-brand-h2 font-comfortaa font-bold text-white mb-2">Eve</h3>
             <div className="text-white/80 font-inter mb-3">Your Support Expert</div>
             <ul className="mb-6 space-y-2 text-left w-full max-w-xs mx-auto">
               <li className="flex items-center text-white/90 font-inter text-brand-sm"><span className="mr-2">•</span>Multi-channel support</li>

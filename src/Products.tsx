@@ -48,7 +48,7 @@ const Products: React.FC = () => {
       prefix: "AI",
       highlight: "Research Agent",
     },
-    imageSrc: "/Sage.png",
+    imageSrc: "/Eve.png",
     colors: {
       from: "#ffffff",
       to: "#FFFFFF"
