@@ -77,10 +77,10 @@ const faqs = [
     question: "What payment methods do you accept?",
     answer: "We accept IDEAL payments and all major credit cards and offer invoicing options for enterprise customers. All payments are processed securely through our payment provider."
   },
-  {
-    question: "Is there a discount for annual billing?",
-    answer: "Yes! You can save up to 15% by choosing annual billing. Contact our sales team to learn more about annual pricing options."
-  },
+  // {
+  //   question: "Is there a discount for annual billing?",
+  //   answer: "Yes! You can save up to 15% by choosing annual billing. Contact our sales team to learn more about annual pricing options."
+  // },
   {
     question: "How secure is Eve with my data?",
     answer: "Security is our top priority. We use enterprise-grade encryption, regular security audits, and comply with industry standards to ensure your data is protected. All data is processed in compliance with GDPR and other privacy regulations."
@@ -205,7 +205,7 @@ const Pricing: React.FC = () => {
             <p className="text-white text-lg mb-4">Need unlimited credits and enterprise features?</p>
             <button
               className="bg-transparent border border-white/30 hover:bg-white/10 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300"
-              onClick={() => window.open('https://app.witheve.ai/contact', '_blank')}
+              onClick={() => window.open('https://witheve.ai/contact', '_blank')}
             >
               Contact Sales
             </button>
