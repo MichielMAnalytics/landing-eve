@@ -192,7 +192,7 @@ const Pricing: React.FC = () => {
                         ? 'bg-gradient-to-r from-[#0E1593] to-[#04062D] hover:from-[#0E1593]/90 hover:to-[#04062D]/90 border-2 border-[rgba(216,217,236,0.5)] rounded-[12px]'
                         : 'bg-[#040404] border-2 border-[rgba(216,217,236,0.5)] hover:bg-white/10'
                     }`}
-                    onClick={() => window.open('https://app.witheve.ai/', '_blank')}
+                    onClick={() => window.open('https://witheve.ai/', '_blank')}
                   >
                     {plan.buttonText}
                   </button>
