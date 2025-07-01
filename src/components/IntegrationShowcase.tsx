@@ -84,14 +84,14 @@ const IntegrationShowcase: React.FC = () => {
             viewport={{ once: true }}
               className="text-brand-h1 font-comfortaa font-bold text-white leading-tight"
           >
-              Safely connect to your favorite tools
+              Safely connect to your over 2700 tools
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-              className="text-brand-base text-white/70 font-inter leading-tight max-w-xl mx-auto lg:mx-0"
+              className="text-brand-base text-white/70 font-nunito leading-tight max-w-xl mx-auto lg:mx-0"
           >
             Streamline your business processes by bringing your favorite tools and AI helpers together. AI for business makes working with integrations easier than ever.
           </motion.p>
@@ -105,7 +105,7 @@ const IntegrationShowcase: React.FC = () => {
             className="w-full flex flex-col sm:flex-row justify-center lg:justify-start"
           >
             <button
-              className="group relative w-full sm:w-auto px-8 sm:px-8 py-3 sm:py-4 text-white text-base sm:text-lg font-medium overflow-hidden rounded-lg font-inter border border-[rgba(216,217,236,0.5)] bg-gradient-to-r from-[#0E1593] to-[#04062D] transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20"
+              className="group relative w-full sm:w-auto px-8 sm:px-8 py-3 sm:py-4 text-white text-base sm:text-lg font-medium overflow-hidden rounded-lg font-nunito border border-[rgba(216,217,236,0.5)] bg-gradient-to-r from-[#0E1593] to-[#04062D] transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20"
               onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
             >
               <span className="relative z-10">Try now</span>

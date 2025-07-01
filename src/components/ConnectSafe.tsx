@@ -22,9 +22,9 @@ const ConnectSafe: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-brand-base text-white/70 font-inter leading-tight max-w-xl mx-auto lg:mx-0"
+            className="text-brand-base text-[#fefefe]/70 font-nunito mb-8 leading-tight max-w-2xl"
           >
-            Let agents collaborate with each other and your tools.
+            Let helpers collaborate with each other and your tools.
           </motion.p>
         </div>
 

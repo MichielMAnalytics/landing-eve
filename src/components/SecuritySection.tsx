@@ -30,7 +30,7 @@ const SecuritySection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-brand-base text-white/70 font-inter leading-tight max-w-xl mx-auto lg:mx-0"
+            className="text-brand-base text-white/70 font-nunito leading-tight max-w-xl mx-auto lg:mx-0"
           >
             Eve lets you automate with confidence. Chat, connect, automate.
           </motion.p>

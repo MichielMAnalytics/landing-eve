@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         comfortaa: ['Comfortaa', 'system-ui', 'sans-serif'],
         inter: ['Inter', 'system-ui', 'sans-serif'],
+        nunito: ['Nunito', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'brand-h10': {

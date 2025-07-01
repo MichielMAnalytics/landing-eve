@@ -35,32 +35,32 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
           <div className="hidden md:flex items-center space-x-8">
             <Link 
               to="/" 
-              className={`${currentPage === 'home' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] transition-colors font-inter`}
+              className={`${currentPage === 'home' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] transition-colors font-nunito`}
             >
               Home
             </Link>
             <Link 
               to="/pricing" 
-              className={`${currentPage === 'pricing' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] transition-colors font-inter`}
+              className={`${currentPage === 'pricing' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] transition-colors font-nunito`}
             >
               Pricing
             </Link>
             <Link 
               to="/contact" 
-              className={`${currentPage === 'contact' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] transition-colors font-inter`}
+              className={`${currentPage === 'contact' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] transition-colors font-nunito`}
             >
               Contact
             </Link>
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => { window.location.href = 'https://app.witheve.ai/'; }}
-                className="w-[100px] bg-gradient-to-r from-[#0E1593] to-[#04062D] border border-[rgba(216,217,236,0.5)] text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20 font-inter text-sm text-center"
+                className="w-[100px] bg-gradient-to-r from-[#0E1593] to-[#04062D] border border-[rgba(216,217,236,0.5)] text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20 font-nunito text-sm text-center"
               >
                 Log in
               </button>
               <button
                 onClick={() => { window.location.href = 'https://app.witheve.ai/signup'; }}
-                className="w-[100px] text-[#FFFFFF] border border-[rgba(216,217,236,0.5)] px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-[#FFFFFF]/10 font-inter text-sm text-center"
+                className="w-[100px] text-[#FFFFFF] border border-[rgba(216,217,236,0.5)] px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-[#FFFFFF]/10 font-nunito text-sm text-center"
               >
                 Sign up
               </button>
@@ -69,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
 
           {/* Mobile Login Button */}
           <button 
-            className="md:hidden bg-gradient-to-r from-[#0E1593] to-[#04062D] border border-[rgba(216,217,236,0.5)] text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20 font-inter text-sm"
+            className="md:hidden bg-gradient-to-r from-[#0E1593] to-[#04062D] border border-[rgba(216,217,236,0.5)] text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20 font-nunito text-sm"
             onClick={() => { window.location.href = 'https://app.witheve.ai/'; }}
           >
             Login
@@ -83,19 +83,19 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
           <div className="px-6 py-4 space-y-3">
             <Link 
               to="/" 
-              className={`block py-2 ${currentPage === 'home' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] font-inter`}
+              className={`block py-2 ${currentPage === 'home' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] font-nunito`}
             >
               Home
             </Link>
             <Link 
               to="/pricing" 
-              className={`block py-2 ${currentPage === 'pricing' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] font-inter`}
+              className={`block py-2 ${currentPage === 'pricing' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] font-nunito`}
             >
               Pricing
             </Link>
             <Link 
               to="/contact" 
-              className={`block py-2 ${currentPage === 'contact' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] font-inter`}
+              className={`block py-2 ${currentPage === 'contact' ? 'text-[#FFFFFF] font-bold' : 'text-[#FFFFFF]/70'} hover:text-[#FFFFFF] font-nunito`}
             >
               Contact
             </Link>

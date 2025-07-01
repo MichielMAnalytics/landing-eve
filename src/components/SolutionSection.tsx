@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, TouchEvent, useMemo } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface Solution {
   name: string;
@@ -204,8 +205,8 @@ const SolutionSection: React.FC = () => {
           <h2 className="text-brand-h1 font-comfortaa font-bold leading-tight text-[#FFFFFF]">
             Pick your AI helpers
           </h2>
-          <p className="text-brand-base text-[#fefefe]/70 font-inter leading-tight max-w-2xl mx-auto">
-            Specialized AI agents ready to take over your daily tasks and transform your workflow.
+          <p className="text-brand-base text-[#fefefe]/70 font-nunito leading-tight max-w-2xl mx-auto">
+            Specialized AI helpers ready to take over your daily tasks and transform your workflow.
           </p>
         </div>
 
@@ -239,10 +240,10 @@ const SolutionSection: React.FC = () => {
                       border-2 border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]
                       transition-all duration-300 flex flex-col select-none
                       ${
-                        solution.name === "Eve" ? "bg-gradient-to-br from-[#0E1593] to-[#0E1593BF]" :
-                        solution.name === "Rob" ? "bg-gradient-to-br from-[#F69902] to-[#F69902BF]" :
-                        solution.name === "Vira" ? "bg-gradient-to-br from-[#00B37E] to-[#00B37EBF]" :
-                        "bg-gradient-to-br from-[#E42800] to-[#E42800BF]"
+                        solution.name === "Eve" ? "bg-gradient-to-br from-[#0E1593] to-[#04062D]" :
+                        solution.name === "Rob" ? "bg-gradient-to-br from-[#F69902] to-[#04062D]" :
+                        solution.name === "Vira" ? "bg-gradient-to-br from-[#00B37E] to-[#04062D]" :
+                        "bg-gradient-to-br from-[#E42800] to-[#04062D]"
                       }
                     `}
                   >
@@ -250,16 +251,22 @@ const SolutionSection: React.FC = () => {
                       <h3 className="text-brand-h2 font-bold mb-3 font-comfortaa text-[#fff]">
                         {solution.name}
                       </h3>
-                      <p className="text-[#fff]/90 mb-6 font-inter">
+                      <p className="text-[#fff]/90 mb-6 font-nunito">
                         {solution.description}
                       </p>
                       <ul className="space-y-4 mb-8 flex-grow">
                         {solution.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center text-[#fff]/80 font-inter">
+                          <li key={featureIndex} className="flex items-center text-[#fff]/80 font-nunito">
                             <Check className="w-5 h-5 mr-3 text-[#fff]" /> {feature}
                           </li>
                         ))}
                       </ul>
+                      <Link 
+                        to="/signup" 
+                        className="bg-[#fff]/10 hover:bg-[#fff]/20 text-white px-6 py-2.5 rounded-lg font-nunito font-semibold text-brand-sm border border-[rgba(216,217,236,0.2)] transition-all duration-200 text-center"
+                      >
+                        Try {solution.name} Now
+                      </Link>
                     </div>
                     <div className="absolute -bottom-4 -right-4 w-28 h-28 pointer-events-none z-20">
                       <img 

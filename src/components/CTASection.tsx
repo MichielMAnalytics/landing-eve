@@ -21,12 +21,12 @@ const CTASection: React.FC<CTASectionProps> = ({
             <h2 className="text-brand-h1 font-bold mb-4 sm:mb-6 font-comfortaa leading-tight text-[#ffffff]">
               {title}
             </h2>
-            <p className="text-brand-base text-[#FEFEFE]/70 mb-8 sm:mb-12 leading-tight font-inter">
+            <p className="text-brand-base text-[#FEFEFE]/70 mb-8 sm:mb-12 leading-tight font-nunito">
               {description}
             </p>
             <div className="w-full flex justify-center">
               <button 
-                className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-white text-base sm:text-lg font-medium overflow-hidden rounded-lg font-inter"
+                className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-white text-base sm:text-lg font-medium overflow-hidden rounded-lg font-nunito"
                 aria-label={buttonText}
                 onClick={() => { window.location.href = buttonUrl; }}
               >

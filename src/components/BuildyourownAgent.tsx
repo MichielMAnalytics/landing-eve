@@ -21,9 +21,9 @@ const BuildYourOwnAgent: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-brand-base text-white/70 font-inter leading-tight max-w-xl mx-auto lg:mx-0"
+            className="text-brand-base text-white/70 font-nunito leading-tight max-w-xl mx-auto lg:mx-0"
           >
-           Build your own agent. Add tools, add knowledge. Share with your team.
+           Build your own helper. Add tools, add knowledge. Share with your team.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ const BuildYourOwnAgent: React.FC = () => {
             className="w-full flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
           >
             <button
-              className="w-full sm:w-auto inline-flex justify-center bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-inter font-bold tracking-wide px-6 py-[14px] sm:px-10 sm:py-4 border border-[rgba(216,217,236,0.5)] rounded-[12px] transition-all duration-200 hover:shadow-xl hover:shadow-[#4F8CFF]/30 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-lg"
+              className="w-full sm:w-auto inline-flex justify-center bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-nunito font-bold tracking-wide px-6 py-[14px] sm:px-10 sm:py-4 border border-[rgba(216,217,236,0.5)] rounded-[12px] transition-all duration-200 hover:shadow-xl hover:shadow-[#4F8CFF]/30 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-lg"
               onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
             >
               <span className="relative z-10">Start building</span>
@@ -53,7 +53,7 @@ const BuildYourOwnAgent: React.FC = () => {
             <div className="relative">
               <img
                 src="/agentbuilder.png"
-                alt="Eve Agent Builder Interface"
+                alt="Eve Helper Builder Interface"
                 className="w-full max-w-xl sm:max-w-2xl rounded-xl border-2 border-[rgba(216,217,236,0.5)]"
               />
             </div>

@@ -44,7 +44,7 @@ const AgentCard: React.FC<AgentCardProps> = ({ title, imageSrc, className, backg
             >
               <img
                 src={imageSrc}
-                alt="Agent illustration"
+                alt="Helper illustration"
                 className="relative z-10 w-full h-full object-contain p-6"
               />
             </motion.div>

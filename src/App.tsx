@@ -119,7 +119,7 @@ function HomePage() {
   if (!imagesLoaded) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-white font-inter">Loading...</div>
+        <div className="text-white font-nunito">Loading...</div>
       </div>
     );
   }
@@ -148,18 +148,18 @@ function HomePage() {
                 <div className="text-center w-full">
                   <h1 className="font-comfortaa text-[#FFFFFF] leading-[1.1] mb-0 sm:mb-2 text-[3rem] sm:text-[4rem] transform-gpu">
                     <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
-                      Work{" "}
+                      Work{" "} 
                       <TypingEffect 
-                        words={['smarter', 'harder', 'faster']} 
+                        words={['smarter', 'easier', 'faster']} 
                         speed={125}
                         className="text-[#FFFFFF]"
-                      />
+                      /> ,
                     </div>
                   </h1>
                   <h1 className="font-comfortaa text-[#FFFFFF] leading-[1.1] mb-4 sm:mb-6 text-[3rem] sm:text-[4rem]">
-                    Work with eve
+                    work with eve
                   </h1>
-                  <p className="text-brand-base text-[#fefefe]/70 font-inter mb-10 leading-tight max-w-2xl mx-auto">
+                  <p className="text-brand-base text-[#fefefe]/70 font-nunito mb-10 leading-tight max-w-2xl mx-auto">
                     Build, grow, and scale your work with a team of AI helpers.
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-[500px] mx-auto w-full">
@@ -169,7 +169,7 @@ function HomePage() {
                         inline-flex
                         justify-center
                         bg-gradient-to-r from-[#0E1593] to-[#04062D]
-                        text-white font-inter font-bold tracking-wide
+                        text-white font-nunito font-bold tracking-wide
                         px-6 py-[14px] sm:px-10 sm:py-4
                         border-2 border-[rgba(216,217,236,0.5)] rounded-[12px]
                         transition-all duration-200
@@ -187,7 +187,7 @@ function HomePage() {
                         inline-flex
                         justify-center
                         bg-transparent
-                        text-white font-inter font-bold tracking-wide
+                        text-white font-nunito font-bold tracking-wide
                         px-6 py-[14px] sm:px-10 sm:py-4
                         border-2 border-[rgba(216,217,236,0.5)] rounded-[12px]
                         transition-all duration-200
