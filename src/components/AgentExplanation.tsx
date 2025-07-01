@@ -74,7 +74,7 @@ const AgentExplanation: React.FC<AgentExplanationProps> = ({
         <div className={`w-full md:w-[400px] aspect-square bg-[#04062D] border border-[${colors.primary}] rounded-3xl flex items-center justify-center relative overflow-hidden`}>
           <img 
             src={imageSrc}
-            alt="AI Agent" 
+            alt="AI Helpers" 
             className="w-[200px] h-[200px] object-contain relative z-10"
           />
           <div className="absolute inset-0 to-transparent opacity-50"></div>

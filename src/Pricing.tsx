@@ -12,7 +12,7 @@ const pricingPlans = [
     credits: '1.00M credits / month',
     subtitle: 'Get started with:',
     features: [
-      'Access to all preconfigured System Agents',
+      'Access to all preconfigured System helpers',
       'Access to 2700+ apps and 10,000+ tools',
     ],
     buttonText: 'Current Plan',
@@ -59,7 +59,7 @@ const pricingPlans = [
 const faqs = [
   {
     question: "How does the credit system work?",
-    answer: "Credits are consumed when you use features like running automations or chatting with agents. Each plan comes with a monthly credit allowance that refreshes every billing cycle. Unused credits roll over to the next month, except those in the free plan."
+    answer: "Credits are consumed when you use features like running automations or chatting with helpers. Each plan comes with a monthly credit allowance that refreshes every billing cycle. Unused credits roll over to the next month, except those in the free plan."
   },
   {
     question: "Can I upgrade or downgrade my plan at any time?",
