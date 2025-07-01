@@ -47,7 +47,7 @@ export default {
           '1.2rem', // 16px
           {
             lineHeight: '1.2rem',
-            fontWeight: '300',
+            fontWeight: '400',
             '@screen sm': { fontSize: '1.2rem' }, // 18px
           }
         ],

@@ -48,7 +48,7 @@ const AgentUseCases: React.FC = () => (
       {/* Bottom Cards - Vira & Rob */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
         {/* Vira Card */}
-        <div className="relative flex-1 bg-gradient-to-br from-[#00B37E] to-[#04062D] rounded-3xl shadow-2xl flex flex-col items-center p-8 lg:p-12 overflow-hidden min-h-[340px] h-full border-2 border-[rgba(216,217,236,0.8)] will-change-transform">
+        <div className="relative flex-1 bg-gradient-to-br from-[#00B37E] to-[#006647] rounded-3xl shadow-2xl flex flex-col items-center p-8 lg:p-12 overflow-hidden min-h-[340px] h-full border-2 border-[rgba(216,217,236,0.8)] will-change-transform">
           <div className="flex-1 z-10 flex flex-col items-center justify-start pt-4 space-y-2">
             <h3 className="text-brand-h2 font-comfortaa font-bold text-white leading-tight mb-2 text-center">
               Vira, write some viral content
@@ -69,7 +69,7 @@ const AgentUseCases: React.FC = () => (
         </div>
 
         {/* Rob Card */}
-        <div className="relative flex-1 bg-gradient-to-br from-[#F69902] to-[#04062D] rounded-3xl shadow-2xl flex flex-col items-center p-8 lg:p-12 overflow-hidden min-h-[340px] h-full border-2 border-[rgba(216,217,236,0.8)] will-change-transform">
+        <div className="relative flex-1 bg-gradient-to-br from-[#F69902] to-[#8B4500] rounded-3xl shadow-2xl flex flex-col items-center p-8 lg:p-12 overflow-hidden min-h-[340px] h-full border-2 border-[rgba(216,217,236,0.8)] will-change-transform">
           <div className="flex-1 z-10 flex flex-col items-center justify-start pt-4 space-y-2">
             <h3 className="text-brand-h2 font-comfortaa font-bold text-white leading-tight mb-2 text-center">
               Rob, streamline the recruitment process

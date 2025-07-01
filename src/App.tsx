@@ -34,6 +34,8 @@ import SolutionSection from './components/SolutionSection';
 import TypingEffect from './components/TypingEffect';
 import BuildYourOwnAgent from './components/BuildyourownAgent';
 import ConnectSafe from './components/ConnectSafe';
+import ModelAgnostic from './components/ModelAgnostic';
+import DataPrivacySection from './components/DataPrivacySection';
 import CTASection from './components/CTASection';
 import ValuesSection from './components/ValuesSection';
 import SecuritySection from './components/SecuritySection';
@@ -46,19 +48,19 @@ import Cookies from './Cookies';
 // Brand Color Palette
 /*
 Primary Colors:
-- Brand Blue: #0E1593
+- Brand Blue: #0E1593 | Brand Dark: #04062D
 - Brand Dark: #04062D
 - Brand Black: #0E0E0E
 - Brand White: #FFFFFF
 
 Extended Palette:
-- Royal Purple: #6E3ADE
-- Electric Orange: #FF4D1C
-- Vibrant Green: #00B37E
-- Deep Red: #E11D48
-- Bright Yellow: #FBBF24
-- Ocean Blue: #0EA5E9
-- Magenta: #DB2777
+- Royal Purple: #6E3ADE | Deep Royal: #4A1BA6
+- Electric Orange: #FF4D1C | Deep Orange: #B82F00 ""not used!!!""
+- Vibrant Green: #00B37E | Deep Green: #006647
+- Deep Red: #E11D48 | Rich Red: #8B1130
+- Bright Yellow: #F69902 | Deep Gold: #8B4500
+- Ocean Blue: #0EA5E9 | Deep Ocean: #065786
+- Magenta: #DB2777 | Deep Magenta: #8B1748
 */
 
 // Critical images that need to be preloaded immediately
@@ -252,6 +254,10 @@ function HomePage() {
         <ConnectSafe />
 
         <SecuritySection />
+
+        <DataPrivacySection />
+
+        <ModelAgnostic />
 
         <CTASection />
       </main>

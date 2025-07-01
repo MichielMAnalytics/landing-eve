@@ -241,9 +241,9 @@ const SolutionSection: React.FC = () => {
                       transition-all duration-300 flex flex-col select-none
                       ${
                         solution.name === "Eve" ? "bg-gradient-to-br from-[#0E1593] to-[#04062D]" :
-                        solution.name === "Rob" ? "bg-gradient-to-br from-[#F69902] to-[#04062D]" :
-                        solution.name === "Vira" ? "bg-gradient-to-br from-[#00B37E] to-[#04062D]" :
-                        "bg-gradient-to-br from-[#E42800] to-[#04062D]"
+                        solution.name === "Rob" ? "bg-gradient-to-br from-[#F69902] to-[#8B4500]" :
+                        solution.name === "Vira" ? "bg-gradient-to-br from-[#00B37E] to-[#006647]" :
+                        "bg-gradient-to-br from-[#E42800] to-[#8B1130]"
                       }
                     `}
                   >
