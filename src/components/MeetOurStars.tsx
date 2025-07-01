@@ -22,7 +22,7 @@ const FeaturedAgents: React.FC = () => {
           Meet Your Stars
         </h2>
         <p className="text-brand-base text-[#fefefe]/70 leading-tight font-inter max-w-xl mx-auto">
-          Discover the power of hiring digital employees that are ready to transform your workflow.
+          Discover the power of hiring digital helpers that are ready to transform your workflow.
         </p>
       </div>
       <div className="relative flex flex-col md:flex-row items-center justify-center gap-3 md:gap-0 mt-24">

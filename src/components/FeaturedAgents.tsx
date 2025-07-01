@@ -8,7 +8,7 @@ const FeaturedAgents: React.FC = () => (
           Meet Our Stars
         </h2>
         <p className="text-2xl text-[#fefefe]/70 font-inter max-w-2xl mx-auto">
-          Discover the power of our most popular AI agents, ready to transform your workflow.
+          Discover the power of our most popular AI helpers, ready to transform your workflow.
         </p>
       </div>
       <div className="relative flex flex-col md:flex-row items-center justify-center gap-0 md:gap-0">

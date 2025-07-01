@@ -13,11 +13,11 @@ const ValuesSection: React.FC = () => {
             },
             {
               title: "Automate everything",
-              description: "Automating your work is as easy as chatting with your agents."
+              description: "Automating your work is as easy as chatting with your helpers."
             },
             {
               title: "Context-aware",
-              description: "With 2700+ integrations, you can connect your favorite tools and systems to your agents."
+              description: "With 2700+ integrations, you can connect your favorite tools and systems to your helpers."
             }
           ].map((value, index) => (
             <motion.div
