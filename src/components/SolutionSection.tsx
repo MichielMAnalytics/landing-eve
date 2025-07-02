@@ -262,7 +262,7 @@ const SolutionSection: React.FC = () => {
                         ))}
                       </ul>
                       <Link 
-                        to="/signup" 
+                        to="https://app.witheve.ai/login"
                         className="bg-[#fff]/10 hover:bg-[#fff]/20 text-white px-6 py-2.5 rounded-lg font-nunito font-semibold text-brand-sm border border-[rgba(216,217,236,0.2)] transition-all duration-200 text-center"
                       >
                         Try {solution.name} Now

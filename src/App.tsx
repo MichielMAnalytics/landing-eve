@@ -128,7 +128,7 @@ function HomePage() {
 
   const handleGetStarted = () => {
     trackEvent(GA_EVENTS.BUTTON.CATEGORY, GA_EVENTS.BUTTON.ACTIONS.CLICK_GET_STARTED);
-    window.location.href = 'https://app.witheve.ai/register';
+    window.location.href = 'https://app.witheve.ai/login';
   };
 
   const handleBookDemo = () => {

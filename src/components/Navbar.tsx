@@ -59,7 +59,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
                 Log in
               </button>
               <button
-                onClick={() => { window.location.href = 'https://app.witheve.ai/signup'; }}
+                onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
                 className="w-[100px] text-[#FFFFFF] border border-[rgba(216,217,236,0.5)] px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-[#FFFFFF]/10 font-nunito text-sm text-center"
               >
                 Sign up
