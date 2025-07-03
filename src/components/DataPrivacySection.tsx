@@ -6,7 +6,7 @@ const DataPrivacySection: React.FC = () => {
     <section className="py-8 sm:py-12" aria-label="Data Privacy and Compliance">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
         <h2 className="text-2xl sm:text-brand-h2 font-bold mb-6 sm:mb-8 font-comfortaa leading-tight text-center text-white">
-          We care about security & flexibility
+          We care about security & privacy
         </h2>
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Data Privacy Box */}
