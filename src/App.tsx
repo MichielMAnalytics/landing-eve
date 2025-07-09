@@ -39,11 +39,14 @@ import DataPrivacySection from './components/DataPrivacySection';
 import CTASection from './components/CTASection';
 import ValuesSection from './components/ValuesSection';
 import SecuritySection from './components/SecuritySection';
+import CapabilitiesSection from './components/CapabilitiesSection';
+import AgentCardStack from './components/AgentCardStack';
 import Contact from './Contact';
 import Pricing from './Pricing';
 import Terms from './Terms';
 import Privacy from './Privacy';
 import Cookies from './Cookies';
+import Products from './Products';
 
 // Brand Color Palette
 /*
@@ -70,6 +73,7 @@ const CRITICAL_IMAGES = [
   '/vira2.png',
   '/rob2.png',
   '/autoeve-logo.png'
+  
 ];
 
 // Preload images using link tags in head
@@ -117,15 +121,6 @@ function HomePage() {
     loadImages();
   }, []);
 
-  // Only render content when images are loaded
-  if (!imagesLoaded) {
-    return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-white font-nunito">Loading...</div>
-      </div>
-    );
-  }
-
   const handleGetStarted = () => {
     trackEvent(GA_EVENTS.BUTTON.CATEGORY, GA_EVENTS.BUTTON.ACTIONS.CLICK_GET_STARTED);
     window.location.href = 'https://app.witheve.ai/login';
@@ -136,13 +131,70 @@ function HomePage() {
     navigate('/contact');
   };
 
+  // Agent Cards Configuration
+    const bdrAgentProps = {
+      title: {
+        prefix: "AI",
+      highlight: "Automate your email",
+      },
+    description: "Automate your email communication. Draft, send and organize personalized emails.",
+    imageSrc: "/eve_showcase.png",
+      colors: {
+      from: "#000000",
+        to: "#0EA5E9"
+      },
+    backgroundGlowClass: "bg-[#0EA5E9]/10 blur-2xl"
+    };
+  
+    const supportAgentProps = {
+      title: {
+        prefix: "AI",
+      highlight: "Accelerate your output",
+      },
+    description: "Supercharge your content, presentations and more.",
+    imageSrc: "/vira3.png",
+      colors: {
+      from: "#000000",
+      to: "#6E3ADE"
+      },
+    backgroundGlowClass: "bg-[#6E3ADE]/10 blur-2xl"
+    };
+  
+    const researchAgentProps = {
+      title: {
+        prefix: "AI",
+      highlight: "Streamline your processes",
+      },
+    description: "Streamline your processes, automate your workflows and get the best results.",
+    imageSrc: "/rob3.png",
+      colors: {
+      from: "#000000",
+      to: "#00B37E"
+      },
+    backgroundGlowClass: "bg-[#00B37E]/10 blur-2xl"
+    };
+  
+    const agentCards = [
+      bdrAgentProps,
+      supportAgentProps,
+      researchAgentProps
+    ];
+  
+  // Only render content when images are loaded
+  if (!imagesLoaded) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-white font-nunito">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-nscreen lightblue-grid-bg overscroll-none">
       <Navbar currentPage="home" />
       
       {/* Hero Section */}
-      <main className="transform-gpu">
-        <section className="min-h-screen bg-black sm:pt-24 md:pt-32 will-change-transform" aria-label="Hero">
+      <section className="min-h-screen bg-gradient-to-b from-black via-black to-[#0E1593]/10 sm:pt-24 md:pt-32 will-change-transform" aria-label="Hero">
           <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col items-center">
             {/* Hero Text Content */}
             <div className="text-center w-full max-w-4xl mx-auto mt-[20vh] sm:mt-0 mb-4 sm:mb-16 md:mb-24">
@@ -166,37 +218,13 @@ function HomePage() {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-[500px] mx-auto w-full">
                     <button 
-                      className="
-                        w-full
-                        inline-flex
-                        justify-center
-                        bg-gradient-to-r from-[#0E1593] to-[#04062D]
-                        text-white font-nunito font-bold tracking-wide
-                        px-6 py-[14px] sm:px-10 sm:py-4
-                        border-2 border-[rgba(216,217,236,0.5)] rounded-[12px]
-                        transition-all duration-200
-                        hover:shadow-xl hover:shadow-[#4F8CFF]/30
-                        focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
-                        text-lg
-                      "
+                      className="w-full inline-flex justify-center bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-nunito font-bold tracking-wide px-3 py-[7px] sm:px-5 sm:py-2 border border-[rgba(216,217,236,0.5)] rounded-[6px] transition-all duration-200 hover:shadow-xl hover:shadow-[#4F8CFF]/30 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base"
                       onClick={handleGetStarted}
                     >
                       Get started
                     </button>
                     <button 
-                      className="
-                        w-full
-                        inline-flex
-                        justify-center
-                        bg-transparent
-                        text-white font-nunito font-bold tracking-wide
-                        px-6 py-[14px] sm:px-10 sm:py-4
-                        border-2 border-[rgba(216,217,236,0.5)] rounded-[12px]
-                        transition-all duration-200
-                        hover:bg-white/5
-                        focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60
-                        text-lg
-                      "
+                      className="w-full inline-flex justify-center bg-transparent text-white font-nunito font-bold tracking-wide px-3 py-[7px] sm:px-5 sm:py-2 border border-[rgba(216,217,236,0.5)] rounded-[6px] transition-all duration-200 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base"
                       onClick={handleBookDemo}
                     >
                       Book a demo
@@ -212,7 +240,7 @@ function HomePage() {
                 <img
                   src="/homepage.png"
                   alt="Eve Agent Builder Interface"
-                  className="w-full h-auto object-contain rounded-2xl border-2 border-[rgba(216,217,236,0.5)]"
+                  className="w-full h-auto object-contain rounded-2xl"
                   loading="eager"
                   decoding="async"
                 />
@@ -221,44 +249,52 @@ function HomePage() {
           </div>
         </section>
 
+      <main className="transform-gpu">
+        {/* Capabilities Section */}
+        <section className="will-change-transform bg-gradient-to-b from-[#0E1593]/10 via-black to-black">
+          <CapabilitiesSection />
+      </section>
+
         {/* Solution Section */}
-        <section id="view_solution" className="will-change-transform">
+        {/* <section id="view_solution" className="will-change-transform">
           <SolutionSection />
-        </section>
+        </section> */}
 
         {/* Build Your Own Agent Section */}
-        <section id="view_build_agent" className="will-change-transform">
+        {/* <section id="view_build_agent" className="will-change-transform">
           <BuildYourOwnAgent />
-        </section>
+        </section> */}
 
         {/* Values Section
         <ValuesSection /> */}
 
         {/* Fullscreen Centered Header Section */}
-        <section className="w-full min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center bg-black py-16 sm:py-20 will-change-transform" aria-label="Key benefit">
+        <section className="w-full min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-black via-black to-[#6E3ADE]/5 py-16 sm:py-20 will-change-transform" aria-label="Key benefit">
           <div className="max-w-2xl sm:max-w-3xl mx-auto px-4">
-            <h2 className="text-brand-h10 font-comfortaa font-bold text-white text-center leading-tight text-[3rem] sm:text-[4rem] break-words transform-gpu">
-              Automates work,<br />
-              even while you sleep
+            <h2 className="text-brand-h1 font-comfortaa font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/90 text-center leading-tight text-[3rem] sm:text-[4rem] break-words transform-gpu">
+              Transform your work.<br />
+              <span className="bg-gradient-to-r from-[#6E3ADE] to-[#4A1BA6] bg-clip-text text-transparent">Achieve more with eve</span>
             </h2>
           </div>
         </section>
+      </main>
 
-        {/* Only render AgentUseCases when images are loaded */}
+      {/* Agent Cards Stack Section */}
+      <section className="relative py-24 bg-gradient-to-b from-[#00B37E]/5 via-black to-black">
+        <AgentCardStack cards={agentCards} />
+        </section>
+
+      <main className="transform-gpu">
+        {/* Only render AgentUseCases when images are loaded
         <div className={`transition-opacity duration-300 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`}>
           <AgentUseCases />
-        </div>
+        </div>*/}
 
         <IntegrationShowcase />
-
         <ConnectSafe />
-
         <SecuritySection />
-
         <DataPrivacySection />
-
         <ModelAgnostic />
-
         <CTASection />
       </main>
 
@@ -276,6 +312,7 @@ function App() {
       <TermlyContainer />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/terms" element={<Terms />} />

@@ -3,14 +3,15 @@ import { motion } from 'framer-motion';
 
 const SecuritySection: React.FC = () => {
   return (
-    <section className="relative pt-8 sm:pt-8 md:pt-12 pb-24 sm:pb-36 bg-black">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#6E3ADE]/5 via-black to-[#00B37E]/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-12 lg:gap-12">
         {/* Image Container */}
-        <div className="w-[80%] sm:w-full lg:basis-[42.8%] flex items-center justify-center mb-6 sm:mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-300 max-w-[600px]">
+        <div className="w-[80%] sm:w-full lg:basis-[42.8%] flex items-center justify-center mb-6 sm:mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-300 min-h-[240px] sm:min-h-[340px]">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00B37E]/10 via-transparent to-transparent rounded-xl" />
           <img
             src="/automate.png"
             alt="Eve Security and Privacy"
-            className="w-full h-auto object-contain rounded-2xl scale-90 sm:scale-110 max-h-[500px]"
+            className="w-full h-full object-contain rounded-2xl scale-90 sm:scale-110"
           />
         </div>
 
@@ -21,7 +22,7 @@ const SecuritySection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-brand-h1 font-comfortaa font-bold text-white leading-tight"
+            className="text-brand-h2 font-comfortaa font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00B37E] leading-tight"
           >
             Automate with confidence
           </motion.h2>

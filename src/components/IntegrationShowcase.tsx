@@ -43,14 +43,14 @@ const IntegrationShowcase: React.FC = () => {
       setTimeout(() => {
         setCurrentSetIndex((prev) => (prev + 1) % logoSets.length);
         setIsAnimating(false);
-      }, 500); // Half of the animation duration to ensure smooth transition
+      }, 500);
     }, 5000);
 
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="relative pt-16 sm:pt-24 md:pt-32 pb-8 sm:pb-8 md:pb-12 bg-black">
+    <section className="py-16 sm:py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-12 lg:gap-12">
         {/* Integrations Grid */}
         <div className="relative flex flex-col items-center justify-center min-h-[240px] sm:min-h-[340px] w-[80%] sm:w-full lg:basis-[42.8%] mb-6 sm:mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-300">
@@ -82,9 +82,9 @@ const IntegrationShowcase: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-              className="text-brand-h1 font-comfortaa font-bold text-white leading-tight"
+              className="text-brand-h2 font-comfortaa font-bold leading-tight bg-gradient-to-r from-white via-[#0EA5E9] to-white bg-clip-text text-transparent"
           >
-              Safely connect to your over 2700 tools
+              Safely connect to over 2700 tools
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

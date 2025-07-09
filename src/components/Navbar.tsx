@@ -9,6 +9,13 @@ type NavbarProps = {
 const Navbar: React.FC<NavbarProps> = ({ currentPage = 'home' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const navigation = [
+    { name: 'Home', href: '/' },
+    { name: 'Products', href: '/products' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Contact', href: '/contact' },
+  ];
+
   return (
     <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-sm border-b border-[#0E0E0E] z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">

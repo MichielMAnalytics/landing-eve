@@ -135,7 +135,7 @@ const Pricing: React.FC = () => {
         {/* Main Pricing Content */}
         <section className="py-32" aria-label="Pricing Plans">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h1 className="text-brand-h10 font-comfortaa font-bold text-[#FFFFFF] mb-4 leading-tight text-[3rem] sm:text-[4rem]">Pricing</h1>
+            <h1 className="text-brand-h1 font-comfortaa font-bold text-[#FFFFFF] mb-4 leading-tight text-[3rem] sm:text-[4rem]">Pricing</h1>
             <p className="text-brand-base text-[#FFFFFF]/70 font-inter mb-10 max-w-2xl mx-auto leading-tight">
               Start for free. Upgrade to get the capacity that exactly matches your team's needs.
             </p>

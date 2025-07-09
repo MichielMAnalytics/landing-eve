@@ -9,20 +9,13 @@ export default {
         nunito: ['Nunito', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        'brand-h10': {
-          DEFAULT: '4rem',
-          sm: '4rem',
-          md: '4rem',
-          xs: '2rem',
-        },
         'brand-h1': [
-          '2rem', // mobile base (32px) (was 2rem)
+          '3rem', // mobile base (48px)
           {
-            lineHeight: '2rem',
+            lineHeight: '1.2',
             fontWeight: '700',
-            letterSpacing: '-0.01em',
-            '@screen sm': { fontSize: '3rem' }, // 40px
-            '@screen md': { fontSize: '3.5rem' },   // 48px
+            '@screen sm': { fontSize: '4rem' }, // 64px
+            '@screen md': { fontSize: '4rem' }, // 64px
           }
         ],
         'brand-h2': [

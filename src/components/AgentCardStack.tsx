@@ -53,23 +53,19 @@ const AgentCardStack: React.FC<AgentCardStackProps> = ({ cards }) => {
       if (!card) return;
       gsap.set(card, {
         y: index === 0 ? 0 : (index === 1 ? window.innerHeight - cardOverlap : window.innerHeight + 100),
-        opacity: 1, // Always fully opaque
+        opacity: 1,
         scale: 1,
         rotateX: 0,
         z: index === 0 ? 0 : -100,
         visibility: index <= 1 ? 'visible' : 'hidden',
-        zIndex: index // Lowest to highest z-index
+        zIndex: index
       });
     });
 
-    /**
-     * ScrollTrigger Animation Setup
-     * Creates a timeline that responds to scroll position and manages card transitions
-     */
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        start: 'center center',
+        start: 'top center-=45%', // Adjusted to start 5% higher
         end: `+=${scrollDistance * (cards.length - 1)}`,
         pin: true,
         scrub: 1,
@@ -87,11 +83,10 @@ const AgentCardStack: React.FC<AgentCardStackProps> = ({ cards }) => {
             const isNext = index === activeIndex + 1;
             const isNextNext = index === activeIndex + 2;
 
-            // Visibility management - maintain z-index hierarchy
             if (isActive || isNext || isNextNext) {
               gsap.set(card, { 
                 visibility: 'visible',
-                zIndex: index, // Maintain consistent z-index based on card order
+                zIndex: index,
                 opacity: 1
               });
             } else {
@@ -103,7 +98,6 @@ const AgentCardStack: React.FC<AgentCardStackProps> = ({ cards }) => {
             }
 
             if (isActive) {
-              // Active card moves back and up
               gsap.to(card, {
                 y: -100 * transitionProgress,
                 z: -200 * transitionProgress,
@@ -111,7 +105,6 @@ const AgentCardStack: React.FC<AgentCardStackProps> = ({ cards }) => {
                 duration: 0,
               });
             } else if (isNext) {
-              // Next card moves from overlap position to center
               const moveProgress = Math.max(0, transitionProgress - 0.2);
               const normalizedProgress = moveProgress / 0.8;
               
@@ -122,7 +115,6 @@ const AgentCardStack: React.FC<AgentCardStackProps> = ({ cards }) => {
                 duration: 0,
               });
             } else if (isNextNext) {
-              // Position the next-next card for overlap
               gsap.to(card, {
                 y: window.innerHeight - (cardOverlap * transitionProgress),
                 visibility: 'visible',
@@ -142,7 +134,7 @@ const AgentCardStack: React.FC<AgentCardStackProps> = ({ cards }) => {
   return (
     <div 
       ref={containerRef} 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-[5vh]"
       style={{
         perspective: '2000px',
         perspectiveOrigin: '50% 50%',

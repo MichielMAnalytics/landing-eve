@@ -10,7 +10,7 @@ const DataPrivacySection: React.FC = () => {
         </h2>
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Data Privacy Box */}
-          <div className="bg-gradient-to-br from-[#6E3ADE] to-[#4A1BA6] rounded-xl p-5 sm:p-6 border-2 border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]/20 transition-colors h-full">
+          <div className="bg-black rounded-xl p-5 sm:p-6 border-2 border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]/20 transition-colors h-full">
             <div className="flex flex-col justify-between h-full">
               <div>
                 <div className="flex items-center gap-3 mb-3">
@@ -27,7 +27,7 @@ const DataPrivacySection: React.FC = () => {
           </div>
 
           {/* Compliance Box */}
-          <div className="bg-gradient-to-br from-[#0EA5E9] to-[#065786] rounded-xl p-5 sm:p-6 border-2 border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]/20 transition-colors h-full">
+          <div className="bg-black rounded-xl p-5 sm:p-6 border-2 border-[rgba(216,217,236,0.5)] hover:border-[rgba(216,217,236,0.8)]/20 transition-colors h-full">
             <div className="flex flex-col justify-between h-full">
               <div>
                 <div className="flex items-center gap-3 mb-3">
