@@ -163,7 +163,7 @@ const CapabilitiesSection: React.FC = () => {
           <h1 className="text-brand-h1 font-comfortaa font-bold leading-tight bg-gradient-to-r from-white via-[#0EA5E9] to-white bg-clip-text text-transparent">
               Powerful capabilities at your fingertips
           </h1>
-          <p className="text-brand-base text-[#fefefe]/70 font-nunito leading-tight max-w-2xl mx-auto mt-6">
+          <p className="text-brand-base text-[#fefefe]/70 font-nunito leading-[1.4] max-w-2xl mx-auto mt-6">
             Discover unique and powerful features.
           </p>
         </div>

@@ -15,16 +15,16 @@ const ConnectSafe: React.FC = () => {
             viewport={{ once: true }}
             className="text-brand-h2 font-comfortaa font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-[#6E3ADE] leading-tight"
           >
-            Switch, tag, collaborate
+            Go beyond chat. Get instant results.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-brand-base text-[#fefefe]/70 font-nunito mb-8 leading-tight max-w-2xl"
+            className="text-brand-base text-[#fefefe]/70 font-nunito mb-8 leading-[1.4] max-w-2xl"
           >
-            Let helpers collaborate with each other and your tools.
+            Solve complex tasks with ease. Search, web navigation - all in one interface.
           </motion.p>
         </div>
 

@@ -83,25 +83,25 @@ const IntegrationShowcase: React.FC = () => {
         </div>
         {/* Text Content */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:basis-[57.2%] lg:pl-8">
-          <div className="space-y-2 mb-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+          <div className="space-y-6 mb-6">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
               className="text-brand-h2 font-comfortaa font-bold leading-tight bg-gradient-to-r from-white via-[#0EA5E9] to-white bg-clip-text text-transparent"
-          >
-              Safely connect to over 2700 tools
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
-              className="text-brand-base text-white/70 font-nunito font-boldleading-tight max-w-xl mx-auto lg:mx-0"
-          >
-            Streamline your business processes by bringing your favorite tools and AI helpers together. AI for business makes working with integrations easier than ever.
-          </motion.p>
+            >
+              Connect all your data and tools
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-brand-base text-[#fefefe]/70 font-nunito mb-8 leading-[1.4] max-w-2xl"
+            >
+              Streamline your business processes by bringing your favorite tools and AI helpers together.
+            </motion.p>
           </div>
         </div>
       </div>

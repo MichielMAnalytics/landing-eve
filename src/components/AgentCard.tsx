@@ -49,7 +49,7 @@ const AgentCard: React.FC<AgentCardProps> = ({ title, description, imageSrc, cla
               <h2 className="text-brand-h2 font-comfortaa font-bold leading-tight text-white">
               {title.highlight}
             </h2>
-              <p className="text-white/80 text-lg font-nunito max-w-md">
+              <p className="text-white/80 text-lg font-nunito leading-[1.4] max-w-md">
                 {description}
               </p>
             </div>
