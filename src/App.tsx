@@ -31,7 +31,6 @@ import Footer from './components/Footer';
 import AgentUseCases from './components/AgentUseCases';
 import IntegrationShowcase from './components/IntegrationShowcase';
 import SolutionSection from './components/SolutionSection';
-import TypingEffect from './components/TypingEffect';
 import BuildYourOwnAgent from './components/BuildyourownAgent';
 import ConnectSafe from './components/ConnectSafe';
 import ModelAgnostic from './components/ModelAgnostic';
@@ -201,17 +200,12 @@ function HomePage() {
               <div className="flex flex-col items-center justify-center">
                 <div className="text-center w-full">
                   <h1 className="font-comfortaa text-[#FFFFFF] leading-[1.1] mb-0 sm:mb-2 text-[3rem] sm:text-[4rem] transform-gpu">
-                    <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
-                      Work{" "} 
-                      <TypingEffect 
-                        words={['smarter', 'easier', 'faster']} 
-                        speed={125}
-                        className="text-[#FFFFFF]"
-                      /> ,
+                    <div className="flex flex-wrap justify-center items-center leading-tight gap-3 sm:gap-4">
+                      Work on easy mode,
                     </div>
                   </h1>
-                  <h1 className="font-comfortaa text-[#FFFFFF] leading-[1.1] mb-4 sm:mb-6 text-[3rem] sm:text-[4rem]">
-                    work with eve
+                  <h1 className="font-comfortaa text-[#FFFFFF] leading-tight mb-4 sm:mb-6 text-[3rem] sm:text-[4rem]">
+                    with eve
                   </h1>
                   <p className="text-brand-base text-[#fefefe]/70 font-nunito mb-10 leading-tight max-w-2xl mx-auto">
                     Build, grow, and scale your work with a team of AI helpers.

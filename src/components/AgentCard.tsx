@@ -47,8 +47,8 @@ const AgentCard: React.FC<AgentCardProps> = ({ title, description, imageSrc, cla
           <div className="flex flex-col justify-center h-full min-h-[240px] space-y-4">
             <div className="flex flex-col space-y-4">
               <h2 className="text-brand-h2 font-comfortaa font-bold leading-tight text-white">
-                {title.highlight}
-              </h2>
+              {title.highlight}
+            </h2>
               <p className="text-white/80 text-lg font-nunito max-w-md">
                 {description}
               </p>
@@ -76,4 +76,4 @@ const AgentCard: React.FC<AgentCardProps> = ({ title, description, imageSrc, cla
   );
 };
 
-export default AgentCard;
+export default AgentCard; 

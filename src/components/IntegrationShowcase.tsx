@@ -2,23 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
-// Integration logos sets (public URLs or local assets)
+// Integration logos sets (local assets)
 const logoSets = [
   [
-    { src: "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico", alt: "Gmail" },
-    { src: "https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/outlook_48x1.svg", alt: "Outlook" },
-    { src: "https://cdn-icons-png.flaticon.com/512/2702/2702602.png", alt: "Google Drive" },
+    { src: "/gmail-logo.png", alt: "Gmail" },
+    { src: "/outlook-logo.png", alt: "Outlook" },
+    { src: "/semrush-logo.png", alt: "Semrush" },
     { src: "/meta-logo.png", alt: "Meta" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg", alt: "Zoom" },
-    { src: "https://cdn.worldvectorlogo.com/logos/hubspot-1.svg", alt: "HubSpot" },
+    { src: "/zoom-logo.png", alt: "Zoom" },
+    { src: "/hubspot-logo.png", alt: "HubSpot" },
   ],
   [
-    { src: "https://cdn.worldvectorlogo.com/logos/trello.svg", alt: "Trello" },
-    { src: "https://cdn.worldvectorlogo.com/logos/salesforce-2.svg", alt: "Salesforce" },
-    { src: "https://cdn.worldvectorlogo.com/logos/twilio-2.svg", alt: "Twilio" },
-    { src: "https://cdn.worldvectorlogo.com/logos/linkedin-icon-2.svg", alt: "LinkedIn" },
-    { src: "https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg", alt: "Slack" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png", alt: "Notion" },
+    { src: "/trello-logo.png", alt: "Trello" },
+    { src: "/salesforce-logo.png", alt: "Salesforce" },
+    { src: "/twilio-logo.png", alt: "Twilio" },
+    { src: "/google-logo.png", alt: "Google Drive" },
+    { src: "/slack-logo.png", alt: "Slack" },
+    { src: "/notion-logo.png", alt: "Notion" },
   ],
 ];
 
@@ -68,7 +68,14 @@ const IntegrationShowcase: React.FC = () => {
                   key={logo.src}
                   className="rounded-xl shadow-lg flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24"
                 >
-                  <img src={logo.src} alt={logo.alt} className="w-8 h-8 sm:w-12 sm:h-12 object-contain" loading="lazy" />
+                  <img 
+                    src={logo.src} 
+                    alt={logo.alt} 
+                    className="w-8 h-8 sm:w-12 sm:h-12 object-contain" 
+                    loading="lazy"
+                    width={48}
+                    height={48}
+                  />
                 </div>
               ))}
             </motion.div>
@@ -96,21 +103,6 @@ const IntegrationShowcase: React.FC = () => {
             Streamline your business processes by bringing your favorite tools and AI helpers together. AI for business makes working with integrations easier than ever.
           </motion.p>
           </div>
-          {/* Text Content
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="w-full flex flex-col sm:flex-row justify-center lg:justify-start"
-          >
-            <button
-              className="group relative w-full sm:w-auto px-8 sm:px-8 py-3 sm:py-4 text-white text-base sm:text-lg font-medium overflow-hidden rounded-lg font-nunito border border-[rgba(216,217,236,0.5)] bg-gradient-to-r from-[#0E1593] to-[#04062D] transition-all duration-300 hover:shadow-lg hover:shadow-[#0E1593]/20"
-              onClick={() => { window.location.href = 'https://app.witheve.ai/register'; }}
-            >
-              <span className="relative z-10">Try now</span>
-            </button>
-          </motion.div>*/}
         </div>
       </div>
     </section>
