@@ -208,7 +208,7 @@ function HomePage() {
                     with eve
                   </h1>
                   <p className="text-brand-base text-[#fefefe]/70 font-nunito mb-10 leading-tight max-w-2xl mx-auto">
-                    Build, grow, and scale your work with a team of AI helpers.
+                    Build, grow, and scale your work with a team of AI helpers that understand your business and deliver results.
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-[500px] mx-auto w-full">
                     <button 
