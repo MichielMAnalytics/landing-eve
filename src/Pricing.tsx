@@ -15,7 +15,7 @@ const pricingPlans = [
       'Access to all preconfigured System helpers',
       'Access to 2700+ apps and 10,000+ tools',
     ],
-    buttonText: 'Current Plan',
+    buttonText: 'Start now',
     popular: false,
     color: '#ffffff',
     background: '#ffffff',
