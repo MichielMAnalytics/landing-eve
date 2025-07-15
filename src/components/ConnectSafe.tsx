@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 const ConnectSafe: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#0EA5E9]/5 via-black to-[#6E3ADE]/5">
+    <section className="py-16 sm:py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col-reverse lg:flex-row items-center justify-between gap-6 sm:gap-12 lg:gap-12">
         {/* Text Content */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:basis-[57.2%] space-y-6">

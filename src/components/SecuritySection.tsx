@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const SecuritySection: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#6E3ADE]/5 via-black to-[#00B37E]/5">
+    <section className="py-16 sm:py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-12 lg:gap-12">
         {/* Image Container */}
         <div className="w-[80%] sm:w-full lg:basis-[42.8%] flex items-center justify-center mb-6 sm:mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-300 min-h-[240px] sm:min-h-[340px]">

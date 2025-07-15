@@ -135,7 +135,7 @@ const CapabilitiesSection: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-gradient-to-b from-black via-black to-[#0EA5E9]/5 py-20 sm:py-32 relative overflow-hidden mt-16 sm:mt-20">
+    <section className="w-full bg-black py-20 sm:py-32 relative overflow-hidden mt-16 sm:mt-20">
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-full h-full">

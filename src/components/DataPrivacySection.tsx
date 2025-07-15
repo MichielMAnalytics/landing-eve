@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const DataPrivacySection: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-black via-black to-[#00B37E]/5" aria-label="Data Privacy and Compliance">
+    <section className="py-16 sm:py-24 bg-black" aria-label="Data Privacy and Compliance">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
         <div className="max-w-5xl mx-auto">
           <motion.h2 

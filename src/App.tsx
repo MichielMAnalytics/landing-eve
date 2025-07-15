@@ -67,7 +67,7 @@ Extended Palette:
 
 // Critical images that need to be preloaded immediately
 const CRITICAL_IMAGES = [
-  '/homepage.png',
+  '/landingpage.gif',
   '/eve_showcase.png',
   '/vira2.png',
   '/rob2.png',
@@ -106,6 +106,7 @@ function HomePage() {
   const { trackEvent } = useGoogleAnalytics();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [activeGif, setActiveGif] = useState('landingpage.gif');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -193,29 +194,27 @@ function HomePage() {
       <Navbar currentPage="home" />
       
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-b from-black via-black to-[#0E1593]/10 sm:pt-24 md:pt-32 will-change-transform" aria-label="Hero">
+      <section className="min-h-screen bg-black sm:pt-24 md:pt-32 will-change-transform" aria-label="Hero">
           <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col items-center">
             {/* Hero Text Content */}
-            <div className="text-center w-full max-w-4xl mx-auto mt-[20vh] sm:mt-0 mb-4 sm:mb-16 md:mb-24">
+            <div className="text-center w-full max-w-6xl mx-auto mt-[20vh] sm:mt-0 mb-4 sm:mb-16 md:mb-24">
               <div className="flex flex-col items-center justify-center">
                 <div className="text-center w-full">
-                  <h1 className="font-comfortaa text-[#FFFFFF] leading-[1.1] mb-0 sm:mb-2 text-[3rem] sm:text-[4rem] transform-gpu">
+                  <h1 className="font-comfortaa text-[#FFFFFF] leading-[1.1] mb-0 sm:mb-2 text-[3rem] sm:text-[5rem] transform-gpu">
                     <div className="flex flex-wrap justify-center items-center leading-tight gap-3 sm:gap-4">
-                      Work on easy mode,
+                      The AI for automation
                     </div>
                   </h1>
-                  <h1 className="font-comfortaa text-[#FFFFFF] leading-tight mb-4 sm:mb-6 text-[3rem] sm:text-[4rem]">
-                    with eve
-                  </h1>
-                  <p className="text-brand-base text-[#fefefe]/70 font-nunito mb-10 leading-tight max-w-2xl mx-auto">
-                    Build, grow, and scale your work with a team of AI helpers that understand your business and deliver results.
+                  <p className="text-[1rem] sm:text-[2rem] text-[#fefefe]/70 font-nunito mb-10 leading-tight max-w-2xl mx-auto">
+                    Eve connects to all your tools to complete entire tasks.
                   </p>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-[500px] mx-auto w-full">
                     <button 
                       className="w-full inline-flex justify-center bg-gradient-to-r from-[#0E1593] to-[#04062D] text-white font-nunito font-bold tracking-wide px-3 py-[7px] sm:px-5 sm:py-2 border border-[rgba(216,217,236,0.5)] rounded-[6px] transition-all duration-200 hover:shadow-xl hover:shadow-[#4F8CFF]/30 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base"
                       onClick={handleGetStarted}
                     >
-                      Get started
+                      Chat now
                     </button>
                     <button 
                       className="w-full inline-flex justify-center bg-transparent text-white font-nunito font-bold tracking-wide px-3 py-[7px] sm:px-5 sm:py-2 border border-[rgba(216,217,236,0.5)] rounded-[6px] transition-all duration-200 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 text-base"
@@ -228,12 +227,34 @@ function HomePage() {
               </div>
             </div>
 
+            {/* GIF Selection Buttons */}
+            <div className="flex justify-center gap-4 mb-8">
+              <button 
+                onClick={() => setActiveGif('landingpage.gif')}
+                className={`px-6 py-2 rounded-[6px] font-nunito font-bold border border-[rgba(216,217,236,0.5)] transition-all duration-200 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 ${activeGif === 'landingpage.gif' ? 'bg-white/10 text-white' : 'text-white/70'}`}
+              >
+                meetings
+              </button>
+              <button 
+                onClick={() => setActiveGif('workflow.gif')}
+                className={`px-6 py-2 rounded-[6px] font-nunito font-bold border border-[rgba(216,217,236,0.5)] transition-all duration-200 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 ${activeGif === 'workflows.gif' ? 'bg-white/10 text-white' : 'text-white/70'}`}
+              >
+                workflows
+              </button>
+              <button 
+                onClick={() => setActiveGif('gmail.gif')}
+                className={`px-6 py-2 rounded-[6px] font-nunito font-bold border border-[rgba(216,217,236,0.5)] transition-all duration-200 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF]/60 ${activeGif === 'gmail.gif' ? 'bg-white/10 text-white' : 'text-white/70'}`}
+              >
+                gmail
+              </button>
+            </div>
+
             {/* Hero Image Container */}
-            <div className="w-full flex justify-center items-center mt-12 sm:mt-8">
+            <div className="w-full flex justify-center items-center mt-8">
               <div className="w-full max-w-5xl rounded-2xl flex items-center justify-center px-6 sm:px-4 transform-gpu">
                 <img
-                  src="/homepage.png"
-                  alt="Eve Agent Builder Interface"
+                  src={`/${activeGif}`}
+                  alt="Eve Agent Interface"
                   className="w-full h-auto object-contain rounded-2xl"
                   loading="eager"
                   decoding="async"
@@ -245,9 +266,9 @@ function HomePage() {
 
       <main className="transform-gpu">
         {/* Capabilities Section */}
-        <section className="will-change-transform bg-gradient-to-b from-[#0E1593]/10 via-black to-black">
+        {/*<section className="will-change-transform bg-black">
           <CapabilitiesSection />
-      </section>
+      </section>*/}
 
         {/* Solution Section */}
         {/* <section id="view_solution" className="will-change-transform">
@@ -263,7 +284,7 @@ function HomePage() {
         <ValuesSection /> */}
 
         {/* Fullscreen Centered Header Section */}
-        <section className="w-full min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-black via-black to-[#6E3ADE]/5 py-16 sm:py-20 will-change-transform" aria-label="Key benefit">
+        <section className="w-full min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center bg-black py-16 sm:py-20 will-change-transform" aria-label="Key benefit">
           <div className="max-w-2xl sm:max-w-3xl mx-auto px-4">
             <h2 className="text-brand-h1 font-comfortaa font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/90 text-center leading-tight text-[3rem] sm:text-[4rem] break-words transform-gpu">
               Transform your work.<br />
@@ -274,7 +295,7 @@ function HomePage() {
       </main>
 
       {/* Agent Cards Stack Section */}
-      <section className="relative py-24 bg-gradient-to-b from-[#00B37E]/5 via-black to-black">
+      <section className="relative py-24 bg-black">
         <AgentCardStack cards={agentCards} />
         </section>
 

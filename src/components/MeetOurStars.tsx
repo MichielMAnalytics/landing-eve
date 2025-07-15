@@ -15,7 +15,7 @@ const FeaturedAgents: React.FC = () => {
   }, []);
 
   return (
-  <section className="py-24 bg-gradient-to-t from-black to-[#04062D]">
+  <section className="py-24 bg-black">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24">
       <div className="text-center mb-16">
         <h2 className="text-brand-h1 font-comfortaa font-bold leading-tight text-[#FFFFFF] mb-3">
